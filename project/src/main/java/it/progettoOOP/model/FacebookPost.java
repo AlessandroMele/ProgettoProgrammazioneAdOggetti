@@ -3,10 +3,10 @@ package it.progettoOOP.model;
 import java.time.LocalDateTime;
 
 public class FacebookPost {
-	String Id;
-	String message;
-	LocalDateTime creationDate;
-	int shares;
+	private String Id;
+	private String message;
+	private LocalDateTime creationDate;
+	private int shares;
 
 	public String getId() {
 		return Id;
