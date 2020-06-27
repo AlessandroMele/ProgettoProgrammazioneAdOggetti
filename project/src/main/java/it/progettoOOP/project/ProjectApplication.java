@@ -3,9 +3,6 @@ package it.progettoOOP.project;
 import it.progettoOOP.manageJSON.DownloadJSON;
 import it.progettoOOP.manageJSON.ParseJSON;
 import it.progettoOOP.model.ArrayListFacebookPost;
-import it.progettoOOP.model.FacebookPost;
-import java.util.ArrayList;
-
 import org.json.JSONObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

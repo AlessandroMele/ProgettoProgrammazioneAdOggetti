@@ -25,7 +25,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 
 	@Override
 	public String toString() {
-		return "ArrayListFacebookPost [myar=" + myar + "]";
+		return "Posts:\n" + myar;
 	}
 
 	public void addPost(FacebookPost post) {

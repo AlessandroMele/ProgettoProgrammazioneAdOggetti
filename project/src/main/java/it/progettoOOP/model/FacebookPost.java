@@ -3,7 +3,7 @@ package it.progettoOOP.model;
 public class FacebookPost {
 	private String Id;
 	private String message;
-	private String shares;
+	private int shares;
 
 	public String getId() {
 		return Id;
@@ -21,19 +21,21 @@ public class FacebookPost {
 		this.message = message;
 	}
 
-	public String getShares() {
+	public int getShares() {
 		return shares;
 	}
 
-	public void setShares(String shares) {
+	public void setShares(int shares) {
 		this.shares = shares;
 	}
+
 	public FacebookPost() {
 		Id = "";
-		message= "";
-		shares = "";
+		message = "";
+		shares = 0;
 	}
-	public FacebookPost(String id, String message, String shares) {
+
+	public FacebookPost(String id, String message, int shares) {
 		super();
 		Id = id;
 		this.message = message;
@@ -42,7 +44,7 @@ public class FacebookPost {
 
 	@Override
 	public String toString() {
-		return "FacebookPost [\nId=" + Id + ", message=" + message + ", shares=" + shares + "]";
+		return "\nPost: Message=" + message + ", shares=" + shares;
 	}
 
 }
