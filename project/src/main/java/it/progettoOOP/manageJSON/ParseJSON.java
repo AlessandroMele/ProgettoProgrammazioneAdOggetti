@@ -1,15 +1,13 @@
 package it.progettoOOP.manageJSON;
 
-import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import it.progettoOOP.model.*;
 
 public class ParseJSON {
-	public static ArrayList<FacebookPost> JSONParser(JSONObject json) throws JSONException {
-		ArrayList<FacebookPost> list = new ArrayList<FacebookPost>();
+	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
+		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
 		if (json != null) {
 			JSONArray data = json.optJSONArray("data");
@@ -22,11 +20,18 @@ public class ParseJSON {
 					
 					try {
 						post.setMessage(data.getJSONObject(i).getString("message"));}
-					catch(NullPointerException e)					{e.printStackTrace();}
-					finally {post.setMessage("no comment available");}
-					post.setShares(1);
+					catch(JSONException e) {post.setMessage("no comment");}
+					
+					try {
+						JSONObject obj=(JSONObject)(data.getJSONObject(i).get("shares"));
+						String count=obj.getString("count");
+						post.setShares(count);
+						}
+					catch(JSONException e)
+						{post.setShares("no shares");}
+					
 
-					list.add(post);
+					list.addPost(post);
 				}
 			}
 		}
