@@ -1,3 +1,8 @@
+/**
+ * @author Mele Alessandro & Verdecchia Matteo
+ * Project of OOP Programming exams, A.A. 2019/2020
+ *
+ */
 package it.progettoOOP.manageJSON;
 
 import org.json.JSONArray;
@@ -6,6 +11,12 @@ import org.json.JSONObject;
 import it.progettoOOP.model.*;
 
 public class ParseJSON {
+	/**
+	 * @param JSONObject This method parses the JSONObject returned by DownloadJSON,
+	 *                   extracts details and putting them in a
+	 *                   ArrayListFacebookPost object
+	 * @return the list with all details ordered by this method
+	 */
 	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
 		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
@@ -21,7 +32,7 @@ public class ParseJSON {
 					try {
 						post.setMessage(data.getJSONObject(i).getString("message"));
 					} catch (JSONException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 						post.setMessage("no message");
 					}
 
@@ -29,7 +40,7 @@ public class ParseJSON {
 						JSONObject obj = (JSONObject) (data.getJSONObject(i).get("shares"));
 						post.setShares(obj.getInt("count"));
 					} catch (JSONException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 						post.setShares(0);
 					}
 					try {
@@ -37,7 +48,7 @@ public class ParseJSON {
 						JSONObject app = (JSONObject) (obj.get("summary"));
 						post.setReactions(app.getInt("total_count"));
 					} catch (JSONException e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 						post.setReactions(0);
 					}
 
