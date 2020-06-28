@@ -63,6 +63,10 @@ public class FacebookPost {
 	public String getMessage() {
 		return message;
 	}
+	
+	public Integer getLengMess() {
+		return message.length();
+	}
 
 	/**
 	 * @param message the message to set
@@ -73,7 +77,7 @@ public class FacebookPost {
 
 	/**
 	 * @return the shares
-	 */
+	 */ 
 	public int getShares() {
 		return shares;
 	}

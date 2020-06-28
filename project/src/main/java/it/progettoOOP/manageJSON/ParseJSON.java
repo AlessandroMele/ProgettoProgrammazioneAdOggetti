@@ -20,7 +20,7 @@ public class ParseJSON {
 	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
 		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
-		if (json != null) {
+		if (json != null) { 
 			JSONArray data = json.optJSONArray("data");
 			if (data != null) {
 
