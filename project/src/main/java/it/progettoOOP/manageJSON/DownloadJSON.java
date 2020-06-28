@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class DownloadJSON {
 
 	public static JSONObject readURL() throws Exception {
-		String myquery = "https://graph.facebook.com/me/posts?fields=id,shares,created_time,message&access_token=EAAmlKB7cDMgBAGxIGbh829IzhKE7YxGhMQup3xcZCtIFvQq9OfMkF7iL7qUvX2E1rUdKBT8nVZCiOjuq4SdvfY1JmRT3Tua4jPh37qjLbP7bylKaVzrrpdkGAoaV5dKVZBICbYtiZCwDfHGSmnT5J4iHYxwcQsWliMMl8XVCi90AZCjXyxP42&limit=200\r\n";
+		String myquery = "https://graph.facebook.com/me/posts?fields=id,shares,created_time,message,reactions.summary(1).limit(0)&access_token=EAAmlKB7cDMgBAGxIGbh829IzhKE7YxGhMQup3xcZCtIFvQq9OfMkF7iL7qUvX2E1rUdKBT8nVZCiOjuq4SdvfY1JmRT3Tua4jPh37qjLbP7bylKaVzrrpdkGAoaV5dKVZBICbYtiZCwDfHGSmnT5J4iHYxwcQsWliMMl8XVCi90AZCjXyxP42&limit=400";
 		StringBuilder string = new StringBuilder();
 		URL url = new URL(myquery);
 		InputStreamReader in = new InputStreamReader(url.openStream());

@@ -29,7 +29,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	}
 
 	public void addPost(FacebookPost post) {
-		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getShares());
+		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getShares(), post.getReactions());
 		myar.add(ps);
 	}
 

@@ -21,6 +21,7 @@ public class ParseJSON {
 					try {
 						post.setMessage(data.getJSONObject(i).getString("message"));
 					} catch (JSONException e) {
+						e.printStackTrace();
 						post.setMessage("no message");
 					}
 
@@ -28,7 +29,16 @@ public class ParseJSON {
 						JSONObject obj = (JSONObject) (data.getJSONObject(i).get("shares"));
 						post.setShares(obj.getInt("count"));
 					} catch (JSONException e) {
+						e.printStackTrace();
 						post.setShares(0);
+					}
+					try {
+						JSONObject obj = (JSONObject) (data.getJSONObject(i).get("reactions"));
+						JSONObject app = (JSONObject) (obj.get("summary"));
+						post.setReactions(app.getInt("total_count"));
+					} catch (JSONException e) {
+						e.printStackTrace();
+						post.setReactions(0);
 					}
 
 					list.addPost(post);
