@@ -84,7 +84,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 * @param ArrayList
 	 * @return ArrayList dimension
 	 */
-	public Integer getSize() {
+	public int getSize() {
 		return arrayList.size();
 	}
 

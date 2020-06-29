@@ -95,7 +95,7 @@ public class FacebookPost {
 	/**
 	 * @return the message's length
 	 */
-	public Integer getLengthMessage() {
+	public int getLengthMessage() {
 		return message.length();
 	}
 
