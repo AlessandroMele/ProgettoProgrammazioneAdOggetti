@@ -28,16 +28,27 @@ public class Statistics {
 	 * Greatest value of characters contained on a message in ArrayListFacebookPost
 	 */
 	private static int maxLengthMessage;
+	
+	/**
+	 * Greatest value of reactions contained in ArrayListFacebookPost
+	 */
+	private static int maxShareValue;
+	/**
+	 * Smallest value of reactions contained in ArrayListFacebookPost
+	 */
+	private static int minShareValue;
 
 	/*
 	 * Basic constructor
 	 */
 	public Statistics() {
-		averageReactionValue = 0;
 		sumReactionValue = 0;
+		averageReactionValue = 0;
 		maxReactionValue = 0;
 		minReactionValue = 0;
 		maxLengthMessage = 0;
+		maxShareValue = 0;
+		minShareValue = 0;
 	}
 
 	/**
@@ -94,6 +105,35 @@ public class Statistics {
 	 */
 	public static void setMinReactionValue(int minReactionValue) {
 		Statistics.minReactionValue = minReactionValue;
+	}
+	
+	
+	/**
+	 * @return the maxShareValue
+	 */
+	public static int getMaxShareValue() {
+		return maxShareValue;
+	}
+
+	/**
+	 * @param maxShareValue the maxShareValue to set
+	 */
+	public static void setMaxShareValue(int maxShareValue) {
+		Statistics.maxShareValue = maxShareValue;
+	}
+
+	/**
+	 * @return the minShareValue
+	 */
+	public static int getMinShareValue() {
+		return minShareValue;
+	}
+
+	/**
+	 * @param minShareValue the minShareValue to set
+	 */
+	public static void setMinShareValue(int minShareValue) {
+		Statistics.minShareValue = minShareValue;
 	}
 
 	/**
@@ -170,6 +210,30 @@ public class Statistics {
 				maxLengthMessage = array.getPost(i).getLengthMessage();
 		return maxLengthMessage;
 	}
+	
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the greatest value of shares contained in ArrayListFacebookPost
+	 */
+	public static Integer MaxShareValue(ArrayListFacebookPost array) {
+		maxShareValue = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			if (array.getPost(i).getShares() > maxShareValue)
+				maxShareValue = array.getPost(i).getShares();
+		return maxShareValue;
+	}
+
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the smallest value of shares contained in ArrayListFacebookPost
+	 */
+	public static Integer MinShareValue(ArrayListFacebookPost array) {
+		minShareValue = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			if (array.getPost(i).getShares() < minShareValue)
+				minShareValue = array.getPost(i).getShares();
+		return minShareValue;
+	}
 
 	/**
 	 * @param ArrayListFacebookPost
@@ -180,7 +244,8 @@ public class Statistics {
 			return "Average reactions value=" + AverageReactionsValue(array) + ", Sum reactions value="
 					+ SumReactionsValue(array) + ", Greatest reactions value=" + MaxReactionValue(array)
 					+ ", Smallest reactions value=" + MinReactionValue(array) + ", Greatest messages character's value="
-					+ MaxLengthMessage(array);
+					+ MaxLengthMessage(array) + ", Greatest shares value=" + MaxShareValue(array)
+					+ ", Smallest share value=" + MinShareValue(array)+"\n";
 		return "No Statistic's report\n";
 	}
 
