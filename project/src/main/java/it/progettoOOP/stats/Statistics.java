@@ -5,42 +5,41 @@
  */
 package it.progettoOOP.stats;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import it.progettoOOP.model.ArrayListFacebookPost;
-import it.progettoOOP.model.FacebookPost;
 
 public class Statistics {
+	/**
+	 * ArrayList of FacebookPost
+	 */
 	private static int averageReactionValue;
+	/**
+	 * ArrayList of FacebookPost
+	 */
 	private static int sumReactionValue;
+	/**
+	 * ArrayList of FacebookPost
+	 */
 	private static int maxReactionValue;
+	/**
+	 * ArrayList of FacebookPost
+	 */
 	private static int minReactionValue;
+	/**
+	 * ArrayList of FacebookPost
+	 */
 	private static int maxLengthMessage;
 
 	/**
-	 * Basic constructor
-	 */
-	public Statistics() {
-		averageReactionValue = 0;
-		sumReactionValue = 0;
-		maxReactionValue = 0;
-		minReactionValue = 0;
-		maxLengthMessage = 0;
-	}
-
-	/**
-	 * Constructor with fields
-	 */
-	public Statistics(ArrayList<Integer> likeValues, int averageReactionValue, int sumReactionValue,
-			int maxReactionValue, int minReactionValue, int maxLengthMessage) {
-		this.averageReactionValue = averageReactionValue;
-		this.sumReactionValue = sumReactionValue;
-		this.maxReactionValue = maxReactionValue;
-		this.minReactionValue = minReactionValue;
-		this.maxLengthMessage = maxLengthMessage;
-	}
+	 * public Statistics() { averageReactionValue = 0; sumReactionValue = 0;
+	 * maxReactionValue = 0; minReactionValue = 0; maxLengthMessage = 0; }
+	 * 
+	 * public Statistics(ArrayList<Integer> likeValues, int averageReactionValue,
+	 * int sumReactionValue, int maxReactionValue, int minReactionValue, int
+	 * maxLengthMessage) { Statistics.averageReactionValue = averageReactionValue;
+	 * Statistics.sumReactionValue = sumReactionValue; Statistics.maxReactionValue =
+	 * maxReactionValue; Statistics.minReactionValue = minReactionValue;
+	 * Statistics.maxLengthMessage = maxLengthMessage; }
+	 **/
 
 	/**
 	 * @return the averageReactionValue
@@ -112,56 +111,77 @@ public class Statistics {
 		Statistics.maxLengthMessage = maxLengthMessage;
 	}
 
-	public static Integer SumReactionValue(ArrayListFacebookPost array) {
-		FacebookPost fp = new FacebookPost();
-		for (int i = 0; i < array.getDimension(); i++) {
-			fp=array.getPost(i);
-			sumReactionValue = sumReactionValue + fp.getReactions();}
-	return sumReactionValue;
-	}
-	
-	public static Integer AverageReactionValue(ArrayListFacebookPost array) {
-		averageReactionValue = SumReactionValue(array) / array.getDimension();
-	return averageReactionValue;
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the sum value of reactions contained in ArrayListFacebookPost
+	 */
+	public static Integer SumReactionsValue(ArrayListFacebookPost array) {
+		sumReactionValue = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			sumReactionValue = sumReactionValue + array.getPost(i).getReactions();
+		return sumReactionValue;
 	}
 
-	public static Integer MaxReactionValue(ArrayListFacebookPost array) {
-		FacebookPost fp = new FacebookPost();
-		for (int i = 0; i < array.getDimension(); i++) {
-			fp = array.getPost(i);
-			if (fp.getReactions() > maxReactionValue) {
-				maxReactionValue = fp.getReactions();
-			}
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the average value of reactions contained in ArrayListFacebookPost
+	 */
+	public static Integer AverageReactionsValue(ArrayListFacebookPost array) {
+		averageReactionValue = 0;
+		try {
+			averageReactionValue = SumReactionsValue(array) / array.getSize();
+		} catch (ArithmeticException e) {// e.printStackTrace();
 		}
+		return averageReactionValue;
+	}
+
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the greatest value of reactions contained in ArrayListFacebookPost
+	 */
+	public static Integer MaxReactionValue(ArrayListFacebookPost array) {
+		maxReactionValue = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			if (array.getPost(i).getReactions() > maxReactionValue)
+				maxReactionValue = array.getPost(i).getReactions();
 		return maxReactionValue;
 	}
 
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the smallest value of reactions contained in ArrayListFacebookPost
+	 */
 	public static Integer MinReactionValue(ArrayListFacebookPost array) {
-		FacebookPost fp = new FacebookPost();
-		for (int i = 0; i < array.getDimension(); i++) {
-			fp = array.getPost(i);
-			if (fp.getReactions() < minReactionValue) {
-				minReactionValue = fp.getReactions();
-			}
-		}
+		minReactionValue = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			if (array.getPost(i).getReactions() < minReactionValue)
+				minReactionValue = array.getPost(i).getReactions();
 		return minReactionValue;
 	}
 
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the greatest message contained in ArrayListFacebookPost
+	 */
 	public static Integer MaxLengthMessage(ArrayListFacebookPost array) {
-		FacebookPost fp = new FacebookPost();
-		for (int i = 0; i < array.getDimension(); i++) {
-			fp = array.getPost(i);
-			if (fp.getLengthMessage() > maxLengthMessage) {
-				maxLengthMessage = fp.getLengthMessage();
-			}
-		}
+		maxLengthMessage = 0;
+		for (int i = 0; i < array.getSize(); i++)
+			if (array.getPost(i).getLengthMessage() > maxLengthMessage)
+				maxLengthMessage = array.getPost(i).getLengthMessage();
 		return maxLengthMessage;
 	}
 
-	public static String StatisticValues(ArrayListFacebookPost array) {
-		return "\nAverage reactions value:"+AverageReactionValue(array) +", Sum reactions value:"+SumReactionValue(array) +
-				", Max reactions value:"+MaxReactionValue(array) +
-				", Min reactions value:"+ MinReactionValue(array) +", Max length message value:"+ MaxLengthMessage(array);
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return string that contains report's summary
+	 */
+	public static String StatisticsReports(ArrayListFacebookPost array) {
+		if (!array.isEmpty())
+			return "Average reactions value=" + AverageReactionsValue(array) + ", Sum reactions value="
+					+ SumReactionsValue(array) + ", Greatest reactions value=" + MaxReactionValue(array)
+					+ ", Smallest reactions value=" + MinReactionValue(array) + ", Greatest messages character's value="
+					+ MaxLengthMessage(array);
+		return "No reports\n";
 	}
 
 }

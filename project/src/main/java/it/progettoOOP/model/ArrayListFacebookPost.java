@@ -43,9 +43,18 @@ public class ArrayListFacebookPost extends FacebookPost {
 		this.myar = myar;
 	}
 
+	/**
+	 * @return true if ArrayListFacebookPost is empty
+	 */
+	public boolean isEmpty() {
+		return myar.size() == 0;
+	}
+
 	@Override
 	public String toString() {
-		return "Posts:\n" + myar;
+		if (!myar.isEmpty())
+			return "Posts:\n" + myar;
+		return "No Posts\n";
 	}
 
 	/**
@@ -63,10 +72,8 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 */
 	public void removePost(FacebookPost post) {
 		int i = 0;
-		FacebookPost ps = new FacebookPost();
 		while (i != myar.size()) {
-			ps = myar.get(i);
-			if (ps.getId().equals(post.getId()))
+			if (myar.get(i).getId().equals(post.getId()))
 				myar.remove(i);
 			i++;
 		}
@@ -77,7 +84,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 * @param ArrayList
 	 * @return ArrayList dimension
 	 */
-	public Integer getDimension() {
+	public Integer getSize() {
 		return myar.size();
 	}
 

@@ -73,7 +73,7 @@ public class FacebookPost {
 
 	/**
 	 * @return the shares
-	 */ 
+	 */
 	public int getShares() {
 		return shares;
 	}
