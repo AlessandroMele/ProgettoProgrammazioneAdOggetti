@@ -63,10 +63,6 @@ public class FacebookPost {
 	public String getMessage() {
 		return message;
 	}
-	
-	public Integer getLengMess() {
-		return message.length();
-	}
 
 	/**
 	 * @param message the message to set
@@ -94,6 +90,13 @@ public class FacebookPost {
 	 */
 	public int getReactions() {
 		return reactions;
+	}
+
+	/**
+	 * @return the message's length
+	 */
+	public Integer getLengthMessage() {
+		return message.length();
 	}
 
 	/**

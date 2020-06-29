@@ -5,7 +5,7 @@ import it.progettoOOP.manageJSON.DownloadJSON;
 import it.progettoOOP.manageJSON.ParseJSON;
 import it.progettoOOP.model.ArrayListFacebookPost;
 import it.progettoOOP.model.FacebookPost;
-import it.progettoOOP.stats.statistics;
+import it.progettoOOP.stats.Statistics;
 
 import java.util.ArrayList;
 
@@ -24,10 +24,8 @@ public class ProjectApplication {
 		JSONObject myobj = DownloadJSON.readURL();
 		ArrayListFacebookPost myarray = ParseJSON.JSONParser(myobj);
 		System.out.println(myarray);
-		System.out.println("media likes:   " + statistics.media(myarray));
-		System.out.println("massimo numero di likes:   " + statistics.max(myarray));
-		System.out.println("minimo numero di likes:   " + statistics.min(myarray));
-		System.out.println("massimo numero di caratteri di un post:   " + statistics.maxLeng(myarray));
+		System.out.println(Statistics.StatisticValues(myarray));
+		
 		
 	}
 }

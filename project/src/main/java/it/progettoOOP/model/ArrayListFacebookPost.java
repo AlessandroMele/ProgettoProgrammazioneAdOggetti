@@ -55,7 +55,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	public void addPost(FacebookPost post) {
 		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getShares(), post.getReactions());
 		myar.add(ps);
-	} 
+	}
 
 	/**
 	 * @param post the post to remove from ArrayList This method provide to remove a
@@ -72,11 +72,19 @@ public class ArrayListFacebookPost extends FacebookPost {
 		}
 
 	}
-	
-	public Integer getDimension(ArrayList<FacebookPost> array) {
-		return array.size();
+
+	/**
+	 * @param ArrayList
+	 * @return ArrayList dimension
+	 */
+	public Integer getDimension() {
+		return myar.size();
 	}
-	
+
+	/**
+	 * @param index of a post
+	 * @return the post contained on "i" position
+	 */
 	public FacebookPost getPost(int i) {
 		return myar.get(i);
 	}
