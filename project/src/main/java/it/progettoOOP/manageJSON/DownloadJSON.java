@@ -10,8 +10,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import org.json.JSONObject;
 
-import it.progettoOOP.exception.ConnectionNotStarted;
-
 public class DownloadJSON {
 	/**
 	 * This method provides to open a connection by a specific URL object
@@ -35,7 +33,8 @@ public class DownloadJSON {
 			buffer.close();
 			JSONObject json = new JSONObject(string.toString());
 			return json;
-		} catch (Exception e) {// e.printStackTrace(e);
+		} catch (Exception e) {
+			// e.printStackTrace(e);
 			System.out.println("*** WARNING ***" + "\n*** CONNECTION NOT STARTED ***\n");
 			return null;
 		}
