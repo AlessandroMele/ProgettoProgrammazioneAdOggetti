@@ -113,5 +113,4 @@ public class FacebookPost {
 	public String toString() {
 		return "\nPost: Id=" + Id + ", message=" + message + ", shares=" + shares + ", reactions=" + reactions;
 	}
-
 }

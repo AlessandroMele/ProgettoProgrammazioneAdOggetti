@@ -10,13 +10,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import org.json.JSONObject;
 
+import it.progettoOOP.exception.ConnectionNotStarted;
+
 public class DownloadJSON {
 	/**
 	 * This method provides to open a connection by a specific URL object
 	 * 
 	 * @return JSONObject object contained query's results
 	 */
-	public static JSONObject readURL() {
+	public static JSONObject readURL(){
 		try {
 			String myquery = "https://graph.facebook.com/me/posts?fields=id,shares,created_time,message,reactions.summary(1).limit(0)&access_token=EAAmlKB7cDMgBAGxIGbh829IzhKE7YxGhMQup3xcZCtIFvQq9OfMkF7iL7qUvX2E1rUdKBT8nVZCiOjuq4SdvfY1JmRT3Tua4jPh37qjLbP7bylKaVzrrpdkGAoaV5dKVZBICbYtiZCwDfHGSmnT5J4iHYxwcQsWliMMl8XVCi90AZCjXyxP42&limit=400";
 			StringBuilder string = new StringBuilder();

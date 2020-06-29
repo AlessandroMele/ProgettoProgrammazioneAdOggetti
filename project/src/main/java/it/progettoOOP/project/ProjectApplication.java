@@ -16,9 +16,10 @@ public class ProjectApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ProjectApplication.class, args);
 		JSONObject myobj = DownloadJSON.readURL();
+		Statistics mystat = new Statistics();
 		ArrayListFacebookPost myarray = ParseJSON.JSONParser(myobj);
 		System.out.println(myarray);
-		System.out.println(Statistics.StatisticsReports(myarray));
+		System.out.println(mystat.StatisticsReports(myarray));
 
 	}
 }
