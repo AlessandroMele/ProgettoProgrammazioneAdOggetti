@@ -11,13 +11,13 @@ public class ArrayListFacebookPost extends FacebookPost {
 	/**
 	 * ArrayList of FacebookPost
 	 */
-	private ArrayList<FacebookPost> myar;
+	private ArrayList<FacebookPost> arrayList;
 
 	/**
 	 * Basic constructor
 	 **/
 	public ArrayListFacebookPost() {
-		myar = new ArrayList<FacebookPost>();
+		arrayList = new ArrayList<FacebookPost>();
 
 	}
 
@@ -25,35 +25,35 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 * Constructor with fields
 	 **/
 	public ArrayListFacebookPost(ArrayList<FacebookPost> myar) {
-		this.myar = myar;
+		this.arrayList = myar;
 
 	}
 
 	/**
-	 * @return the myar
+	 * @return the ArrayList<FacebookPost> arrayList
 	 */
-	public ArrayList<FacebookPost> getMyar() {
-		return myar;
+	public ArrayList<FacebookPost> getArrayList() {
+		return arrayList;
 	}
 
 	/**
-	 * @param myar the myar to set
+	 * @param myar the ArrayList<FacebookPost> to set
 	 */
-	public void setMyar(ArrayList<FacebookPost> myar) {
-		this.myar = myar;
+	public void setArrayList(ArrayList<FacebookPost> arrayList) {
+		this.arrayList = arrayList;
 	}
 
 	/**
 	 * @return true if ArrayListFacebookPost is empty
 	 */
 	public boolean isEmpty() {
-		return myar.size() == 0;
+		return arrayList.size() == 0;
 	}
 
 	@Override
 	public String toString() {
-		if (!myar.isEmpty())
-			return "Posts:\n" + myar;
+		if (!arrayList.isEmpty())
+			return "Posts:\n" + arrayList;
 		return "No Posts\n";
 	}
 
@@ -63,7 +63,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 */
 	public void addPost(FacebookPost post) {
 		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getShares(), post.getReactions());
-		myar.add(ps);
+		arrayList.add(ps);
 	}
 
 	/**
@@ -72,9 +72,9 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 */
 	public void removePost(FacebookPost post) {
 		int i = 0;
-		while (i != myar.size()) {
-			if (myar.get(i).getId().equals(post.getId()))
-				myar.remove(i);
+		while (i != arrayList.size()) {
+			if (arrayList.get(i).getId().equals(post.getId()))
+				arrayList.remove(i);
 			i++;
 		}
 
@@ -85,7 +85,7 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 * @return ArrayList dimension
 	 */
 	public Integer getSize() {
-		return myar.size();
+		return arrayList.size();
 	}
 
 	/**
@@ -93,6 +93,6 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 * @return the post contained on "i" position
 	 */
 	public FacebookPost getPost(int i) {
-		return myar.get(i);
+		return arrayList.get(i);
 	}
 }

@@ -9,37 +9,36 @@ import it.progettoOOP.model.ArrayListFacebookPost;
 
 public class Statistics {
 	/**
-	 * ArrayList of FacebookPost
+	 * Average value of reactions contained in ArrayListFacebookPost
 	 */
 	private static int averageReactionValue;
 	/**
-	 * ArrayList of FacebookPost
+	 * Sum value of reactions contained in ArrayListFacebookPost
 	 */
 	private static int sumReactionValue;
 	/**
-	 * ArrayList of FacebookPost
+	 * Greatest value of reactions contained in ArrayListFacebookPost
 	 */
 	private static int maxReactionValue;
 	/**
-	 * ArrayList of FacebookPost
+	 * Smallest value of reactions contained in ArrayListFacebookPost
 	 */
 	private static int minReactionValue;
 	/**
-	 * ArrayList of FacebookPost
+	 * Greatest value of characters contained on a message in ArrayListFacebookPost
 	 */
 	private static int maxLengthMessage;
 
-	/**
-	 * public Statistics() { averageReactionValue = 0; sumReactionValue = 0;
-	 * maxReactionValue = 0; minReactionValue = 0; maxLengthMessage = 0; }
-	 * 
-	 * public Statistics(ArrayList<Integer> likeValues, int averageReactionValue,
-	 * int sumReactionValue, int maxReactionValue, int minReactionValue, int
-	 * maxLengthMessage) { Statistics.averageReactionValue = averageReactionValue;
-	 * Statistics.sumReactionValue = sumReactionValue; Statistics.maxReactionValue =
-	 * maxReactionValue; Statistics.minReactionValue = minReactionValue;
-	 * Statistics.maxLengthMessage = maxLengthMessage; }
-	 **/
+	/*
+	 * Basic constructor
+	 */
+	public Statistics() {
+		averageReactionValue = 0;
+		sumReactionValue = 0;
+		maxReactionValue = 0;
+		minReactionValue = 0;
+		maxLengthMessage = 0;
+	}
 
 	/**
 	 * @return the averageReactionValue
@@ -161,7 +160,8 @@ public class Statistics {
 
 	/**
 	 * @param ArrayListFacebookPost
-	 * @return the greatest message contained in ArrayListFacebookPost
+	 * @return the greatest value of characters contained on a message in
+	 *         ArrayListFacebookPost
 	 */
 	public static Integer MaxLengthMessage(ArrayListFacebookPost array) {
 		maxLengthMessage = 0;
@@ -181,7 +181,7 @@ public class Statistics {
 					+ SumReactionsValue(array) + ", Greatest reactions value=" + MaxReactionValue(array)
 					+ ", Smallest reactions value=" + MinReactionValue(array) + ", Greatest messages character's value="
 					+ MaxLengthMessage(array);
-		return "No reports\n";
+		return "No Statistic's report\n";
 	}
 
 }
