@@ -308,14 +308,13 @@ public class Statistics implements StatisticsMethods {
 	@Override
 	public String StatisticsReports(ArrayListFacebookPost array) {
 		if (!array.isEmpty())
-			return "TOTAL NUMBER OF POSTS: " + array.getSize() + "\nREACTIONS:\nAverage reactions value="
-					+ AverageReactionsValue(array) + ", Sum reactions value=" + SumReactionsValue(array)
-					+ ", Greatest reactions value=" + MaxReactionValue(array) + ", Smallest reactions value="
-					+ MinReactionValue(array) + ", Greatest messages character's value=" + MaxLengthMessage(array)
-					+ "\nSHARES:\nAverage shares value=" + AverageSharesValue(array) + ", Sum shares value="
-					+ SumSharesValue(array) + ", Greatest shares value=" + MaxShareValue(array)
-					+ ", Smallest share value=" + MinShareValue(array) + "\n";
-		return "No Statistic's report\n";
+			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\nREACTIONS:\nAverage value="
+					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
+					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
+					+ "\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array)
+					+ "\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value=" + SumSharesValue(array)
+					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) + "\n";
+		return "\n**NO STATS**\n";
 	}
 
 }

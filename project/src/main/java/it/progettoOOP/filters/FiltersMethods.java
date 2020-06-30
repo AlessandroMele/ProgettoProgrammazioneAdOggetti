@@ -16,17 +16,23 @@ public interface FiltersMethods {
 
 	/**
 	 * @param ArrayListFacebookPost
-	 * @return the ArrayList that contain's filter's requirement
+	 * @return the ArrayList that contain's filter's length message requirement
 	 *         ArrayListFacebookPost
 	 */
-	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array);
+	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, Integer value);
 
 	/**
-	 * @param <T>
 	 * @param ArrayListFacebookPost
-	 * @return the ArrayList that contain's filter's requirement
+	 * @return the ArrayList that contain's filter's reactions requirement
 	 *         ArrayListFacebookPost
 	 */
-	public <T> ArrayListFacebookPost classParam(ArrayListFacebookPost array, T param);
+	public ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, Integer value);
+
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the ArrayList that contain's filter's share requirement
+	 *         ArrayListFacebookPost
+	 */
+	public ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, Integer value);
 
 }

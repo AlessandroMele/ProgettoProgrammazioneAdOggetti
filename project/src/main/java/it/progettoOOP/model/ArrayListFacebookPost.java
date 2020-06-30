@@ -44,6 +44,22 @@ public class ArrayListFacebookPost extends FacebookPost {
 	}
 
 	/**
+	 * @param ArrayList
+	 * @return ArrayList dimension
+	 */
+	public int getSize() {
+		return arrayList.size();
+	}
+
+	/**
+	 * @param index of a post
+	 * @return the post contained on "i" position
+	 */
+	public FacebookPost getPost(int i) {
+		return arrayList.get(i);
+	}
+
+	/**
 	 * @return true if ArrayListFacebookPost is empty
 	 */
 	public boolean isEmpty() {
@@ -77,22 +93,5 @@ public class ArrayListFacebookPost extends FacebookPost {
 				arrayList.remove(i);
 			i++;
 		}
-
-	}
-
-	/**
-	 * @param ArrayList
-	 * @return ArrayList dimension
-	 */
-	public int getSize() {
-		return arrayList.size();
-	}
-
-	/**
-	 * @param index of a post
-	 * @return the post contained on "i" position
-	 */
-	public FacebookPost getPost(int i) {
-		return arrayList.get(i);
 	}
 }

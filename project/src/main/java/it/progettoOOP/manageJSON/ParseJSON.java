@@ -17,7 +17,7 @@ public class ParseJSON {
 	 *                   ArrayListFacebookPost object
 	 * @return the list with all details ordered by this method
 	 */
-	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
+	public ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
 		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
 		if (json != null) { 

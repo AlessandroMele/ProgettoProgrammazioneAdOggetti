@@ -9,19 +9,19 @@ public class FacebookPost {
 	/**
 	 * Identifier of the post
 	 */
-	private String Id;
+	protected String Id;
 	/**
 	 * Message written by user on the post
 	 */
-	private String message;
+	protected String message;
 	/**
 	 * Number of total shares by other user of the post
 	 */
-	private int shares;
+	protected int shares;
 	/**
 	 * Number of total reactions by other user of the post
 	 */
-	private int reactions;
+	protected int reactions;
 
 	/**
 	 * Basic constructor
