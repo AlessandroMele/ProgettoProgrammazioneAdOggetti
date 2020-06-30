@@ -11,8 +11,8 @@ import it.progettoOOP.model.*;
 
 public class GenerateJSON {
 	/**
-	 * @param ArrayListFacebookPost This method parses the ArrayListFacebookPost to
-	 *                              JSON String,
+	 * @param ArrayListFacebookPost
+	 * This method parses the ArrayListFacebookPost to String formatted on JSON
 	 * @return the JSON string that contains all ArrayListFacebookPost's details
 	 */
 	public String JSONGenerator(ArrayListFacebookPost list) throws Exception {

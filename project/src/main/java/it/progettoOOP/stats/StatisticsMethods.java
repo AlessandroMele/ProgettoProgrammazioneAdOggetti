@@ -19,36 +19,36 @@ public interface StatisticsMethods {
 	 * @return the greatest value of characters contained on a message in
 	 *         ArrayListFacebookPost
 	 */
-	public int MaxLengthMessage(ArrayListFacebookPost array);
+	public abstract int MaxLengthMessage(ArrayListFacebookPost array);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the greatest value of shares contained in ArrayListFacebookPost
 	 */
-	public int MaxShareValue(ArrayListFacebookPost array);
+	public abstract int MaxShareValue(ArrayListFacebookPost array);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the smallest value of shares contained in ArrayListFacebookPost
 	 */
-	public int MinShareValue(ArrayListFacebookPost array);
+	public abstract int MinShareValue(ArrayListFacebookPost array);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the sum value of reactions contained in ArrayListFacebookPost
 	 */
-	public int SumSharesValue(ArrayListFacebookPost array);
+	public abstract int SumSharesValue(ArrayListFacebookPost array);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the average value of shares contained in ArrayListFacebookPost
 	 */
-	public int AverageSharesValue(ArrayListFacebookPost array);
+	public abstract int AverageSharesValue(ArrayListFacebookPost array);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return string that contains report's summary
 	 */
-	public String StatisticsReports(ArrayListFacebookPost array);
+	public abstract String StatisticsReports(ArrayListFacebookPost array);
 
 }

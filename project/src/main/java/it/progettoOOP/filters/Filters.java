@@ -15,6 +15,11 @@ public class Filters implements FiltersMethods {
 		filteredList = new ArrayListFacebookPost();
 	}
 
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the ArrayList that contain's filter's reactions requirement
+	 *         ArrayListFacebookPost
+	 */
 	@Override
 	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, Integer value) {
 		filteredList = null;
@@ -25,6 +30,11 @@ public class Filters implements FiltersMethods {
 		return filteredList;
 	}
 
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the ArrayList that contain's filter's reactions requirement
+	 *         ArrayListFacebookPost
+	 */
 	@Override
 	public ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, Integer value) {
 		filteredList = null;
@@ -35,6 +45,11 @@ public class Filters implements FiltersMethods {
 		return filteredList;
 	}
 
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return the ArrayList that contain's filter's reactions requirement
+	 *         ArrayListFacebookPost
+	 */
 	@Override
 	public ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, Integer value) {
 		filteredList = null;

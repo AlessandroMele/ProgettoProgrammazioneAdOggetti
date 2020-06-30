@@ -19,20 +19,20 @@ public interface FiltersMethods {
 	 * @return the ArrayList that contain's filter's length message requirement
 	 *         ArrayListFacebookPost
 	 */
-	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, Integer value);
+	public abstract ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, Integer value);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the ArrayList that contain's filter's reactions requirement
 	 *         ArrayListFacebookPost
 	 */
-	public ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, Integer value);
+	public abstract ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, Integer value);
 
 	/**
 	 * @param ArrayListFacebookPost
 	 * @return the ArrayList that contain's filter's share requirement
 	 *         ArrayListFacebookPost
 	 */
-	public ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, Integer value);
+	public abstract ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, Integer value);
 
 }
