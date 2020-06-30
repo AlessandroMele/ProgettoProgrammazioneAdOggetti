@@ -21,12 +21,16 @@ public class Filters implements FiltersMethods {
 	 *         ArrayListFacebookPost
 	 */
 	@Override
-	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, Integer value) {
+	public ArrayListFacebookPost filterByLengthMessage(ArrayListFacebookPost array, int min, int max) {
 		filteredList = null;
-		System.out.println("**\nFILTERED FOR: length message=" + value + "\n");
-		for (int i = 0; i < array.getSize(); i++)
-			if (((Integer) array.getPost(i).getLengthMessage()).equals(value))
-				filteredList.addPost(array.getPost(i));
+		try {
+			System.out.println("**FILTERED FOR: length message: min=" + min + " max=" + max + "\n");
+			for (int i = 0; i < array.getSize(); i++)
+				if (array.getPost(i).getLengthMessage() > min && array.getPost(i).getLengthMessage() < max)
+					filteredList.addPost(array.getPost(i));
+		} catch (NullPointerException e) {// e.printStackTrace();
+			System.out.println("No contents");
+		}
 		return filteredList;
 	}
 
@@ -36,12 +40,16 @@ public class Filters implements FiltersMethods {
 	 *         ArrayListFacebookPost
 	 */
 	@Override
-	public ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, Integer value) {
+	public ArrayListFacebookPost filterByReactions(ArrayListFacebookPost array, int min, int max) {
 		filteredList = null;
-		System.out.println("**\nFILTERED FOR: reactions=" + value + "\n");
-		for (int i = 0; i < array.getSize(); i++)
-			if (((Integer) array.getPost(i).getReactions()).equals(value))
-				filteredList.addPost(array.getPost(i));
+		try {
+			System.out.println("**FILTERED FOR: reactions: min=" + min + " max=" + max + "\n");
+			for (int i = 0; i < array.getSize(); i++)
+				if (array.getPost(i).getLengthMessage() > min && array.getPost(i).getLengthMessage() < max)
+					filteredList.addPost(array.getPost(i));
+		} catch (NullPointerException e) {// e.printStackTrace();
+			System.out.println("No contents");
+		}
 		return filteredList;
 	}
 
@@ -51,12 +59,18 @@ public class Filters implements FiltersMethods {
 	 *         ArrayListFacebookPost
 	 */
 	@Override
-	public ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, Integer value) {
+	public ArrayListFacebookPost filterByShares(ArrayListFacebookPost array, int min, int max) {
 		filteredList = null;
-		System.out.println("**\nFILTERED FOR: shares=" + value + "\n");
-		for (int i = 0; i < array.getSize(); i++)
-			if (((Integer) array.getPost(i).getShares()).equals(value))
-				filteredList.addPost(array.getPost(i));
+		try {
+			System.out.println("**FILTERED FOR: shares: min=" + min + " max=" + max + "\n");
+			for (int i = 0; i < array.getSize(); i++)
+				if (array.getPost(i).getLengthMessage() > min && array.getPost(i).getLengthMessage() < max)
+					filteredList.addPost(array.getPost(i));
+		} catch (NullPointerException e) {
+			// e.printStackTrace();
+			System.out.println("No contents");
+
+		}
 		return filteredList;
 	}
 

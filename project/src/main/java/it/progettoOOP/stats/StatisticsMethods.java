@@ -9,9 +9,9 @@ import it.progettoOOP.model.ArrayListFacebookPost;
 
 public interface StatisticsMethods {
 	/**
-	 * This interface is a list of minimum methods for statistics to implement for project's
-	 * requirement
-	 * Statistiche su media, massimi e minimi di share per fasce di lunghezza di post e per presenza di emoticon.
+	 * This interface is a list of minimum methods for statistics to implement for
+	 * project's requirement Statistiche su media, massimi e minimi di share per
+	 * fasce di lunghezza di post e per presenza di emoticon.
 	 */
 
 	/**
