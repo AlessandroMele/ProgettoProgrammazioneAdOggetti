@@ -69,9 +69,8 @@ public class Filters implements FiltersMethods {
 		} catch (NullPointerException e) {
 			// e.printStackTrace();
 			System.out.println("No contents");
-
 		}
 		return filteredList;
-	}
 
+	}
 }
