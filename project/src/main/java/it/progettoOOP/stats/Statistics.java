@@ -6,6 +6,7 @@
 package it.progettoOOP.stats;
 
 import it.progettoOOP.model.ArrayListFacebookPost;
+import it.progettoOOP.model.FacebookPost;
 
 public class Statistics implements StatisticsMethods {
 	/**
@@ -308,11 +309,8 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return emojis contained on a specific post
 	 */
-	public String EmojiFinder(ArrayListFacebookPost array) {
-		String message = array.getPost(1).getMessage();
-		if (message.contentEquals("no message"))
-			return "no emojis";
-		else {
+	public String EmojiFinder(FacebookPost post) {
+		String message = post.getMessage();
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < message.length(); i++) {
 			if (i < (message.length() - 1)) {
@@ -322,11 +320,13 @@ public class Statistics implements StatisticsMethods {
 					sb.append(message.charAt(i));
 					sb.append(",");
 					continue;
-				}
 			}
-		}return sb.toString();
 		}
+		}
+		if (sb.toString().equals("")) return "no emoji";
+		else return sb.toString();
 	}
+	
 
 	/**
 	 * @param ArrayListFacebookPost
@@ -335,13 +335,10 @@ public class Statistics implements StatisticsMethods {
 	@Override
 	public String StatisticsReports(ArrayListFacebookPost array) {
 		if (!array.isEmpty())
-			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\nREACTIONS:\nAverage value="
-					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
-					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
-					+ "\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) + ", Emojis= "
-					+ EmojiFinder(array) + "\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value="
-					+ SumSharesValue(array) + ", Greatest value=" + MaxShareValue(array) + ", Smallest value="
-					+ MinShareValue(array) + "\n";
+			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() 
+					+"\n\nREACTIONS:\nAverage value="+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
+					+"\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) + ", Emojis= "+ EmojiFinder(array) 
+					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value="+ SumSharesValue(array) + ", Greatest value=" + MaxShareValue(array) + ", Smallest value="+ MinShareValue(array) + "\n";
 		return "\n**NO STATS**\n";
 	}
 
