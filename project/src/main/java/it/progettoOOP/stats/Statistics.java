@@ -45,6 +45,9 @@ public class Statistics implements StatisticsMethods {
 	 * Sum value of reactions contained in ArrayListFacebookPost
 	 */
 	private int sumShareValue;
+	/**
+	 * Sum value of reactions contained in ArrayListFacebookPost
+	 */
 
 	/*
 	 * Basic constructor
@@ -300,6 +303,30 @@ public class Statistics implements StatisticsMethods {
 		}
 		return averageShareValue;
 	}
+	
+	/**
+	 * @param ArrayListFacebookPost
+	 * @return emojis contained on a specific post
+	 */
+	public String EmojiFinder(ArrayListFacebookPost array) {
+		String message = array.getPost(1).getMessage();
+		if (message.contentEquals("no message"))
+			return "no emojis";
+		else {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < message.length(); i++) {
+			if (i < (message.length() - 1)) {
+				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1))) {
+					sb.append(message.charAt(i));
+					i++;
+					sb.append(message.charAt(i));
+					sb.append(",");
+					continue;
+				}
+			}
+		}return sb.toString();
+		}
+	}
 
 	/**
 	 * @param ArrayListFacebookPost
@@ -311,9 +338,10 @@ public class Statistics implements StatisticsMethods {
 			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\nREACTIONS:\nAverage value="
 					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
 					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
-					+ "\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array)
-					+ "\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value=" + SumSharesValue(array)
-					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) + "\n";
+					+ "\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) + ", Emojis= "
+					+ EmojiFinder(array) + "\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value="
+					+ SumSharesValue(array) + ", Greatest value=" + MaxShareValue(array) + ", Smallest value="
+					+ MinShareValue(array) + "\n";
 		return "\n**NO STATS**\n";
 	}
 
