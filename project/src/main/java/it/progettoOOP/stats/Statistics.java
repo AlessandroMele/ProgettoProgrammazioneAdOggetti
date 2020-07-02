@@ -260,8 +260,8 @@ public class Statistics implements StatisticsMethods {
 	public int MaxShareValue(ArrayListFacebookPost array) {
 		maxShareValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getShares() > maxShareValue)
-				maxShareValue = array.getPost(i).getShares();
+			if (array.getPost(i).getNumShares() > maxShareValue)
+				maxShareValue = array.getPost(i).getNumShares();
 		return maxShareValue;
 	}
 
@@ -273,8 +273,8 @@ public class Statistics implements StatisticsMethods {
 	public int MinShareValue(ArrayListFacebookPost array) {
 		minShareValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getShares() < minShareValue)
-				minShareValue = array.getPost(i).getShares();
+			if (array.getPost(i).getNumShares() < minShareValue)
+				minShareValue = array.getPost(i).getNumShares();
 		return minShareValue;
 	}
 
@@ -286,7 +286,7 @@ public class Statistics implements StatisticsMethods {
 	public int SumSharesValue(ArrayListFacebookPost array) {
 		sumShareValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			sumShareValue = sumShareValue + array.getPost(i).getShares();
+			sumShareValue = sumShareValue + array.getPost(i).getNumShares();
 		return sumShareValue;
 	}
 

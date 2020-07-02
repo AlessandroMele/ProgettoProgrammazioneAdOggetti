@@ -7,20 +7,16 @@ public class FiltersModel {
 	private boolean descrizione;
 	private JSONObject length;
 	private JSONObject shares;
+	private JSONObject reactions;
 	private boolean emoji;
-	private String  minmess;
-	private String maxmess;
-	private String  minshares;
-	private String maxshares;
+	
 	
 	public FiltersModel() {
-		//this.length = length;
+		this.length = length;
+		this.shares = shares;
+		this.reactions = reactions;
 		this.descrizione = false;
 		this.emoji = false;
-		this.minmess = "";
-		this.maxmess ="";
-		this.minshares = "";
-		this.maxshares = "";
 		
 	}
 	
@@ -40,24 +36,38 @@ public class FiltersModel {
 		return shares;
 	}
 	
-	public String getMinMess() {
-		minmess =  (String) length.get("min");
+	public JSONObject getReactions() {
+		return reactions;
+	}
+	
+	public int getMinMess() {
+		int minmess =  (int) length.get("min");
 		return minmess ;
 	}
 	
-	public String getMaxMess() {
-		maxmess =  (String) length.get("max");
+	public int getMaxMess() {
+		int maxmess =  (int) length.get("max");
 		return maxmess ;
 	}
 	
-	public String getMinShares() {
-		minshares =  (String) shares.get("mins");
+	public int getMinShares() {
+		int minshares =  (int) shares.get("min");
 		return minshares ;
 	}
 	
-	public String getMaxShares() {
-		maxshares =  (String) shares.get("maxs");
+	public int getMaxShares() {
+		int maxshares =  (int) shares.get("max");
 		return maxshares ;
+	}
+	
+	public int getMinReactions() {
+		int minreactions =  (int) reactions.get("min");
+		return minreactions ;
+	}
+	
+	public int getMaxReactions() {
+		int maxreactions =  (int) reactions.get("max");
+		return maxreactions ;
 	}
 	
 }

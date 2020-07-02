@@ -74,7 +74,7 @@ public class FacebookPost {
 	/**
 	 * @return the shares
 	 */
-	public int getShares() {
+	public int getNumShares() {
 		return shares;
 	}
 
@@ -96,7 +96,8 @@ public class FacebookPost {
 	 * @return the message's length
 	 */
 	public int getLengthMessage() {
-		return message.length();
+		if (message.equals("no message")) return 0;
+				else return message.length();
 	}
 
 	/**
@@ -111,6 +112,6 @@ public class FacebookPost {
 	 */
 	@Override
 	public String toString() {
-		return "\nPost: Id=" + Id + ", message=" + message + ", shares=" + shares + ", reactions=" + reactions;
+		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + shares + "\n   REACTIONS =" + reactions + "\n";
 	}
 }
