@@ -50,9 +50,8 @@ public class SimpleController {
 		Filtering fil = new Filtering();
 		ArrayListFacebookPost filposts = new ArrayListFacebookPost();
 		ArrayListFacebookPost fullposts = myp.JSONParser(myobj);
-		filposts = fil.FilteredPosts(fullposts,filtro);
-		
-		return new ResponseEntity<>( filposts, HttpStatus.OK);
+		//filposts = fil.FilteredPosts(fullposts,filtro);	
+		return new ResponseEntity<>( filtro.getMaxShares(), HttpStatus.OK);
 	}
 
 }
