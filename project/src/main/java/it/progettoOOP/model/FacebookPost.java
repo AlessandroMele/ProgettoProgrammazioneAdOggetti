@@ -5,7 +5,6 @@
  */
 package it.progettoOOP.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -14,7 +13,7 @@ public class FacebookPost {
 	/**
 	 * Identifier of the post
 	 */
-	protected String Id;
+	protected String id;
 	/**
 	 * Message written by user on the post
 	 */
@@ -32,7 +31,7 @@ public class FacebookPost {
 	 * Basic constructor
 	 */
 	public FacebookPost() {
-		Id = "no identifier";
+		id = "no identifier";
 		this.message = "no message";
 		this.numShares = 0;
 		this.numReactions = 0;
@@ -42,7 +41,7 @@ public class FacebookPost {
 	 * Constructor with fields
 	 */
 	public FacebookPost(String id, String message, int numShares, int numReactions) {
-		Id = id;
+		this.id = id;
 		this.message = message;
 		this.numShares = numShares;
 		this.numReactions = numReactions;
@@ -52,14 +51,14 @@ public class FacebookPost {
 	 * @return the id
 	 */
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 
 	/**
@@ -114,24 +113,15 @@ public class FacebookPost {
 		this.numReactions = numReactions;
 	}
 
-	public boolean FindEmoji() {
-		//String message = post.getMessage();
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < message.length(); i++) {
-			if (i < (message.length() - 1)) {
-				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1))) {
-					sb.append(message.charAt(i));
-					i++;
-					sb.append(message.charAt(i));
-					sb.append(",");
-					continue;
-				}
-			}
-		}
-		if (sb.toString().equals(""))
-			return false;
-		else
-			return true;
+	/**
+	 * @return true if message contains emoji
+	 */
+	public boolean containsEmoji() {
+		for (int i = 0; i < message.length(); i++)
+			if (i < (message.length() - 1))
+				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1)))
+					return true;
+		return false;
 	}
 
 	/**
@@ -139,7 +129,7 @@ public class FacebookPost {
 	 */
 	@Override
 	public String toString() {
-		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS ="
-				+ numReactions + "\n";
+		return "\nPOST: \n   ID=" + id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS ="
+				+ numReactions + "\n" + "CONTAINS EMOJI: " + containsEmoji();
 	}
 }

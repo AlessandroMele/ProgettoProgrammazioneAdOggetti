@@ -6,7 +6,6 @@
 package it.progettoOOP.stats;
 
 import it.progettoOOP.model.ArrayListFacebookPost;
-import it.progettoOOP.model.FacebookPost;
 
 public class Statistics implements StatisticsMethods {
 	/**
@@ -46,6 +45,7 @@ public class Statistics implements StatisticsMethods {
 	 * Sum value of reactions contained in ArrayListFacebookPost
 	 */
 	private int sumShareValue;
+
 	/**
 	 * Sum value of reactions contained in ArrayListFacebookPost
 	 */
@@ -304,29 +304,6 @@ public class Statistics implements StatisticsMethods {
 		}
 		return averageShareValue;
 	}
-	
-	/**
-	 * @param ArrayListFacebookPost
-	 * @return emojis contained on a specific post
-	 */
-	/*public String EmojiFinder(FacebookPost post) {
-		String message = post.getMessage();
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < message.length(); i++) {
-			if (i < (message.length() - 1)) {
-				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1))) {
-					sb.append(message.charAt(i));
-					i++;
-					sb.append(message.charAt(i));
-					sb.append(",");
-					continue;
-			}
-		}
-		}
-		if (sb.toString().equals("")) return "no emoji";
-		else return sb.toString();
-	}*/
-	
 
 	/**
 	 * @param ArrayListFacebookPost
@@ -335,10 +312,12 @@ public class Statistics implements StatisticsMethods {
 	@Override
 	public String StatisticsReports(ArrayListFacebookPost array) {
 		if (!array.isEmpty())
-			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() 
-					+"\n\nREACTIONS:\nAverage value="+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
-					+"\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) /*+ ", Emojis= "+ EmojiFinder(array) */
-					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value="+ SumSharesValue(array) + ", Greatest value=" + MaxShareValue(array) + ", Smallest value="+ MinShareValue(array) + "\n";
+			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\n\nREACTIONS:\nAverage value="
+					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
+					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
+					+ "\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array)
+					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value=" + SumSharesValue(array)
+					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) + "\n";
 		return "\n**NO STATS**\n";
 	}
 

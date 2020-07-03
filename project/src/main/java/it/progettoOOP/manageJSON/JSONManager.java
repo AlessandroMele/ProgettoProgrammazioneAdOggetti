@@ -25,7 +25,7 @@ public class JSONManager {
 	 * 
 	 * @return JSONObject object contained query's results
 	 */
-	public JSONObject readURL(){
+	public static JSONObject readURL(){
 		try {
 			String myquery = "https://graph.facebook.com/me/posts?fields=id,shares,created_time,message,reactions.summary(1).limit(0)&access_token=EAAmlKB7cDMgBAGxIGbh829IzhKE7YxGhMQup3xcZCtIFvQq9OfMkF7iL7qUvX2E1rUdKBT8nVZCiOjuq4SdvfY1JmRT3Tua4jPh37qjLbP7bylKaVzrrpdkGAoaV5dKVZBICbYtiZCwDfHGSmnT5J4iHYxwcQsWliMMl8XVCi90AZCjXyxP42&limit=400";
 			StringBuilder string = new StringBuilder();
@@ -55,7 +55,7 @@ public class JSONManager {
 	 *                   ArrayListFacebookPost object
 	 * @return the list with all details ordered by this method
 	 */
-	public ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
+	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
 		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
 		if (json != null) { 
@@ -102,7 +102,7 @@ public class JSONManager {
 	 * This method parses the ArrayListFacebookPost to String formatted on JSON
 	 * @return the JSON string that contains all ArrayListFacebookPost's details
 	 */
-	public String JSONGenerator(ArrayListFacebookPost list) throws Exception {
+	public static String JSONGenerator(ArrayListFacebookPost list) throws Exception {
 		String json = "";
 		if (list != null) {
 			ObjectMapper mapper = new ObjectMapper();

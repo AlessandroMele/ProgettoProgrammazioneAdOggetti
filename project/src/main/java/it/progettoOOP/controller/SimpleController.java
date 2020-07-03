@@ -1,8 +1,5 @@
 package it.progettoOOP.controller;
 
-
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
@@ -25,43 +22,39 @@ public class SimpleController {
 	@RequestMapping(value = "/data", method = RequestMethod.GET)
 
 	public ResponseEntity<Object> getPost() throws JSONException {
-		JSONManager myp = new JSONManager();
-		JSONObject myobj = myp.readURL();
-		ArrayListFacebookPost myarray = myp.JSONParser(myobj);
+		JSONObject myobj = JSONManager.readURL();
+		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
 		return new ResponseEntity<>(myarray, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
-	public ResponseEntity<Object> getStats(@RequestParam(value = "length") String param, @RequestParam(value="emoji") String emoji) throws Exception {
+	public ResponseEntity<Object> getStats(@RequestParam(value = "length") String param,
+			@RequestParam(value = "emoji") boolean emoji) throws Exception {
+
 		String[] length = param.split(",");
 		String min = length[0];
 		String max = length[1];
-		boolean emoticon = false;
-		if (emoji.contentEquals("true")) emoticon = true;
-				else emoticon = false;
+
 		int minLength = Integer.parseInt(min);
 		int maxLength = Integer.parseInt(max);
+
 		Statistics myst = new Statistics();
-		JSONManager myp = new JSONManager();
-		JSONObject myobj = myp.readURL();
-		Filters fil = new Filters();
-		ArrayListFacebookPost myarray = myp.JSONParser(myobj);
-		ArrayListFacebookPost filposts = new ArrayListFacebookPost();
-		filposts = fil.FilteredPostsByParam(myarray,minLength,maxLength,emoticon);	
-		return new ResponseEntity<>(myst.StatisticsReports(filposts) , HttpStatus.OK);
+		JSONObject myobj = JSONManager.readURL();
+		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
+		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
+		filteredposts = Filters.FilteredPostsByParam(myarray, minLength, maxLength, emoji);
+
+		return new ResponseEntity<>(myst.StatisticsReports(filteredposts), HttpStatus.OK);
 	}
 
-	
 	@RequestMapping(value = "/filters", method = RequestMethod.GET)
 
 	public ResponseEntity<Object> getFilters(@RequestBody FiltersModel filtro) throws Exception {
-		JSONManager myp = new JSONManager();
-		JSONObject myobj = myp.readURL();
-		Filters fil = new Filters();
-		ArrayListFacebookPost myarray = myp.JSONParser(myobj);
-		ArrayListFacebookPost filposts = new ArrayListFacebookPost();
-		filposts = fil.FilteredPosts(myarray,filtro);	
-		return new ResponseEntity<>( filposts, HttpStatus.OK);
+		JSONObject myobj = JSONManager.readURL();
+		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
+		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
+		filteredposts = Filters.FilteredPosts(myarray, filtro);
+		return new ResponseEntity<>(filteredposts, HttpStatus.OK);
 	}
 }

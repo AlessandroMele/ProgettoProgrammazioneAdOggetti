@@ -78,7 +78,8 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 *             post in the ArrayList
 	 */
 	public void addPost(FacebookPost post) {
-		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getNumShares(), post.getNumReactions());
+		FacebookPost ps = new FacebookPost(post.getId(), post.getMessage(), post.getNumShares(),
+				post.getNumReactions());
 		arrayList.add(ps);
 	}
 
