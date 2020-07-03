@@ -88,7 +88,7 @@ public class FacebookPost {
 	/**
 	 * @return the reactions
 	 */
-	public int getReactions() {
+	public int getNumReactions() {
 		return reactions;
 	}
 

@@ -198,7 +198,7 @@ public class Statistics implements StatisticsMethods {
 	public int SumReactionsValue(ArrayListFacebookPost array) {
 		sumReactionValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			sumReactionValue = sumReactionValue + array.getPost(i).getReactions();
+			sumReactionValue = sumReactionValue + array.getPost(i).getNumReactions();
 		return sumReactionValue;
 	}
 
@@ -222,8 +222,8 @@ public class Statistics implements StatisticsMethods {
 	public int MaxReactionValue(ArrayListFacebookPost array) {
 		maxReactionValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getReactions() > maxReactionValue)
-				maxReactionValue = array.getPost(i).getReactions();
+			if (array.getPost(i).getNumReactions() > maxReactionValue)
+				maxReactionValue = array.getPost(i).getNumReactions();
 		return maxReactionValue;
 	}
 
@@ -234,8 +234,8 @@ public class Statistics implements StatisticsMethods {
 	public int MinReactionValue(ArrayListFacebookPost array) {
 		minReactionValue = 0;
 		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getReactions() < minReactionValue)
-				minReactionValue = array.getPost(i).getReactions();
+			if (array.getPost(i).getNumReactions() < minReactionValue)
+				minReactionValue = array.getPost(i).getNumReactions();
 		return minReactionValue;
 	}
 

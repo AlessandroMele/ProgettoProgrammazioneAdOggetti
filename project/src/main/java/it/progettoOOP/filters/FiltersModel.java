@@ -2,12 +2,13 @@ package it.progettoOOP.filters;
 
 
 import org.json.simple.JSONObject;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 
 public class FiltersModel {
-	private boolean descrizione;
 	private JSONObject length;
 	private JSONObject shares;
 	private JSONObject reactions;
+	private boolean descrizione;
 	private boolean emoji;
 	
 	
