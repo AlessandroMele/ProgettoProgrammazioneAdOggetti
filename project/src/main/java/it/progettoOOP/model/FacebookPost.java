@@ -17,11 +17,11 @@ public class FacebookPost {
 	/**
 	 * Number of total shares by other user of the post
 	 */
-	protected int shares;
+	protected int numShares;
 	/**
 	 * Number of total reactions by other user of the post
 	 */
-	protected int reactions;
+	protected int numReactions;
 
 	/**
 	 * Basic constructor
@@ -29,18 +29,18 @@ public class FacebookPost {
 	public FacebookPost() {
 		Id = "no identifier";
 		this.message = "no message";
-		this.shares = 0;
-		this.reactions = 0;
+		this.numShares = 0;
+		this.numReactions = 0;
 	}
 
 	/**
 	 * Constructor with fields
 	 */
-	public FacebookPost(String id, String message, int shares, int reactions) {
+	public FacebookPost(String id, String message, int numShares, int numReactions) {
 		Id = id;
 		this.message = message;
-		this.shares = shares;
-		this.reactions = reactions;
+		this.numShares = numShares;
+		this.numReactions = numReactions;
 	}
 
 	/**
@@ -75,21 +75,21 @@ public class FacebookPost {
 	 * @return the shares
 	 */
 	public int getNumShares() {
-		return shares;
+		return numShares;
 	}
 
 	/**
 	 * @param shares the shares to set
 	 */
-	public void setShares(int shares) {
-		this.shares = shares;
+	public void setShares(int numShares) {
+		this.numShares = numShares;
 	}
 
 	/**
 	 * @return the reactions
 	 */
 	public int getNumReactions() {
-		return reactions;
+		return numReactions;
 	}
 
 	/**
@@ -103,8 +103,8 @@ public class FacebookPost {
 	/**
 	 * @param reactions the reactions to set
 	 */
-	public void setReactions(int reactions) {
-		this.reactions = reactions;
+	public void setReactions(int numReactions) {
+		this.numReactions = numReactions;
 	}
 
 	/**
@@ -112,6 +112,6 @@ public class FacebookPost {
 	 */
 	@Override
 	public String toString() {
-		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + shares + "\n   REACTIONS =" + reactions + "\n";
+		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS =" + numReactions + "\n";
 	}
 }

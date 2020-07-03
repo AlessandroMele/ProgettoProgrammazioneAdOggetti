@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.progettoOOP.filters.Filtering;
+import it.progettoOOP.filters.Filters;
 import it.progettoOOP.filters.FiltersModel;
 import it.progettoOOP.manageJSON.JSONManager;
 import it.progettoOOP.model.ArrayListFacebookPost;
@@ -47,10 +47,10 @@ public class SimpleController {
 		JSONManager myd = new JSONManager();
 		JSONManager myp = new JSONManager();
 		JSONObject myobj = myd.readURL();
-		Filtering fil = new Filtering();
+		Filters fil = new Filters();
+		ArrayListFacebookPost myarray = myp.JSONParser(myobj);
 		ArrayListFacebookPost filposts = new ArrayListFacebookPost();
-		ArrayListFacebookPost fullposts = myp.JSONParser(myobj);
-		filposts = fil.FilteredPosts(fullposts,filtro);	
+		filposts = fil.FilteredPosts(myarray,filtro);	
 		return new ResponseEntity<>(filposts.toString(), HttpStatus.OK);
 	}
 }

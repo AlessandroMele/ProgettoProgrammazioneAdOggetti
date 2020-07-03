@@ -1,6 +1,7 @@
 package it.progettoOOP.filters;
 
 
+import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 
@@ -8,26 +9,51 @@ public class FiltersModel {
 	private JSONObject length;
 	private JSONObject shares;
 	private JSONObject reactions;
-	private boolean descrizione;
-	private boolean emoji;
+	private boolean viewMessage;
+	//private boolean emoji;
 	
 	
 	public FiltersModel() {
+		try {
 		this.length = length;
+		}
+		catch(HttpMessageNotReadableException e) {
+			this.length = null;
+		}
+		try {
 		this.shares = shares;
-		this.reactions = reactions;
-		this.descrizione = false;
+		}
+		catch(HttpMessageNotReadableException e) {
+			this.shares = null;
+		}
+		try {
+			this.reactions = reactions;
+		}
+		catch(HttpMessageNotReadableException e) {
+			this.reactions = null;
+		}
+		try {
+		this.viewMessage = false;
+		}
+		catch(HttpMessageNotReadableException e) {
+			this.viewMessage = false;
+		}
+		/*try {
 		this.emoji = false;
+		}
+		catch(HttpMessageNotReadableException e) {
+			this.emoji = false;
+		}*/
 		
 	}
 	
 	public Boolean getDescrizione() {
-		return descrizione;
+		return viewMessage;
 	}
 	
-	public boolean getEmoji() {
+	/*public boolean getEmoji() {
 		return emoji;
-	}
+	}*/
 	
 	public JSONObject getLength() {
 		return length;
@@ -41,34 +67,64 @@ public class FiltersModel {
 		return reactions;
 	}
 	
-	public int getMinMess() {
-		int minmess =  (int) length.get("min");
-		return minmess ;
+	public int getMinLengthMess() {
+		try {
+		int minLengthMess =  (int) length.get("min");
+		return minLengthMess ;
+		}
+		catch(JSONException e) {
+			return 0;
+		}
 	}
 	
-	public int getMaxMess() {
-		int maxmess =  (int) length.get("max");
-		return maxmess ;
+	public int getMaxLengthMess() {
+		try {
+		int maxLengthMess =  (int) length.get("max");
+		return maxLengthMess ;
+		}
+		catch(JSONException e) {
+			return 100000;
+		}
 	}
 	
 	public int getMinShares() {
-		int minshares =  (int) shares.get("min");
-		return minshares ;
+		try {
+		int minShares =  (int) shares.get("min");
+		return minShares ;
+		}
+		catch(NullPointerException e) {
+			return 0;
+		}
 	}
 	
 	public int getMaxShares() {
-		int maxshares =  (int) shares.get("max");
-		return maxshares ;
+		try {
+		int maxShares =  (int) shares.get("max");
+		return maxShares ;
+		}
+		catch(NullPointerException e) {
+			return 100000;
+		}
 	}
 	
 	public int getMinReactions() {
-		int minreactions =  (int) reactions.get("min");
-		return minreactions ;
+		try {
+		int minReactions =  (int) reactions.get("min");
+		return minReactions ;
+		}
+		catch(NullPointerException e) {
+			return 0;
+		}
 	}
 	
 	public int getMaxReactions() {
-		int maxreactions =  (int) reactions.get("max");
-		return maxreactions ;
+		try {
+		int maxReactions =  (int) reactions.get("max");
+		return maxReactions ;
+		}
+		catch(NullPointerException e) {
+			return 100000;
+		}
 	}
 	
 }
