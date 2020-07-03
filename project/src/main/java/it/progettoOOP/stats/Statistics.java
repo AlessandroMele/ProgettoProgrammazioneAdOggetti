@@ -309,7 +309,7 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return emojis contained on a specific post
 	 */
-	public String EmojiFinder(FacebookPost post) {
+	/*public String EmojiFinder(FacebookPost post) {
 		String message = post.getMessage();
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < message.length(); i++) {
@@ -325,7 +325,7 @@ public class Statistics implements StatisticsMethods {
 		}
 		if (sb.toString().equals("")) return "no emoji";
 		else return sb.toString();
-	}
+	}*/
 	
 
 	/**
@@ -337,7 +337,7 @@ public class Statistics implements StatisticsMethods {
 		if (!array.isEmpty())
 			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() 
 					+"\n\nREACTIONS:\nAverage value="+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
-					+"\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) + ", Emojis= "+ EmojiFinder(array) 
+					+"\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array) /*+ ", Emojis= "+ EmojiFinder(array) */
 					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value="+ SumSharesValue(array) + ", Greatest value=" + MaxShareValue(array) + ", Smallest value="+ MinShareValue(array) + "\n";
 		return "\n**NO STATS**\n";
 	}

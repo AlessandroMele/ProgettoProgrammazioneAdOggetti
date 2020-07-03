@@ -5,6 +5,11 @@
  */
 package it.progettoOOP.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class FacebookPost {
 	/**
 	 * Identifier of the post
@@ -60,6 +65,7 @@ public class FacebookPost {
 	/**
 	 * @return the message
 	 */
+
 	public String getMessage() {
 		return message;
 	}
@@ -96,8 +102,9 @@ public class FacebookPost {
 	 * @return the message's length
 	 */
 	public int getLengthMessage() {
-		if (message.equals("no message")) return 0;
-				else return message.length();
+		if (message.equals("no message"))
+			return 0;
+		return message.length();
 	}
 
 	/**
@@ -107,11 +114,32 @@ public class FacebookPost {
 		this.numReactions = numReactions;
 	}
 
+	public boolean FindEmoji() {
+		//String message = post.getMessage();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < message.length(); i++) {
+			if (i < (message.length() - 1)) {
+				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1))) {
+					sb.append(message.charAt(i));
+					i++;
+					sb.append(message.charAt(i));
+					sb.append(",");
+					continue;
+				}
+			}
+		}
+		if (sb.toString().equals(""))
+			return false;
+		else
+			return true;
+	}
+
 	/**
 	 * Print post's details
 	 */
 	@Override
 	public String toString() {
-		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS =" + numReactions + "\n";
+		return "\nPOST: \n   ID=" + Id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS ="
+				+ numReactions + "\n";
 	}
 }

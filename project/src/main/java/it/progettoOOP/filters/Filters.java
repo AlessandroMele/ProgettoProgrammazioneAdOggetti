@@ -18,5 +18,17 @@ public class Filters {
 		}
 		return arrayfil;
 	}
+	
+	public ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength, boolean emoji) {
+		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
+		
+		for (int i = 0; i < array.getSize(); i++) {
+			if (array.getPost(i).getLengthMessage() <=  maxLength
+					&& array.getPost(i).getLengthMessage() >= minLength
+					&& array.getPost(i).FindEmoji())
+				arrayfil.addPost(array.getPost(i));
+		}
+		return arrayfil;
+	} 
 
 }
