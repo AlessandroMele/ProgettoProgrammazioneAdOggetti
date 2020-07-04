@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,8 +58,9 @@ public class SimpleController {
 		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
 		filteredposts = Filters.FilteredPostsByParam(myarray, minLength, maxLength, emoji);
 
-		return new ResponseEntity<>(myst.StatisticsReports(filteredposts), HttpStatus.OK);
+		return new ResponseEntity<>(myst, HttpStatus.OK);
 	}
+	//myst.StatisticsReports(filteredposts,myarray)
 
 	@RequestMapping(value = "/filters", method = RequestMethod.GET)
 
@@ -66,7 +68,11 @@ public class SimpleController {
 		JSONObject myobj = JSONManager.readURL();
 		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
 		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
+		//try {
 		filteredposts = Filters.FilteredPosts(myarray, filtro);
+		//}
+		//catch(HttpMessageNotReadableException e) {			
+		//}
 		return new ResponseEntity<>(filteredposts, HttpStatus.OK);
 	}
 }

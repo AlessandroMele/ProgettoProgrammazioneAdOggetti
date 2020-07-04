@@ -47,10 +47,17 @@ public class Statistics implements StatisticsMethods {
 	private int sumShareValue;
 
 	/**
-	 * Sum value of reactions contained in ArrayListFacebookPost
+	 * Perc of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
+	private int percPosts;
+	
+	/**
+	 * Perc of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 */
+	private int percReactions;
+	
 
-	/*
+	/**
 	 * Basic constructor
 	 */
 	public Statistics() {
@@ -64,7 +71,7 @@ public class Statistics implements StatisticsMethods {
 		sumReactionValue = 0;
 		averageShareValue = 0;
 	}
-
+	
 	/**
 	 * @return the averageReactionValue
 	 */
@@ -190,6 +197,22 @@ public class Statistics implements StatisticsMethods {
 	public void setSumShareValue(int sumShareValue) {
 		this.sumShareValue = sumShareValue;
 	}
+	
+	/**
+	 * @return Perc of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 */
+	public int getPercPosts(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
+		percPosts = (array1.getSize() *100)/array2.getSize();	
+		return percPosts;
+	}
+	
+	/**
+	 * @return Perc of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 */
+	public int getPercReactions(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
+		percPosts = (array1.getTotReactions()*100)/array2.getTotReactions();	
+		return percPosts;
+	}
 
 	/**
 	 * @param ArrayListFacebookPost
@@ -310,14 +333,16 @@ public class Statistics implements StatisticsMethods {
 	 * @return string that contains report's summary
 	 */
 	@Override
-	public String StatisticsReports(ArrayListFacebookPost array) {
+	public String StatisticsReports(ArrayListFacebookPost array, ArrayListFacebookPost totalArray) {
 		if (!array.isEmpty())
 			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\n\nREACTIONS:\nAverage value="
 					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
 					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
 					+ "\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array)
 					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value=" + SumSharesValue(array)
-					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) + "\n";
+					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) 
+					+ "\n\n These posts are the " + getPercPosts(array,totalArray) + "% of the total." 
+					+ "\n Reactions are the " + getPercReactions(array,totalArray) + "% of the totale reactions. "; 
 		return "\n**NO STATS**\n";
 	}
 

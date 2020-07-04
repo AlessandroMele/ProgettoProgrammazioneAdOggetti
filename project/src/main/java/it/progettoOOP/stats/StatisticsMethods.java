@@ -49,6 +49,6 @@ public interface StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return string that contains report's summary
 	 */
-	public abstract String StatisticsReports(ArrayListFacebookPost array);
+	public abstract String StatisticsReports(ArrayListFacebookPost array,ArrayListFacebookPost totalArray);
 
 }

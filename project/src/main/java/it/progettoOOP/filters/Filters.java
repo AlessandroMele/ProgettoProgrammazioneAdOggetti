@@ -40,7 +40,7 @@ public class Filters {
 	 */
 	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,String emoji) {
 		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
-		if(emoji.contains("true")||emoji.contains("TRUE")||emoji.contains("false")||emoji.contains("false")) {
+		if(emoji.contains("true")||emoji.contains("TRUE")||emoji.contains("false")||emoji.contains("FALSE")) {
 			boolean emoticon;
 			if(emoji.contains("true")||emoji.contains("TRUE")) emoticon =true;
 				else emoticon = false;

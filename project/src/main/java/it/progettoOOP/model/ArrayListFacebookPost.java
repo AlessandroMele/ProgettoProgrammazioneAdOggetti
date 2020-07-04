@@ -60,6 +60,24 @@ public class ArrayListFacebookPost extends FacebookPost {
 	}
 
 	/**
+	 * @return the total number of reactions of the ArrayListFacebookPost 
+	 */
+	public int getTotReactions() {
+		int totalReactions = 0;
+		for(int i=0;i< arrayList.size();i++) totalReactions = totalReactions + arrayList.get(i).getNumReactions();
+		return totalReactions;
+	}
+	
+	/**
+	 * @return the total number of shares of the ArrayListFacebookPost 
+	 */
+	public int getTotShares() {
+		int totalShares = 0;
+		for(int i=0;i< arrayList.size();i++) totalShares = totalShares + arrayList.get(i).getNumShares();
+		return totalShares;
+	}
+	
+	/**
 	 * @return true if ArrayListFacebookPost is empty
 	 */
 	public boolean isEmpty() {

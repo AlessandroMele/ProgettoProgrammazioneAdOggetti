@@ -14,17 +14,17 @@ public class FiltersModel {
 		try {
 			this.length = length;
 		} catch (HttpMessageNotReadableException e) {
-			this.length = null;
+			this.length = new JSONObject();
 		}
 		try {
 			this.shares = shares;
 		} catch (HttpMessageNotReadableException e) {
-			this.shares = null;
+			this.shares = new JSONObject();
 		}
 		try {
 			this.reactions = reactions;
 		} catch (HttpMessageNotReadableException e) {
-			this.reactions = null;
+			this.reactions = new JSONObject();
 		}
 		try {
 			this.viewMessage = false;
@@ -53,7 +53,7 @@ public class FiltersModel {
 		try {
 			int minLengthMess = (int) length.get("min");
 			return minLengthMess;
-		} catch (JSONException e) {
+		} catch (NullPointerException e) {
 			return 0;
 		}
 	}
@@ -62,7 +62,7 @@ public class FiltersModel {
 		try {
 			int maxLengthMess = (int) length.get("max");
 			return maxLengthMess;
-		} catch (JSONException e) {
+		} catch (NullPointerException e) {
 			return 100000;
 		}
 	}
