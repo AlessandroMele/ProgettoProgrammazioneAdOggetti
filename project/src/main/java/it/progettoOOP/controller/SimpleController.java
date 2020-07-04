@@ -4,11 +4,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import it.progettoOOP.filters.Filters;
 import it.progettoOOP.filters.FiltersModel;
@@ -29,15 +31,25 @@ public class SimpleController {
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
-	public ResponseEntity<Object> getStats(@RequestParam(value = "length") String param,
-			@RequestParam(value = "emoji") boolean emoji) throws Exception {
+	public ResponseEntity<Object> getStats(@RequestParam(value = "rangeLength", defaultValue = "0,10000") String param,
+			@RequestParam(value = "emoji", defaultValue ="notSpecified") String emoji) throws MissingServletRequestParameterException {
+		int minLength = 0;
+		int maxLength = 10000;
 
-		String[] length = param.split(",");
-		String min = length[0];
-		String max = length[1];
-
-		int minLength = Integer.parseInt(min);
-		int maxLength = Integer.parseInt(max);
+		try {
+			String[] rangeLength = param.split(",");
+			try {
+				String min = rangeLength[0];
+				minLength = Integer.parseInt(min);
+			} catch (ArrayIndexOutOfBoundsException e) {
+			}
+			try {
+				String max = rangeLength[1];
+				maxLength = Integer.parseInt(max);
+			} catch (ArrayIndexOutOfBoundsException e) {
+			}
+		} catch (NumberFormatException e) {
+		}
 
 		Statistics myst = new Statistics();
 		JSONObject myobj = JSONManager.readURL();

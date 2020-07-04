@@ -38,14 +38,23 @@ public class Filters {
 	 * @return the array filtered
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,
-			boolean emoji) {
+	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,String emoji) {
 		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
-
+		if(emoji.contains("true")||emoji.contains("TRUE")||emoji.contains("false")||emoji.contains("false")) {
+			boolean emoticon;
+			if(emoji.contains("true")||emoji.contains("TRUE")) emoticon =true;
+				else emoticon = false;
 		for (int i = 0; i < array.getSize(); i++) {
 			if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength
-					&& array.getPost(i).containsEmoji() == emoji)
+					&& array.getPost(i).containsEmoji() == emoticon)
 				arrayfil.addPost(array.getPost(i));
+		}
+		}
+		else {
+			for (int i = 0; i < array.getSize(); i++) {
+				if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength)
+					arrayfil.addPost(array.getPost(i));
+			}
 		}
 		return arrayfil;
 	}
