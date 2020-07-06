@@ -58,11 +58,11 @@ public class SimpleController {
 		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
 		filteredposts = Filters.FilteredPostsByParam(myarray, minLength, maxLength, emoji);
 
-		return new ResponseEntity<>(myst, HttpStatus.OK);
+		return new ResponseEntity<>(myst.StatisticsReports(filteredposts,myarray), HttpStatus.OK);
 	}
 	//myst.StatisticsReports(filteredposts,myarray)
 
-	@RequestMapping(value = "/filters", method = RequestMethod.GET)
+	@RequestMapping(value = "/filters", method= {RequestMethod.POST,RequestMethod.PUT})
 
 	public ResponseEntity<Object> getFilters(@RequestBody FiltersModel filtro) throws Exception {
 		JSONObject myobj = JSONManager.readURL();

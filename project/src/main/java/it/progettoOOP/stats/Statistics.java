@@ -70,6 +70,8 @@ public class Statistics implements StatisticsMethods {
 		minShareValue = 0;
 		sumReactionValue = 0;
 		averageShareValue = 0;
+		percPosts = 0;
+		percReactions = 0;
 	}
 	
 	/**
@@ -210,8 +212,8 @@ public class Statistics implements StatisticsMethods {
 	 * @return Perc of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
 	public int getPercReactions(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
-		percPosts = (array1.getTotReactions()*100)/array2.getTotReactions();	
-		return percPosts;
+		percReactions = (array1.getTotReactions()*100)/array2.getTotReactions();	
+		return percReactions;
 	}
 
 	/**

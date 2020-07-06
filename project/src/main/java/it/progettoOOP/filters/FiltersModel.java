@@ -4,38 +4,31 @@ import org.json.JSONException;
 import org.json.simple.JSONObject;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 
+import it.progettoOOP.exceptions.BadValueException;
+
 public class FiltersModel {
 	private JSONObject length;
 	private JSONObject shares;
 	private JSONObject reactions;
-	private boolean viewMessage;
 
 	public FiltersModel() {
 		try {
-			this.length = length;
+			this.length = null;
 		} catch (HttpMessageNotReadableException e) {
 			this.length = new JSONObject();
 		}
 		try {
-			this.shares = shares;
+			this.shares = null;
 		} catch (HttpMessageNotReadableException e) {
 			this.shares = new JSONObject();
 		}
 		try {
-			this.reactions = reactions;
+			this.reactions = null;
 		} catch (HttpMessageNotReadableException e) {
 			this.reactions = new JSONObject();
 		}
-		try {
-			this.viewMessage = false;
-		} catch (HttpMessageNotReadableException e) {
-			this.viewMessage = false;
-		}
 	}
 
-	public Boolean getViewMessage() {
-		return viewMessage;
-	}
 
 	public JSONObject getLength() {
 		return length;
@@ -49,23 +42,29 @@ public class FiltersModel {
 		return reactions;
 	}
 
-	public int getMinLengthMess() {
-		try {
-			int minLengthMess = (int) length.get("min");
+	public int getMinLengthMess() throws BadValueException {
+		int minLengthMess = 0;
+			if ((int) length.get("min") < 0) throw new BadValueException(); 
+				minLengthMess = (int) length.get("min");
 			return minLengthMess;
-		} catch (NullPointerException e) {
-			return 0;
-		}
+	}
+	
+	public int getMaxLengthMess() throws BadValueException {
+		int maxLengthMess = 10000;
+			if ((int) length.get("max") < 0) throw new BadValueException(); 
+				maxLengthMess = (int) length.get("max");
+			return maxLengthMess;
 	}
 
-	public int getMaxLengthMess() {
+
+	/*public int getMaxLengthMess() {
 		try {
 			int maxLengthMess = (int) length.get("max");
 			return maxLengthMess;
 		} catch (NullPointerException e) {
 			return 100000;
 		}
-	}
+	}*/
 
 	public int getMinShares() {
 		try {

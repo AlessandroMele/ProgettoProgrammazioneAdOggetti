@@ -5,6 +5,7 @@
  */
 package it.progettoOOP.filters;
 
+import it.progettoOOP.exceptions.BadValueException;
 import it.progettoOOP.model.ArrayListFacebookPost;
 
 public class Filters {
@@ -13,9 +14,10 @@ public class Filters {
 	 * @param array   the array to filter
 	 * @param options the body of the get request
 	 * @return the array filtered
+	 * @throws BadValueException 
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPosts(ArrayListFacebookPost array, FiltersModel options) {
+	public static ArrayListFacebookPost FilteredPosts(ArrayListFacebookPost array, FiltersModel options) throws BadValueException {
 		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
 
 		for (int i = 0; i < array.getSize(); i++) {
