@@ -37,13 +37,6 @@ public class ArrayListFacebookPost extends FacebookPost {
 	}
 
 	/**
-	 * @param myar the ArrayList<FacebookPost> to set
-	 */
-	public void setArrayList(ArrayList<FacebookPost> arrayList) {
-		this.arrayList = arrayList;
-	}
-
-	/**
 	 * @param ArrayList
 	 * @return ArrayList dimension
 	 */
@@ -82,13 +75,6 @@ public class ArrayListFacebookPost extends FacebookPost {
 	 */
 	public boolean isEmpty() {
 		return arrayList.size() == 0;
-	}
-
-	@Override
-	public String toString() {
-		if (!arrayList.isEmpty())
-			return "Posts:\n" + arrayList;
-		return "No Posts\n";
 	}
 
 	/**

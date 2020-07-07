@@ -102,11 +102,11 @@ public class JSONManager {
 	 * This method parses the ArrayListFacebookPost to String formatted on JSON
 	 * @return the JSON string that contains all ArrayListFacebookPost's details
 	 */
-	public static String JSONGenerator(ArrayListFacebookPost list) throws Exception {
+	public static String JSONGenerator(ArrayListFacebookPost array) throws Exception {
 		String json = "";
-		if (list != null) {
+		if (array != null) {
 			ObjectMapper mapper = new ObjectMapper();
-			json = mapper.writeValueAsString(list);
+			json = mapper.writeValueAsString(array);
 		}
 		return json;
 	}

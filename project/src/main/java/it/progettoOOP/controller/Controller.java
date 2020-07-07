@@ -4,27 +4,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import it.progettoOOP.filters.Filtering;
 import it.progettoOOP.filters.Filters;
-import it.progettoOOP.filters.FiltersModel;
 import it.progettoOOP.manageJSON.JSONManager;
 import it.progettoOOP.model.ArrayListFacebookPost;
 import it.progettoOOP.stats.*;
 
 @RestController
-public class SimpleController {
+public class Controller {
 
 	@RequestMapping(value = "/data", method = RequestMethod.GET)
 
-	public ResponseEntity<Object> getPost() throws JSONException {
+	public ResponseEntity<Object> getPosts() throws JSONException {
 		JSONObject myobj = JSONManager.readURL();
 		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
 		return new ResponseEntity<>(myarray, HttpStatus.OK);
@@ -33,7 +31,8 @@ public class SimpleController {
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
 	public ResponseEntity<Object> getStats(@RequestParam(value = "rangeLength", defaultValue = "0,10000") String param,
-			@RequestParam(value = "emoji", defaultValue ="notSpecified") String emoji) throws MissingServletRequestParameterException {
+			@RequestParam(value = "emoji", defaultValue = "notSpecified") String emoji)
+			throws MissingServletRequestParameterException {
 		int minLength = 0;
 		int maxLength = 10000;
 
@@ -55,24 +54,18 @@ public class SimpleController {
 		Statistics myst = new Statistics();
 		JSONObject myobj = JSONManager.readURL();
 		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
-		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
-		filteredposts = Filters.FilteredPostsByParam(myarray, minLength, maxLength, emoji);
+		ArrayListFacebookPost filteredposts = Filtering.FilteredPostsByParam(myarray, minLength, maxLength, emoji);
 
-		return new ResponseEntity<>(myst.StatisticsReports(filteredposts,myarray), HttpStatus.OK);
+		return new ResponseEntity<>(myst.StatisticsReports(filteredposts, myarray), HttpStatus.OK);
 	}
-	//myst.StatisticsReports(filteredposts,myarray)
 
-	@RequestMapping(value = "/filters", method= {RequestMethod.POST,RequestMethod.PUT})
+	@RequestMapping(value = "/filters", method = { RequestMethod.POST, RequestMethod.PUT })
 
-	public ResponseEntity<Object> getFilters(@RequestBody FiltersModel filtro) throws Exception {
+	public ResponseEntity<Object> getFilters(@RequestBody Filters filtro) throws Exception {
 		JSONObject myobj = JSONManager.readURL();
 		ArrayListFacebookPost myarray = JSONManager.JSONParser(myobj);
 		ArrayListFacebookPost filteredposts = new ArrayListFacebookPost();
-		//try {
-		filteredposts = Filters.FilteredPosts(myarray, filtro);
-		//}
-		//catch(HttpMessageNotReadableException e) {			
-		//}
+		filteredposts = Filtering.FilteredPosts(myarray, filtro);
 		return new ResponseEntity<>(filteredposts, HttpStatus.OK);
 	}
 }

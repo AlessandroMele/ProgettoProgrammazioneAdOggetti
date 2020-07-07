@@ -82,24 +82,10 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param averageReactionValue the averageReactionValue to set
-	 */
-	public void setAverageReactionValue(int averageReactionValue) {
-		this.averageReactionValue = averageReactionValue;
-	}
-
-	/**
 	 * @return the sumReactionValue
 	 */
 	public int getSumReactionValue() {
 		return sumReactionValue;
-	}
-
-	/**
-	 * @param sumReactionValue the sumReactionValue to set
-	 */
-	public void setSumReactionValue(int sumReactionValue) {
-		this.sumReactionValue = sumReactionValue;
 	}
 
 	/**
@@ -110,24 +96,10 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param maxReactionValue the maxReactionValue to set
-	 */
-	public void setMaxReactionValue(int maxReactionValue) {
-		this.maxReactionValue = maxReactionValue;
-	}
-
-	/**
 	 * @return the minReactionValue
 	 */
 	public int getMinReactionValue() {
 		return minReactionValue;
-	}
-
-	/**
-	 * @param minReactionValue the minReactionValue to set
-	 */
-	public void setMinReactionValue(int minReactionValue) {
-		this.minReactionValue = minReactionValue;
 	}
 
 	/**
@@ -138,26 +110,12 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param maxShareValue the maxShareValue to set
-	 */
-	public void setMaxShareValue(int maxShareValue) {
-		this.maxShareValue = maxShareValue;
-	}
-
-	/**
 	 * @return the minShareValue
 	 */
 	public int getMinShareValue() {
 		return minShareValue;
 	}
-
-	/**
-	 * @param minShareValue the minShareValue to set
-	 */
-	public void setMinShareValue(int minShareValue) {
-		this.minShareValue = minShareValue;
-	}
-
+	
 	/**
 	 * @return the maxLengthMessage
 	 */
@@ -165,12 +123,6 @@ public class Statistics implements StatisticsMethods {
 		return maxLengthMessage;
 	}
 
-	/**
-	 * @param maxLengthMessage the maxLengthMessage to set
-	 */
-	public void setMaxLengthMessage(int maxLengthMessage) {
-		this.maxLengthMessage = maxLengthMessage;
-	}
 
 	/**
 	 * @return the averageSharesValue
@@ -180,24 +132,10 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param averageSharesValue the averageSharesValue to set
-	 */
-	public void setAverageShareValue(int averageSharesValue) {
-		this.averageShareValue = averageSharesValue;
-	}
-
-	/**
 	 * @return the sumShareValue
 	 */
 	public int getSumShareValue() {
 		return sumShareValue;
-	}
-
-	/**
-	 * @param sumShareValue the sumShareValue to set
-	 */
-	public void setSumShareValue(int sumShareValue) {
-		this.sumShareValue = sumShareValue;
 	}
 	
 	/**
@@ -269,6 +207,7 @@ public class Statistics implements StatisticsMethods {
 	 * @return the greatest value of characters contained on a message in
 	 *         ArrayListFacebookPost
 	 */
+	@Override
 	public int MaxLengthMessage(ArrayListFacebookPost array) {
 		maxLengthMessage = 0;
 		for (int i = 0; i < array.getSize(); i++)

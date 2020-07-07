@@ -13,19 +13,19 @@ public class FacebookPost {
 	/**
 	 * Identifier of the post
 	 */
-	protected String id;
+	private String id;
 	/**
 	 * Message written by user on the post
 	 */
-	protected String message;
+	private String message;
 	/**
 	 * Number of total shares by other user of the post
 	 */
-	protected int numShares;
+	private int numShares;
 	/**
 	 * Number of total reactions by other user of the post
 	 */
-	protected int numReactions;
+	private int numReactions;
 
 	/**
 	 * Basic constructor
@@ -124,12 +124,4 @@ public class FacebookPost {
 		return false;
 	}
 
-	/**
-	 * Print post's details
-	 */
-	@Override
-	public String toString() {
-		return "\nPOST: \n   ID=" + id + "\n   MESSAGE =" + message + "\n   SHARES =" + numShares + "\n   REACTIONS ="
-				+ numReactions + "\n" + "CONTAINS EMOJI: " + containsEmoji();
-	}
 }

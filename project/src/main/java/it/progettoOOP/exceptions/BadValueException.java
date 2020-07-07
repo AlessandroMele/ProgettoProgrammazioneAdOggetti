@@ -1,10 +1,10 @@
 package it.progettoOOP.exceptions;
 
-import org.json.simple.JSONObject;
-
 public class BadValueException extends Exception {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public BadValueException() {
-		super("valore non accettato! ");
+		super("Value is not positive number! ");
 	}
 }
