@@ -13,24 +13,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.progettoOOP.model.ArrayListFacebookPost;
 import it.progettoOOP.model.FacebookPost;
 
 public class JSONManager {
-	
+
 	/**
 	 * This method provides to open a connection by a specific URL object
 	 * 
 	 * @return JSONObject object contained query's results
 	 */
-	public static JSONObject readURL(){
+	public static JSONObject readURL() {
 		try {
 			String myquery = "https://graph.facebook.com/me/posts?fields=id,shares,created_time,message,reactions.summary(1).limit(0)&access_token=EAAmlKB7cDMgBAGxIGbh829IzhKE7YxGhMQup3xcZCtIFvQq9OfMkF7iL7qUvX2E1rUdKBT8nVZCiOjuq4SdvfY1JmRT3Tua4jPh37qjLbP7bylKaVzrrpdkGAoaV5dKVZBICbYtiZCwDfHGSmnT5J4iHYxwcQsWliMMl8XVCi90AZCjXyxP42&limit=400";
 			StringBuilder string = new StringBuilder();
 			// Opening connection
 			URL url = new URL(myquery);
+			// Opening streams
 			InputStreamReader in = new InputStreamReader(url.openStream());
 			BufferedReader buffer = new BufferedReader(in);
 			String line = "";
@@ -43,12 +45,11 @@ public class JSONManager {
 			JSONObject json = new JSONObject(string.toString());
 			return json;
 		} catch (Exception e) {
-			// e.printStackTrace(e);
 			System.out.println("*** WARNING ***" + "\n*** CONNECTION NOT STARTED ***\n");
 			return null;
 		}
 	}
-	
+
 	/**
 	 * @param JSONObject This method parses the JSONObject returned by DownloadJSON,
 	 *                   extracts details and putting them in a
@@ -58,7 +59,7 @@ public class JSONManager {
 	public static ArrayListFacebookPost JSONParser(JSONObject json) throws JSONException {
 		ArrayListFacebookPost list = new ArrayListFacebookPost();
 
-		if (json != null) { 
+		if (json != null) {
 			JSONArray data = json.optJSONArray("data");
 			if (data != null) {
 
@@ -70,7 +71,7 @@ public class JSONManager {
 					try {
 						post.setMessage(data.getJSONObject(i).getString("message"));
 					} catch (JSONException e) {
-						//e.printStackTrace();
+						// e.printStackTrace();
 						post.setMessage("no message");
 					}
 
@@ -78,7 +79,7 @@ public class JSONManager {
 						JSONObject obj = (JSONObject) (data.getJSONObject(i).get("shares"));
 						post.setShares(obj.getInt("count"));
 					} catch (JSONException e) {
-						//e.printStackTrace();
+						// e.printStackTrace();
 						post.setShares(0);
 					}
 					try {
@@ -86,7 +87,7 @@ public class JSONManager {
 						JSONObject app = (JSONObject) (obj.get("summary"));
 						post.setReactions(app.getInt("total_count"));
 					} catch (JSONException e) {
-						//e.printStackTrace();
+						// e.printStackTrace();
 						post.setReactions(0);
 					}
 
@@ -96,13 +97,13 @@ public class JSONManager {
 		}
 		return list;
 	}
-	
+
 	/**
-	 * @param ArrayListFacebookPost
-	 * This method parses the ArrayListFacebookPost to String formatted on JSON
+	 * @param ArrayListFacebookPost This method parses the ArrayListFacebookPost to
+	 *                              String formatted on JSON
 	 * @return the JSON string that contains all ArrayListFacebookPost's details
 	 */
-	public static String JSONGenerator(ArrayListFacebookPost array) throws Exception {
+	public static String JSONGenerator(ArrayListFacebookPost array) throws JsonProcessingException {
 		String json = "";
 		if (array != null) {
 			ObjectMapper mapper = new ObjectMapper();

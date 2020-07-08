@@ -5,6 +5,8 @@
  */
 package it.progettoOOP.stats;
 
+import org.json.JSONObject;
+
 import it.progettoOOP.model.ArrayListFacebookPost;
 
 public class Statistics implements StatisticsMethods {
@@ -47,14 +49,18 @@ public class Statistics implements StatisticsMethods {
 	private int sumShareValue;
 
 	/**
-	 * Perc of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * Perch of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
 	private int percPosts;
 	
 	/**
-	 * Perc of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * Perch of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
 	private int percReactions;
+	/**
+	 * JSON that contains statistics report
+	 */
+	private JSONObject json;
 	
 
 	/**
@@ -72,6 +78,7 @@ public class Statistics implements StatisticsMethods {
 		averageShareValue = 0;
 		percPosts = 0;
 		percReactions = 0;
+		json= new JSONObject();
 	}
 	
 	/**
@@ -139,7 +146,7 @@ public class Statistics implements StatisticsMethods {
 	}
 	
 	/**
-	 * @return Perc of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * @return Perch of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
 	public int getPercPosts(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
 		percPosts = (array1.getSize() *100)/array2.getSize();	
@@ -147,7 +154,7 @@ public class Statistics implements StatisticsMethods {
 	}
 	
 	/**
-	 * @return Perc of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * @return Perch of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
 	 */
 	public int getPercReactions(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
 		percReactions = (array1.getTotReactions()*100)/array2.getTotReactions();	
@@ -271,20 +278,24 @@ public class Statistics implements StatisticsMethods {
 
 	/**
 	 * @param ArrayListFacebookPost
-	 * @return string that contains report's summary
+	 * @return a JSON parsed in string that contains report's summary
 	 */
 	@Override
 	public String StatisticsReports(ArrayListFacebookPost array, ArrayListFacebookPost totalArray) {
 		if (!array.isEmpty())
-			return "\n**STATS**\nTOTAL NUMBER OF POSTS: " + array.getSize() + "\n\nREACTIONS:\nAverage value="
-					+ AverageReactionsValue(array) + ", Sum value=" + SumReactionsValue(array) + ", Greatest value="
-					+ MaxReactionValue(array) + ", Smallest value=" + MinReactionValue(array)
-					+ "\n\nMESSAGE:\nGreatest messages character's value=" + MaxLengthMessage(array)
-					+ "\n\nSHARES:\nAverage value=" + AverageSharesValue(array) + ", Sum value=" + SumSharesValue(array)
-					+ ", Greatest value=" + MaxShareValue(array) + ", Smallest value=" + MinShareValue(array) 
-					+ "\n\n These posts are the " + getPercPosts(array,totalArray) + "% of the total." 
-					+ "\n Reactions are the " + getPercReactions(array,totalArray) + "% of the totale reactions. "; 
-		return "\n**NO STATS**\n";
+			json=new JSONObject();
+		json.put("total posts:", array.getSize());
+		json.put("sum reactions value", SumReactionsValue(array));
+		json.put("average reactions value",AverageReactionsValue(array));
+		json.put("max reactions value", MaxReactionValue(array));
+		json.put("min reactions value", MinReactionValue(array));
+		json.put("max shares value", MaxShareValue(array));
+		json.put("min shares value", MinShareValue(array));
+		json.put("average shares value",AverageReactionsValue(array));
+		json.put("Greatest messages character's value",MaxLengthMessage(array));
+		json.put(" % of total posts:",getPercPosts(array,totalArray));
+		json.put(" % of total reactions:",getPercReactions(array,totalArray));
+		return json.toString();
 	}
 
 }

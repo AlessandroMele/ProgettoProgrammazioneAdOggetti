@@ -14,10 +14,11 @@ public class Filtering {
 	 * @param array   the array to filter
 	 * @param options the body of the get request
 	 * @return the array filtered
-	 * @throws BadValueException 
+	 * @throws BadValueException
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPosts(ArrayListFacebookPost array, Filters options) throws BadValueException {
+	public static ArrayListFacebookPost FilteredPosts(ArrayListFacebookPost array, Filters options)
+			throws BadValueException {
 		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
 
 		for (int i = 0; i < array.getSize(); i++) {
@@ -40,21 +41,27 @@ public class Filtering {
 	 * @return the array filtered
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,String emoji) {
+	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,
+			String emoji) {
 		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
-		if(emoji.contains("true")||emoji.contains("TRUE")||emoji.contains("false")||emoji.contains("FALSE")) {
-			boolean emoticon;
-			if(emoji.contains("true")||emoji.contains("TRUE")) emoticon =true;
-				else emoticon = false;
-		for (int i = 0; i < array.getSize(); i++) {
-			if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength
-					&& array.getPost(i).containsEmoji() == emoticon)
-				arrayfil.addPost(array.getPost(i));
-		}
-		}
-		else {
+		//convert lower case string to upper case string
+		emoji.toUpperCase();
+		if (emoji.contains("TRUE")||emoji.contains("FALSE")) {
+			boolean emoticon = false;
+			if(emoji.contains("TRUE"))
+			emoticon = true;
+			else
+				emoticon = false;
 			for (int i = 0; i < array.getSize(); i++) {
-				if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength)
+				if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength
+						&& array.getPost(i).containsEmoji() == emoticon)
+					arrayfil.addPost(array.getPost(i));
+			}
+		} else {
+			//if emoji string is not TRUE or FALSE, filter validates either cases.
+			for (int i = 0; i < array.getSize(); i++) {
+				if (array.getPost(i).getLengthMessage() <= maxLength
+						&& array.getPost(i).getLengthMessage() >= minLength)
 					arrayfil.addPost(array.getPost(i));
 			}
 		}
