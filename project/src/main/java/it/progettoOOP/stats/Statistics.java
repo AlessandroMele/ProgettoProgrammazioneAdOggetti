@@ -5,9 +5,9 @@
  */
 package it.progettoOOP.stats;
 
-import org.json.JSONObject;
+import java.util.ArrayList;
 
-import it.progettoOOP.model.ArrayListFacebookPost;
+import it.progettoOOP.model.FacebookPost;
 
 public class Statistics implements StatisticsMethods {
 	/**
@@ -49,19 +49,31 @@ public class Statistics implements StatisticsMethods {
 	private int sumShareValue;
 
 	/**
-	 * Perch of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * Perch of posts contained in first ArrayListFacebookPost in relation to the
+	 * second ArrayListFacebookPost
 	 */
 	private int percPosts;
-	
+
 	/**
-	 * Perch of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * Perch of reactions contained in first ArrayListFacebookPost in relation to
+	 * the second ArrayListFacebookPost
 	 */
 	private int percReactions;
 	/**
 	 * JSON that contains statistics report
 	 */
-	private JSONObject json;
-	
+
+	/**
+	 * Perch of posts contained in first ArrayListFacebookPost in relation to the
+	 * second ArrayListFacebookPost
+	 */
+	private int totalReactions;
+
+	/**
+	 * Perch of reactions contained in first ArrayListFacebookPost in relation to
+	 * the second ArrayListFacebookPost
+	 */
+	private int totalShares;
 
 	/**
 	 * Basic constructor
@@ -69,18 +81,35 @@ public class Statistics implements StatisticsMethods {
 	public Statistics() {
 		sumReactionValue = 0;
 		averageReactionValue = 0;
+		totalReactions = 0;
 		maxReactionValue = 0;
 		minReactionValue = 0;
 		maxLengthMessage = 0;
+		totalShares = 0;
 		maxShareValue = 0;
 		minShareValue = 0;
 		sumReactionValue = 0;
 		averageShareValue = 0;
 		percPosts = 0;
 		percReactions = 0;
-		json= new JSONObject();
 	}
-	
+
+	public Statistics(ArrayList<FacebookPost> arrayList1, ArrayList<FacebookPost> arrayList2) {
+		sumReactionValue = SumReactionsValue(arrayList1);
+		maxReactionValue = MaxReactionValue(arrayList1);
+		minReactionValue = MinReactionValue(arrayList1);
+		averageReactionValue = AverageReactionsValue(arrayList1);
+		totalReactions = getTotalReactions(arrayList1);
+		maxLengthMessage = MaxLengthMessage(arrayList1);
+		sumShareValue = MaxShareValue(arrayList1);
+		maxShareValue = MaxShareValue(arrayList1);
+		minShareValue = MinShareValue(arrayList1);
+		averageShareValue = AverageSharesValue(arrayList1);
+		totalShares = getTotalShares(arrayList1);
+		percPosts = PercPosts(arrayList1, arrayList2);
+		percReactions = PercReactions(arrayList1, arrayList2);
+	}
+
 	/**
 	 * @return the averageReactionValue
 	 */
@@ -122,14 +151,13 @@ public class Statistics implements StatisticsMethods {
 	public int getMinShareValue() {
 		return minShareValue;
 	}
-	
+
 	/**
 	 * @return the maxLengthMessage
 	 */
 	public int getMaxLengthMessage() {
 		return maxLengthMessage;
 	}
-
 
 	/**
 	 * @return the averageSharesValue
@@ -144,20 +172,53 @@ public class Statistics implements StatisticsMethods {
 	public int getSumShareValue() {
 		return sumShareValue;
 	}
-	
+
+	public int getTotalReactions(ArrayList<FacebookPost> arrayList) {
+		int totalReactions = 0;
+		for (int i = 0; i < arrayList.size(); i++)
+			totalReactions = totalReactions + arrayList.get(i).getNumReactions();
+		return totalReactions;
+	}
+
 	/**
-	 * @return Perch of posts contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * @return the totalReactions
 	 */
-	public int getPercPosts(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
-		percPosts = (array1.getSize() *100)/array2.getSize();	
+	public int getTotalReactions() {
+		return totalReactions;
+	}
+
+	/**
+	 * @return the totalShares
+	 */
+	public int getTotalShares() {
+		return totalShares;
+	}
+
+	/**
+	 * @return the total number of shares of the ArrayListFacebookPost
+	 */
+	public int getTotalShares(ArrayList<FacebookPost> arrayList) {
+		int totalShares = 0;
+		for (int i = 0; i < arrayList.size(); i++)
+			totalShares = totalShares + arrayList.get(i).getNumShares();
+		return totalShares;
+	}
+
+	/**
+	 * @return Perch of posts contained in first ArrayListFacebookPost in relation
+	 *         to the second ArrayListFacebookPost
+	 */
+	public int PercPosts(ArrayList<FacebookPost> array1, ArrayList<FacebookPost> array2) {
+		percPosts = (array1.size() * 100) / array2.size();
 		return percPosts;
 	}
-	
+
 	/**
-	 * @return Perch of reactions contained in first ArrayListFacebookPost in relation to the second ArrayListFacebookPost
+	 * @return Perch of reactions contained in first ArrayListFacebookPost in
+	 *         relation to the second ArrayListFacebookPost
 	 */
-	public int getPercReactions(ArrayListFacebookPost array1, ArrayListFacebookPost array2) {
-		percReactions = (array1.getTotReactions()*100)/array2.getTotReactions();	
+	public int PercReactions(ArrayList<FacebookPost> array1, ArrayList<FacebookPost> array2) {
+		percReactions = (getTotalReactions(array1) * 100) / getTotalReactions(array2);
 		return percReactions;
 	}
 
@@ -165,10 +226,10 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return the sum value of reactions contained in ArrayListFacebookPost
 	 */
-	public int SumReactionsValue(ArrayListFacebookPost array) {
+	public int SumReactionsValue(ArrayList<FacebookPost> array) {
 		sumReactionValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			sumReactionValue = sumReactionValue + array.getPost(i).getNumReactions();
+		for (int i = 0; i < array.size(); i++)
+			sumReactionValue = sumReactionValue + array.get(i).getNumReactions();
 		return sumReactionValue;
 	}
 
@@ -176,11 +237,11 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return the average value of reactions contained in ArrayListFacebookPost
 	 */
-	public int AverageReactionsValue(ArrayListFacebookPost array) {
-		averageReactionValue = 0;
+	public int AverageReactionsValue(ArrayList<FacebookPost> array) {
 		try {
-			averageReactionValue = SumReactionsValue(array) / array.getSize();
-		} catch (ArithmeticException e) {// e.printStackTrace();
+			averageReactionValue = SumReactionsValue(array) / array.size();
+		} catch (ArithmeticException e) {
+			averageReactionValue = 0;
 		}
 		return averageReactionValue;
 	}
@@ -189,11 +250,11 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return the greatest value of reactions contained in ArrayListFacebookPost
 	 */
-	public int MaxReactionValue(ArrayListFacebookPost array) {
+	public int MaxReactionValue(ArrayList<FacebookPost> array) {
 		maxReactionValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getNumReactions() > maxReactionValue)
-				maxReactionValue = array.getPost(i).getNumReactions();
+		for (int i = 0; i < array.size(); i++)
+			if (array.get(i).getNumReactions() > maxReactionValue)
+				maxReactionValue = array.get(i).getNumReactions();
 		return maxReactionValue;
 	}
 
@@ -201,11 +262,11 @@ public class Statistics implements StatisticsMethods {
 	 * @param ArrayListFacebookPost
 	 * @return the smallest value of reactions contained in ArrayListFacebookPost
 	 */
-	public int MinReactionValue(ArrayListFacebookPost array) {
+	public int MinReactionValue(ArrayList<FacebookPost> array) {
 		minReactionValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getNumReactions() < minReactionValue)
-				minReactionValue = array.getPost(i).getNumReactions();
+		for (int i = 0; i < array.size(); i++)
+			if (array.get(i).getNumReactions() < minReactionValue)
+				minReactionValue = array.get(i).getNumReactions();
 		return minReactionValue;
 	}
 
@@ -215,11 +276,11 @@ public class Statistics implements StatisticsMethods {
 	 *         ArrayListFacebookPost
 	 */
 	@Override
-	public int MaxLengthMessage(ArrayListFacebookPost array) {
+	public int MaxLengthMessage(ArrayList<FacebookPost> array) {
 		maxLengthMessage = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getLengthMessage() > maxLengthMessage)
-				maxLengthMessage = array.getPost(i).getLengthMessage();
+		for (int i = 0; i < array.size(); i++)
+			if (array.get(i).getLengthMessage() > maxLengthMessage)
+				maxLengthMessage = array.get(i).getLengthMessage();
 		return maxLengthMessage;
 	}
 
@@ -228,11 +289,11 @@ public class Statistics implements StatisticsMethods {
 	 * @return the greatest value of shares contained in ArrayListFacebookPost
 	 */
 	@Override
-	public int MaxShareValue(ArrayListFacebookPost array) {
+	public int MaxShareValue(ArrayList<FacebookPost> array) {
 		maxShareValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getNumShares() > maxShareValue)
-				maxShareValue = array.getPost(i).getNumShares();
+		for (int i = 0; i < array.size(); i++)
+			if (array.get(i).getNumShares() > maxShareValue)
+				maxShareValue = array.get(i).getNumShares();
 		return maxShareValue;
 	}
 
@@ -241,11 +302,11 @@ public class Statistics implements StatisticsMethods {
 	 * @return the smallest value of shares contained in ArrayListFacebookPost
 	 */
 	@Override
-	public int MinShareValue(ArrayListFacebookPost array) {
+	public int MinShareValue(ArrayList<FacebookPost> array) {
 		minShareValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			if (array.getPost(i).getNumShares() < minShareValue)
-				minShareValue = array.getPost(i).getNumShares();
+		for (int i = 0; i < array.size(); i++)
+			if (array.get(i).getNumShares() < minShareValue)
+				minShareValue = array.get(i).getNumShares();
 		return minShareValue;
 	}
 
@@ -254,10 +315,10 @@ public class Statistics implements StatisticsMethods {
 	 * @return the sum value of reactions contained in ArrayListFacebookPost
 	 */
 	@Override
-	public int SumSharesValue(ArrayListFacebookPost array) {
+	public int SumSharesValue(ArrayList<FacebookPost> array) {
 		sumShareValue = 0;
-		for (int i = 0; i < array.getSize(); i++)
-			sumShareValue = sumShareValue + array.getPost(i).getNumShares();
+		for (int i = 0; i < array.size(); i++)
+			sumShareValue = sumShareValue + array.get(i).getNumShares();
 		return sumShareValue;
 	}
 
@@ -266,36 +327,13 @@ public class Statistics implements StatisticsMethods {
 	 * @return the average value of shares contained in ArrayListFacebookPost
 	 */
 	@Override
-	public int AverageSharesValue(ArrayListFacebookPost array) {
+	public int AverageSharesValue(ArrayList<FacebookPost> array) {
 		averageShareValue = 0;
 		try {
-			averageShareValue = SumSharesValue(array) / array.getSize();
+			averageShareValue = SumSharesValue(array) / array.size();
 		} catch (ArithmeticException e) {
-			// e.printStackTrace();
+
 		}
 		return averageShareValue;
 	}
-
-	/**
-	 * @param ArrayListFacebookPost
-	 * @return a JSON parsed in string that contains report's summary
-	 */
-	@Override
-	public String StatisticsReports(ArrayListFacebookPost array, ArrayListFacebookPost totalArray) {
-		if (!array.isEmpty())
-			json=new JSONObject();
-		json.put("total posts:", array.getSize());
-		json.put("sum reactions value", SumReactionsValue(array));
-		json.put("average reactions value",AverageReactionsValue(array));
-		json.put("max reactions value", MaxReactionValue(array));
-		json.put("min reactions value", MinReactionValue(array));
-		json.put("max shares value", MaxShareValue(array));
-		json.put("min shares value", MinShareValue(array));
-		json.put("average shares value",AverageReactionsValue(array));
-		json.put("Greatest messages character's value",MaxLengthMessage(array));
-		json.put(" % of total posts:",getPercPosts(array,totalArray));
-		json.put(" % of total reactions:",getPercReactions(array,totalArray));
-		return json.toString();
-	}
-
 }

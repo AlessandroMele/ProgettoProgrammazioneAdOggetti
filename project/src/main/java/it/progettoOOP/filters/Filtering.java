@@ -5,8 +5,10 @@
  */
 package it.progettoOOP.filters;
 
+import java.util.ArrayList;
+
 import it.progettoOOP.exceptions.BadValueException;
-import it.progettoOOP.model.ArrayListFacebookPost;
+import it.progettoOOP.model.FacebookPost;
 
 public class Filtering {
 
@@ -17,18 +19,18 @@ public class Filtering {
 	 * @throws BadValueException
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPosts(ArrayListFacebookPost array, Filters options)
+	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters options)
 			throws BadValueException {
-		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
+		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 
-		for (int i = 0; i < array.getSize(); i++) {
-			if (array.getPost(i).getLengthMessage() <= options.getMaxLengthMess()
-					&& array.getPost(i).getLengthMessage() >= options.getMinLengthMess()
-					&& array.getPost(i).getNumShares() <= options.getMaxShares()
-					&& array.getPost(i).getNumShares() >= options.getMinShares()
-					&& array.getPost(i).getNumReactions() <= options.getMaxReactions()
-					&& array.getPost(i).getNumReactions() >= options.getMinReactions())
-				arrayfil.addPost(array.getPost(i));
+		for (int i = 0; i < array.size(); i++) {
+			if (array.get(i).getLengthMessage() <= options.getMaxLengthMess()
+					&& array.get(i).getLengthMessage() >= options.getMinLengthMess()
+					&& array.get(i).getNumShares() <= options.getMaxShares()
+					&& array.get(i).getNumShares() >= options.getMinShares()
+					&& array.get(i).getNumReactions() <= options.getMaxReactions()
+					&& array.get(i).getNumReactions() >= options.getMinReactions())
+				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
 	}
@@ -41,28 +43,27 @@ public class Filtering {
 	 * @return the array filtered
 	 *
 	 */
-	public static ArrayListFacebookPost FilteredPostsByParam(ArrayListFacebookPost array, int minLength, int maxLength,
-			String emoji) {
-		ArrayListFacebookPost arrayfil = new ArrayListFacebookPost();
-		//convert lower case string to upper case string
+	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, int minLength,
+			int maxLength, String emoji) {
+		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
+		boolean emoticon = false;
+		// convert lower case string to upper case string
 		emoji.toUpperCase();
-		if (emoji.contains("TRUE")||emoji.contains("FALSE")) {
-			boolean emoticon = false;
-			if(emoji.contains("TRUE"))
-			emoticon = true;
+		if (emoji.contains("TRUE") || emoji.contains("FALSE")) {
+			if (emoji.contains("TRUE"))
+				emoticon = true;
 			else
 				emoticon = false;
-			for (int i = 0; i < array.getSize(); i++) {
-				if (array.getPost(i).getLengthMessage() <= maxLength && array.getPost(i).getLengthMessage() >= minLength
-						&& array.getPost(i).containsEmoji() == emoticon)
-					arrayfil.addPost(array.getPost(i));
+			for (int i = 0; i < array.size(); i++) {
+				if (array.get(i).getLengthMessage() <= maxLength && array.get(i).getLengthMessage() >= minLength
+						&& array.get(i).containsEmoji() == emoticon)
+					arrayfil.add(array.get(i));
 			}
 		} else {
-			//if emoji string is not TRUE or FALSE, filter validates either cases.
-			for (int i = 0; i < array.getSize(); i++) {
-				if (array.getPost(i).getLengthMessage() <= maxLength
-						&& array.getPost(i).getLengthMessage() >= minLength)
-					arrayfil.addPost(array.getPost(i));
+			// if emoji string is not TRUE or FALSE, filter validates either cases.
+			for (int i = 0; i < array.size(); i++) {
+				if (array.get(i).getLengthMessage() <= maxLength && array.get(i).getLengthMessage() >= minLength)
+					arrayfil.add(array.get(i));
 			}
 		}
 		return arrayfil;

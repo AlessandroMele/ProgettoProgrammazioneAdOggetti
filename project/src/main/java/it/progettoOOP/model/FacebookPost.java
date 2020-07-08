@@ -31,7 +31,7 @@ public class FacebookPost {
 	 * Basic constructor
 	 */
 	public FacebookPost() {
-		id = "no identifier";
+		id = "no id";
 		this.message = "no message";
 		this.numShares = 0;
 		this.numReactions = 0;
