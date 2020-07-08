@@ -106,6 +106,7 @@ public class JSONManager {
 	 *                   ArrayListFacebookPost object
 	 * @return the list with all details ordered by this method
 	 */
+	/**
 	public static ArrayList<FacebookPost> JSONParser(Filters json) throws JSONException {
 			int maxLengthMess = 10000;
 			JSONObject length=json.getLength().get("length");
@@ -145,7 +146,7 @@ public class JSONManager {
 			}
 		}
 		return list;
-	}
+	}*/
 
 	/**
 	 * @param ArrayListFacebookPost This method parses the ArrayListFacebookPost to
