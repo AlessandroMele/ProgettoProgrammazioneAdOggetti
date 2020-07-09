@@ -11,6 +11,7 @@ import it.progettoOOP.exceptions.BadRangeValueException;
 import it.progettoOOP.exceptions.BadStringException;
 import it.progettoOOP.exceptions.BadValueException;
 import it.progettoOOP.model.FacebookPost;
+import it.progettoOOP.stats.Statistics;
 
 public class Filtering {
 
@@ -30,7 +31,7 @@ public class Filtering {
 					&& array.get(i).getNumShares() <= filter.MaxShares()
 					&& array.get(i).getNumShares() >= filter.MinShares()
 					&& array.get(i).getNumReactions() <= filter.MaxReactions()
-					&& array.get(i).getNumReactions() >= filter.MinLength())
+					&& array.get(i).getNumReactions() >= filter.MinReactions())
 				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
@@ -50,6 +51,7 @@ public class Filtering {
 	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, String param,
 			String emoji) throws BadRangeValueException, BadValueException, BadStringException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
+		
 		boolean emoticon = false;
 		int minLength = 0;
 		int maxLength = 10000;
@@ -74,7 +76,7 @@ public class Filtering {
 		if (maxLength < minLength)
 			throw new BadRangeValueException();
 
-		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")){
+		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")) {
 			if (emoji.equals("TRUE") || emoji.equals("true"))
 				emoticon = true;
 			emoticon = false;
@@ -82,8 +84,7 @@ public class Filtering {
 				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength
 						&& array.get(i).ContainsEmoji() == emoticon)
 					arrayfil.add(array.get(i));
-		}
-		else
+		} else
 			throw new BadStringException();
 		return arrayfil;
 	}
