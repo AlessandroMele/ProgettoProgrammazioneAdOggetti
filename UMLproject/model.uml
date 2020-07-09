@@ -100,7 +100,7 @@
     <ownedAttribute xmi:id="_qcmBcMHdEeqvFLeyLi27Tw" name="maxShares" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_qgEMMMHdEeqvFLeyLi27Tw" name="minReactions">
+    <ownedAttribute xmi:id="_qgEMMMHdEeqvFLeyLi27Tw" name="minReactions" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_qkVoMMHdEeqvFLeyLi27Tw" name="maxReactions" visibility="private">
@@ -157,7 +157,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_VXg9sMAzEeqaC8XrSbC4rg" name="Statistics" visibility="public">
     <ownedAttribute xmi:id="_farEsMAzEeqaC8XrSbC4rg" name="averageReactionValue" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_fjg3oMAzEeqaC8XrSbC4rg" name="sumReactionValue" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -178,21 +178,24 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_8sjqYMAzEeqaC8XrSbC4rg" name="averageShareValue" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="__7IfMMAzEeqaC8XrSbC4rg" name="sumShareValue" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_AM_EMMA0EeqaC8XrSbC4rg" name="percPosts" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_FpwO4MA0EeqaC8XrSbC4rg" name="percReactions" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_PGC-gMHGEeqjPadJcd0BQg" name="totalShares" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_SQN0cMHGEeqjPadJcd0BQg" name="totalReactions" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UGMM4MHtEeqYdKrI2O1zIg" name="minLengthMessage" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <interfaceRealization xmi:id="_aTUJUMAzEeqaC8XrSbC4rg" client="_VXg9sMAzEeqaC8XrSbC4rg" supplier="_zneKoMAyEeqaC8XrSbC4rg" contract="_zneKoMAyEeqaC8XrSbC4rg"/>
@@ -256,6 +259,12 @@
     <ownedOperation xmi:id="_sD_7kMHGEeqjPadJcd0BQg" name="TotalShares"/>
     <ownedOperation xmi:id="_zdJTYMHGEeqjPadJcd0BQg" name="PercPosts"/>
     <ownedOperation xmi:id="_1o1H0MHGEeqjPadJcd0BQg" name="PercReactions"/>
+    <ownedOperation xmi:id="_YMhwIMHtEeqYdKrI2O1zIg" name="MinLengthMessage">
+      <ownedParameter xmi:id="_e7zrkMHtEeqYdKrI2O1zIg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iVJl8MHtEeqYdKrI2O1zIg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kwzJAMHtEeqYdKrI2O1zIg" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_ti1K0MA2EeqaC8XrSbC4rg" name="JSONManager" visibility="public">
     <ownedOperation xmi:id="_wM910MA2EeqaC8XrSbC4rg" name="readURL" isStatic="true"/>

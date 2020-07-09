@@ -48,12 +48,6 @@ public class Controller {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPostsByParam(array, param, emoji);
 		Statistics mystats = new Statistics(filteredArray, array);
-		String JSONStats = "";
-		try {
-			JSONStats = JSONManager.JSONGenerator(mystats);
-		} catch (JsonProcessingException e) {
-			JSONStats = "No stats";
-		}
 		return new ResponseEntity<>(mystats, HttpStatus.OK);
 	}
 
