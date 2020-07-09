@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 
 import it.progettoOOP.exceptions.BadRangeValueException;
 import it.progettoOOP.exceptions.BadValueException;
+import it.progettoOOP.stats.Statistics;
 
 public class Filters {
 	private JSONObject length;
@@ -40,7 +41,7 @@ public class Filters {
 		return reactions;
 	}
 
-	public int MaxLength() throws BadValueException, BadRangeValueException {
+	public int MaxLength() throws BadValueException, BadRangeValueException, ClassCastException {
 		try {
 			maxLength = (int) length.get("max");
 			if (maxLength < minLength)
@@ -53,7 +54,7 @@ public class Filters {
 		return maxLength;
 	}
 
-	public int MinLength() throws BadValueException {
+	public int MinLength() throws BadValueException, ClassCastException {
 		try {
 			minLength = (int) length.get("min");
 		} catch (NullPointerException e) {
@@ -64,7 +65,7 @@ public class Filters {
 		return minLength;
 	}
 
-	public int MaxShares() throws BadValueException, BadRangeValueException {
+	public int MaxShares() throws BadValueException, BadRangeValueException,ClassCastException {
 		try {
 			maxShares = (int) shares.get("max");
 			if (maxShares < minShares)
@@ -77,7 +78,7 @@ public class Filters {
 		return maxShares;
 	}
 
-	public int MinShares() throws BadValueException {
+	public int MinShares() throws BadValueException,ClassCastException {
 		try {
 			minShares = (int) shares.get("min");
 		} catch (NullPointerException e) {
@@ -88,7 +89,7 @@ public class Filters {
 		return minShares;
 	}
 
-	public int MaxReactions() throws BadValueException, BadRangeValueException {
+	public int MaxReactions() throws BadValueException, BadRangeValueException,ClassCastException {
 		try {
 			maxReactions = (int) reactions.get("max");
 			if (maxReactions < minReactions)
@@ -101,7 +102,7 @@ public class Filters {
 		return maxReactions;
 	}
 
-	public int MinReactions() throws BadValueException {
+	public int MinReactions() throws BadValueException,ClassCastException {
 		try {
 			minReactions = (int) reactions.get("min");
 		} catch (NullPointerException e) {

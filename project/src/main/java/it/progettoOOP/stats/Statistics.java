@@ -30,6 +30,10 @@ public class Statistics implements StatisticsMethods {
 	 * Greatest value of characters on a message in <ArrayList>FacebookPost
 	 */
 	private int maxLengthMessage;
+	/**
+	 * Smallest value of characters on a message in <ArrayList>FacebookPost
+	 */
+	private int minLengthMessage;
 
 	/**
 	 * Greatest value of reactions contained in <ArrayList>FacebookPost
@@ -74,6 +78,25 @@ public class Statistics implements StatisticsMethods {
 	 * the second <ArrayList>FacebookPost
 	 */
 	private int totalShares;
+	
+	public Statistics() {
+		sumReactionValue = 0;
+		maxReactionValue = 0;
+		minReactionValue = 0;
+		averageReactionValue = 0;
+		totalReactions = 0;
+		maxLengthMessage = 0;
+		minLengthMessage = 0;
+		sumShareValue = 0 ;
+		maxShareValue = 0;
+		minShareValue = 0;
+		averageShareValue = 0;
+		totalShares = 0;
+		percPosts = 0;
+		percReactions = 0;
+	}
+	
+	
 
 	public Statistics(ArrayList<FacebookPost> arrayList1, ArrayList<FacebookPost> arrayList2) {
 		sumReactionValue = SumReactionsValue(arrayList1);
@@ -303,6 +326,20 @@ public class Statistics implements StatisticsMethods {
 				if (array.get(i).LengthMessage() > maxLengthMessage)
 					maxLengthMessage = array.get(i).LengthMessage();
 		return maxLengthMessage;
+	}
+	
+	/**
+	 * @param array <ArrayList>FacebookPost
+	 * @return the smallest value of characters contained on a message in
+	 *         <ArrayList>FacebookPost
+	 */
+	public int MinLengthMessage(ArrayList<FacebookPost> array) {
+		minLengthMessage = 0;
+		if (!array.isEmpty())
+			for (int i = 0; i < array.size(); i++)
+				if (array.get(i).LengthMessage() < minLengthMessage)
+					minLengthMessage = array.get(i).LengthMessage();
+		return minLengthMessage;
 	}
 
 	/**

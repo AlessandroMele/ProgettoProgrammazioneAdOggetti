@@ -49,12 +49,12 @@ public class Filtering {
 	 *
 	 */
 	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, String param,
-			String emoji) throws BadRangeValueException, BadValueException, BadStringException {
+			String emoji) throws BadRangeValueException, BadValueException, BadStringException, NumberFormatException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
-		
 		boolean emoticon = false;
-		int minLength = 0;
-		int maxLength = 10000;
+		Statistics mystat = new Statistics();
+		int minLength = mystat.MinLengthMessage(array);
+		int maxLength = mystat.MaxLengthMessage(array);
 
 		String[] rangeLength = param.split(",");
 		try {
