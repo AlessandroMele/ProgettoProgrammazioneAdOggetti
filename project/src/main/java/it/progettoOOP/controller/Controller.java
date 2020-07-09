@@ -1,3 +1,9 @@
+/**
+ * @author Mele Alessandro & Verdecchia Matteo
+ * OOP project exam, A.A. 2019/2020
+ *
+ */
+
 package it.progettoOOP.controller;
 
 import java.util.ArrayList;
@@ -48,7 +54,7 @@ public class Controller {
 		} catch (JsonProcessingException e) {
 			JSONStats = "No stats";
 		}
-		return new ResponseEntity<>(JSONStats, HttpStatus.OK);
+		return new ResponseEntity<>(mystats, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/filters", method = { RequestMethod.POST, RequestMethod.PUT })

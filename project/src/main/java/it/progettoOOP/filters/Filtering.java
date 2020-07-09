@@ -1,8 +1,9 @@
 /**
  * @author Mele Alessandro & Verdecchia Matteo
- * Project of OOP Programming exams, A.A. 2019/2020
+ * OOP project exam, A.A. 2019/2020
  *
  */
+
 package it.progettoOOP.filters;
 
 import java.util.ArrayList;
@@ -79,13 +80,16 @@ public class Filtering {
 		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")) {
 			if (emoji.equals("TRUE") || emoji.equals("true"))
 				emoticon = true;
-			emoticon = false;
+			else emoticon = false;
 			for (int i = 0; i < array.size(); i++)
 				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength
 						&& array.get(i).ContainsEmoji() == emoticon)
 					arrayfil.add(array.get(i));
-		} else
-			throw new BadStringException();
+		} else if(emoji.equals("notSpecified")) {
+			for (int i = 0; i < array.size(); i++)
+				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength)
+					arrayfil.add(array.get(i));
+			}else throw new BadStringException();
 		return arrayfil;
 	}
 

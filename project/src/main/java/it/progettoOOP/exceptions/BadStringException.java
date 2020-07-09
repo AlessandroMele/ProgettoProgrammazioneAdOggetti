@@ -1,3 +1,9 @@
+/**
+ * @author Mele Alessandro & Verdecchia Matteo
+ * OOP project exam, A.A. 2019/2020
+ *
+ */
+
 package it.progettoOOP.exceptions;
 
 /**

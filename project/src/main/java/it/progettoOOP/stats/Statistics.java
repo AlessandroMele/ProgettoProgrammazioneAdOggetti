@@ -1,6 +1,6 @@
 /**
  * @author Mele Alessandro & Verdecchia Matteo
- * Project of OOP Programming exams, A.A. 2019/2020
+ * OOP project exam, A.A. 2019/2020
  *
  */
 package it.progettoOOP.stats;
@@ -13,7 +13,7 @@ public class Statistics implements StatisticsMethods {
 	/**
 	 * Average value of reactions contained in <ArrayList>FacebookPost
 	 */
-	private int averageReactionValue;
+	private double averageReactionValue;
 	/**
 	 * Sum value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -46,7 +46,7 @@ public class Statistics implements StatisticsMethods {
 	/**
 	 * Average value of reactions contained in <ArrayList>FacebookPost
 	 */
-	private int averageShareValue;
+	private double averageShareValue;
 	/**
 	 * Sum value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -56,13 +56,13 @@ public class Statistics implements StatisticsMethods {
 	 * Perch of posts contained in first <ArrayList>FacebookPost in relation to the
 	 * second <ArrayList>FacebookPost
 	 */
-	private int percPosts;
+	private double percPosts;
 
 	/**
 	 * Perch of reactions contained in first <ArrayList>FacebookPost in relation to
 	 * the second <ArrayList>FacebookPost
 	 */
-	private int percReactions;
+	private double percReactions;
 	/**
 	 * JSON that contains statistics report
 	 */
@@ -117,7 +117,7 @@ public class Statistics implements StatisticsMethods {
 	/**
 	 * @return the averageReactionValue
 	 */
-	public int getAverageReactionValue() {
+	public double getAverageReactionValue() {
 		return averageReactionValue;
 	}
 
@@ -166,7 +166,7 @@ public class Statistics implements StatisticsMethods {
 	/**
 	 * @return the averageShareValue
 	 */
-	public int getAverageShareValue() {
+	public double getAverageShareValue() {
 		return averageShareValue;
 	}
 
@@ -180,14 +180,14 @@ public class Statistics implements StatisticsMethods {
 	/**
 	 * @return the percPosts
 	 */
-	public int getPercPosts() {
+	public double getPercPosts() {
 		return percPosts;
 	}
 
 	/**
 	 * @return the percReactions
 	 */
-	public int getPercReactions() {
+	public double getPercReactions() {
 		return percReactions;
 	}
 
@@ -235,7 +235,7 @@ public class Statistics implements StatisticsMethods {
 	 * @return Perch of posts contained in first <ArrayList>FacebookPost in relation
 	 *         to the second <ArrayList>FacebookPost
 	 */
-	public int PercPosts(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
+	public double PercPosts(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
 		percPosts = 0;
 		if (!arrayfull.isEmpty())
 			try {
@@ -251,7 +251,7 @@ public class Statistics implements StatisticsMethods {
 	 * @return Perch of reactions contained in first <ArrayList>FacebookPost in
 	 *         relation to the second <ArrayList>FacebookPost
 	 */
-	public int PercReactions(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
+	public double PercReactions(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
 		percReactions = 0;
 		if (!arrayfull.isEmpty())
 			try {
@@ -277,8 +277,8 @@ public class Statistics implements StatisticsMethods {
 	 * @param array <ArrayList>FacebookPost
 	 * @return the average value of reactions contained in <ArrayList>FacebookPost
 	 */
-	public int AverageReactionsValue(ArrayList<FacebookPost> array) {
-		averageReactionValue = 0;
+	public double AverageReactionsValue(ArrayList<FacebookPost> array) {
+		averageReactionValue = 0.0;
 		if (!array.isEmpty())
 			try {
 				averageReactionValue = SumReactionsValue(array) / array.size();
@@ -388,7 +388,7 @@ public class Statistics implements StatisticsMethods {
 	 * @return the average value of shares contained in <ArrayList>FacebookPost
 	 */
 	@Override
-	public int AverageSharesValue(ArrayList<FacebookPost> array) {
+	public double AverageSharesValue(ArrayList<FacebookPost> array) {
 		averageShareValue = 0;
 		if (!array.isEmpty())
 			try {

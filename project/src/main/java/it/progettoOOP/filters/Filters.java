@@ -1,10 +1,15 @@
+/**
+ * @author Mele Alessandro & Verdecchia Matteo
+ * OOP project exam, A.A. 2019/2020
+ *
+ */
+
 package it.progettoOOP.filters;
 
 import org.json.simple.JSONObject;
 
 import it.progettoOOP.exceptions.BadRangeValueException;
 import it.progettoOOP.exceptions.BadValueException;
-import it.progettoOOP.stats.Statistics;
 
 public class Filters {
 	/**

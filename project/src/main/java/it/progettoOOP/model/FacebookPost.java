@@ -1,8 +1,9 @@
 /**
  * @author Mele Alessandro & Verdecchia Matteo
- * Project of OOP Programming exams, A.A. 2019/2020
+ * OOP project exam, A.A. 2019/2020
  *
  */
+
 package it.progettoOOP.model;
 
 public class FacebookPost {

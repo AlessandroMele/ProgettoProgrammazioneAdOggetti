@@ -1,8 +1,9 @@
 /**
  * @author Mele Alessandro & Verdecchia Matteo
- * Project of OOP Programming exams, A.A. 2019/2020
+ * OOP project exam, A.A. 2019/2020
  *
  */
+
 package it.progettoOOP.stats;
 
 import java.util.ArrayList;
@@ -44,6 +45,6 @@ public interface StatisticsMethods {
 	 * @param <ArrayList>FacebookPost
 	 * @return the average value of shares contained in <ArrayList>FacebookPost
 	 */
-	public abstract int AverageSharesValue(ArrayList<FacebookPost> array);
+	public abstract double AverageSharesValue(ArrayList<FacebookPost> array);
 
 }
