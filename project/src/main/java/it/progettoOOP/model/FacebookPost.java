@@ -5,10 +5,6 @@
  */
 package it.progettoOOP.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-
 public class FacebookPost {
 	/**
 	 * Identifier of the post
@@ -32,13 +28,13 @@ public class FacebookPost {
 	 */
 	public FacebookPost() {
 		id = "no id";
-		this.message = "no message";
-		this.numShares = 0;
-		this.numReactions = 0;
+		message = "no message";
+		numShares = 0;
+		numReactions = 0;
 	}
 
 	/**
-	 * Constructor with fields
+	 * Constructor using fields
 	 */
 	public FacebookPost(String id, String message, int numShares, int numReactions) {
 		this.id = id;
@@ -86,7 +82,7 @@ public class FacebookPost {
 	/**
 	 * @param shares the shares to set
 	 */
-	public void setShares(int numShares) {
+	public void setNumShares(int numShares) {
 		this.numShares = numShares;
 	}
 
@@ -100,7 +96,7 @@ public class FacebookPost {
 	/**
 	 * @return the message's length
 	 */
-	public int getLengthMessage() {
+	public int LengthMessage() {
 		if (message.equals("no message"))
 			return 0;
 		return message.length();
@@ -109,14 +105,14 @@ public class FacebookPost {
 	/**
 	 * @param reactions the reactions to set
 	 */
-	public void setReactions(int numReactions) {
+	public void setNumReactions(int numReactions) {
 		this.numReactions = numReactions;
 	}
 
 	/**
 	 * @return true if message contains emoji
 	 */
-	public boolean containsEmoji() {
+	public boolean ContainsEmoji() {
 		for (int i = 0; i < message.length(); i++)
 			if (i < (message.length() - 1))
 				if (Character.isSurrogatePair(message.charAt(i), message.charAt(i + 1)))

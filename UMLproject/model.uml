@@ -8,7 +8,7 @@
       <details xmi:id="_Tk8v8L-bEeqiENbebOj_2A" key="Human"/>
     </eAnnotations>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_XQoXgL-bEeqiENbebOj_2A" name="get MetaData">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_XQoXgL-bEeqiENbebOj_2A" name="get Metadata">
     <extend xmi:id="_LWwkEMArEeqaC8XrSbC4rg" extendedCase="_NqtOkMApEeqaC8XrSbC4rg"/>
     <extend xmi:id="_MKKW8MArEeqaC8XrSbC4rg" extendedCase="_U9SrYMApEeqaC8XrSbC4rg"/>
     <include xmi:id="_Ob_PoMArEeqaC8XrSbC4rg" addition="_gbKc4MApEeqaC8XrSbC4rg"/>
@@ -26,29 +26,8 @@
     <ownedAttribute xmi:id="_esn0QMAlEeqaC8XrSbC4rg" name="numReactions" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
-    <ownedOperation xmi:id="_mrsecMA3EeqaC8XrSbC4rg" name="containsEmoji"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_7vimUMAkEeqaC8XrSbC4rg" name="ArrayListFacebookPost" visibility="public">
-    <generalization xmi:id="_XmDNoMA6EeqaC8XrSbC4rg" general="_LBkbYMAkEeqaC8XrSbC4rg"/>
-    <ownedAttribute xmi:id="_Jb-xEMA5EeqaC8XrSbC4rg" name="arrayList" visibility="private" isUnique="false">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f6YbUMA6EeqaC8XrSbC4rg"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iLgwcMA6EeqaC8XrSbC4rg" value="400"/>
-    </ownedAttribute>
-    <ownedOperation xmi:id="_TwxaoMA5EeqaC8XrSbC4rg" name="getSize"/>
-    <ownedOperation xmi:id="_pdY4EMA5EeqaC8XrSbC4rg" name="getPost">
-      <ownedParameter xmi:id="_rRmAoMA5EeqaC8XrSbC4rg" name="i">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:id="_wPuHgMA5EeqaC8XrSbC4rg" name="getTotReactions"/>
-    <ownedOperation xmi:id="_1I1ykMA5EeqaC8XrSbC4rg" name="getTotShares"/>
-    <ownedOperation xmi:id="_-V3i0MA5EeqaC8XrSbC4rg" name="isEmpty"/>
-    <ownedOperation xmi:id="_A9BLQMA6EeqaC8XrSbC4rg" name="addPost">
-      <ownedParameter xmi:id="_DEa8oMA6EeqaC8XrSbC4rg" name="post"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_Lw16MMA6EeqaC8XrSbC4rg" name="removePost">
-      <ownedParameter xmi:id="_Mm5_gMA6EeqaC8XrSbC4rg" name="post"/>
-    </ownedOperation>
+    <ownedOperation xmi:id="_mrsecMA3EeqaC8XrSbC4rg" name="ContainsEmoji"/>
+    <ownedOperation xmi:id="_Bxf_QMHGEeqjPadJcd0BQg" name="LengthMessage"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_NqtOkMApEeqaC8XrSbC4rg" name="get Filters">
     <ownedUseCase xmi:id="_UXl9UMApEeqaC8XrSbC4rg" name="/Data"/>
@@ -67,11 +46,11 @@
     <include xmi:id="_S9xYwMArEeqaC8XrSbC4rg" addition="_KWdaIMAqEeqaC8XrSbC4rg"/>
     <include xmi:id="_TcU9AMArEeqaC8XrSbC4rg" addition="_KpkjYMAqEeqaC8XrSbC4rg"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_KWdaIMAqEeqaC8XrSbC4rg" name="get Emojis"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KWdaIMAqEeqaC8XrSbC4rg" name="get Emoji"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_KpkjYMAqEeqaC8XrSbC4rg" name="get Length Message"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_yymcUMArEeqaC8XrSbC4rg" name="get Range Message"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_zKBd0MArEeqaC8XrSbC4rg" name="get Range Share"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_8CZMsMArEeqaC8XrSbC4rg" name="get Reaction"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_8CZMsMArEeqaC8XrSbC4rg" name="get Range Reaction"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_MXLCwMAsEeqaC8XrSbC4rg" memberEnd="_MXLCwcAsEeqaC8XrSbC4rg _MXLCwsAsEeqaC8XrSbC4rg">
     <ownedEnd xmi:id="_MXLCwcAsEeqaC8XrSbC4rg" type="_Tk5soL-bEeqiENbebOj_2A" association="_MXLCwMAsEeqaC8XrSbC4rg"/>
     <ownedEnd xmi:id="_MXLCwsAsEeqaC8XrSbC4rg" type="_XQoXgL-bEeqiENbebOj_2A" association="_MXLCwMAsEeqaC8XrSbC4rg"/>
@@ -86,48 +65,94 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_MVrtoMAvEeqaC8XrSbC4rg" name="Filtering" visibility="public">
     <ownedOperation xmi:id="_kDd8IMAwEeqaC8XrSbC4rg" name="FilteredPostsByParam" isStatic="true">
-      <ownedParameter xmi:id="_mk4I8MAwEeqaC8XrSbC4rg" name="array">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F68M4MAxEeqaC8XrSbC4rg" value="1"/>
+      <ownedParameter xmi:id="_mk4I8MAwEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F68M4MAxEeqaC8XrSbC4rg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mJlBAMHFEeqjPadJcd0BQg" value="400"/>
       </ownedParameter>
-      <ownedParameter xmi:id="_nM39EMAwEeqaC8XrSbC4rg" name="minLength"/>
-      <ownedParameter xmi:id="_oDrpQMAwEeqaC8XrSbC4rg" name="maxLength"/>
-      <ownedParameter xmi:id="_oVyF4MAwEeqaC8XrSbC4rg" name="emoji"/>
+      <ownedParameter xmi:id="_nM39EMAwEeqaC8XrSbC4rg" name="param">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_oVyF4MAwEeqaC8XrSbC4rg" name="emoji">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_gtHO4MAxEeqaC8XrSbC4rg" name="FilteredPosts" isStatic="true">
-      <ownedParameter xmi:id="_iSNkcMAxEeqaC8XrSbC4rg" name="array"/>
-      <ownedParameter xmi:id="_ihmrUMAxEeqaC8XrSbC4rg" name="options"/>
+      <ownedParameter xmi:id="_iSNkcMAxEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q1UXYMHFEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rRWMEMHFEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_ihmrUMAxEeqaC8XrSbC4rg" name="options" type="_mYpOUMAxEeqaC8XrSbC4rg"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_mYpOUMAxEeqaC8XrSbC4rg" name="Filters" visibility="public">
     <ownedAttribute xmi:id="_-qQ_IMAxEeqaC8XrSbC4rg" name="length" visibility="private"/>
     <ownedAttribute xmi:id="_-3MA0MAxEeqaC8XrSbC4rg" name="shares" visibility="private"/>
     <ownedAttribute xmi:id="__AfGwMAxEeqaC8XrSbC4rg" name="reactions" visibility="private"/>
-    <ownedOperation xmi:id="_ESzU8MAyEeqaC8XrSbC4rg" name="getMaxLengthMess"/>
-    <ownedOperation xmi:id="_ElNTkMAyEeqaC8XrSbC4rg" name="getMinLengthMess"/>
-    <ownedOperation xmi:id="_c_45wMAyEeqaC8XrSbC4rg" name="getMaxShares"/>
-    <ownedOperation xmi:id="_eOyV0MAyEeqaC8XrSbC4rg" name="getMinShares"/>
-    <ownedOperation xmi:id="_egQgUMAyEeqaC8XrSbC4rg" name="getMaxReactions"/>
-    <ownedOperation xmi:id="_evgdQMAyEeqaC8XrSbC4rg" name="getMinReactions"/>
+    <ownedAttribute xmi:id="_p3uZ0MHdEeqvFLeyLi27Tw" name="minLength" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qTvncMHdEeqvFLeyLi27Tw" name="maxLength" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qYm5UMHdEeqvFLeyLi27Tw" name="minShares" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qcmBcMHdEeqvFLeyLi27Tw" name="maxShares" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qgEMMMHdEeqvFLeyLi27Tw" name="minReactions">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qkVoMMHdEeqvFLeyLi27Tw" name="maxReactions" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_ESzU8MAyEeqaC8XrSbC4rg" name="MaxLength"/>
+    <ownedOperation xmi:id="_ElNTkMAyEeqaC8XrSbC4rg" name="MinLength"/>
+    <ownedOperation xmi:id="_c_45wMAyEeqaC8XrSbC4rg" name="MaxShares"/>
+    <ownedOperation xmi:id="_eOyV0MAyEeqaC8XrSbC4rg" name="MinShares"/>
+    <ownedOperation xmi:id="_egQgUMAyEeqaC8XrSbC4rg" name="MaxReactions"/>
+    <ownedOperation xmi:id="_evgdQMAyEeqaC8XrSbC4rg" name="MinReactions"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_zneKoMAyEeqaC8XrSbC4rg" name="StatisticsMethods" visibility="public">
     <ownedOperation xmi:id="_5OPl4MAyEeqaC8XrSbC4rg" name="MaxLengthMessage" isAbstract="true">
-      <ownedParameter xmi:id="_6rPIUMAyEeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_6rPIUMAyEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BDWDUMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BVbR0MHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_9wELQMAyEeqaC8XrSbC4rg" name="MaxShareValue" isAbstract="true">
-      <ownedParameter xmi:id="_AbczcMAzEeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_AbczcMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EUXIIMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Eu-nkMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_Cq8w4MAzEeqaC8XrSbC4rg" name="MinShareValue" isAbstract="true">
-      <ownedParameter xmi:id="_F9MkwMAzEeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_F9MkwMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Fly60MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F-nqgMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_DhW0cMAzEeqaC8XrSbC4rg" name="SumSharesValue" isAbstract="true">
-      <ownedParameter xmi:id="_JiAvUMAzEeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_JiAvUMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H_sxcMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IebU0MHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_DsmbIMAzEeqaC8XrSbC4rg" name="AverageSharesValue" isAbstract="true">
-      <ownedParameter xmi:id="_N3VJwMAzEeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_N3VJwMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KMIz0MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KklwEMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_D4TU0MAzEeqaC8XrSbC4rg" name="StatisticsReports" isAbstract="true">
-      <ownedParameter xmi:id="_Qu_TYMAzEeqaC8XrSbC4rg" name="array"/>
-      <ownedParameter xmi:id="_Q9Px0MAzEeqaC8XrSbC4rg" name="totalArray"/>
+      <ownedParameter xmi:id="_Qu_TYMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MnajcMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NB0AcMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Q9Px0MAzEeqaC8XrSbC4rg" name="totalArray" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OOyw8MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PC2EEMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_VXg9sMAzEeqaC8XrSbC4rg" name="Statistics" visibility="public">
@@ -164,46 +189,81 @@
     <ownedAttribute xmi:id="_FpwO4MA0EeqaC8XrSbC4rg" name="percReactions" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_PGC-gMHGEeqjPadJcd0BQg" name="totalShares" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_SQN0cMHGEeqjPadJcd0BQg" name="totalReactions" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
     <interfaceRealization xmi:id="_aTUJUMAzEeqaC8XrSbC4rg" client="_VXg9sMAzEeqaC8XrSbC4rg" supplier="_zneKoMAyEeqaC8XrSbC4rg" contract="_zneKoMAyEeqaC8XrSbC4rg"/>
     <ownedOperation xmi:id="_aojHkMA1EeqaC8XrSbC4rg" name="SumReactionsValue">
-      <ownedParameter xmi:id="_zLQoYMA1EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_zLQoYMA1EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XwNc0MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YKiBUMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_bFJkAMA1EeqaC8XrSbC4rg" name="AverageReactionsValue">
-      <ownedParameter xmi:id="_3kFp0MA1EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_3kFp0MA1EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bMZ24MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bmXPAMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_bQDzgMA1EeqaC8XrSbC4rg" name="MaxReactionValue">
-      <ownedParameter xmi:id="_7AWVUMA1EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_7AWVUMA1EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cbWWQMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c0f2EMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_baQ4YMA1EeqaC8XrSbC4rg" name="MinReactionValue">
-      <ownedParameter xmi:id="__A9EAMA1EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="__A9EAMA1EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ey6DgMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fOJOAMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_blTqwMA1EeqaC8XrSbC4rg" name="MaxLengthMessage">
-      <ownedParameter xmi:id="_Co2XwMA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_Co2XwMA2EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iRlw4MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_igfIgMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_bxN_0MA1EeqaC8XrSbC4rg" name="MaxShareValue">
-      <ownedParameter xmi:id="_GaNwkMA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_GaNwkMA2EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jo4T8MHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kBTbAMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_b79QMMA1EeqaC8XrSbC4rg" name="MinShareValue">
-      <ownedParameter xmi:id="_JY-nwMA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_JY-nwMA2EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l4aGkMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mMbOwMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_L94NcMA2EeqaC8XrSbC4rg" name="SumSharesValue">
-      <ownedParameter xmi:id="_NMGUEMA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_NMGUEMA2EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nzsukMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oMisYMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_QQ13cMA2EeqaC8XrSbC4rg" name="AverageSharesValue">
-      <ownedParameter xmi:id="_RQPe8MA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_RQPe8MA2EeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p8QWgMHHEeqjPadJcd0BQg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qSBLIMHHEeqjPadJcd0BQg" value="400"/>
+      </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:id="_Tewk8MA2EeqaC8XrSbC4rg" name="StatisticsReports">
-      <ownedParameter xmi:id="_UePE8MA2EeqaC8XrSbC4rg" name="array"/>
-      <ownedParameter xmi:id="_UtnkwMA2EeqaC8XrSbC4rg" name="totalArray"/>
+    <ownedOperation xmi:id="_m1DxgMHGEeqjPadJcd0BQg" name="TotalReactions">
+      <ownedParameter xmi:id="_ohyZEMHGEeqjPadJcd0BQg" name="array"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_sD_7kMHGEeqjPadJcd0BQg" name="TotalShares"/>
+    <ownedOperation xmi:id="_zdJTYMHGEeqjPadJcd0BQg" name="PercPosts"/>
+    <ownedOperation xmi:id="_1o1H0MHGEeqjPadJcd0BQg" name="PercReactions"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_ti1K0MA2EeqaC8XrSbC4rg" name="JSONManager" visibility="public">
     <ownedOperation xmi:id="_wM910MA2EeqaC8XrSbC4rg" name="readURL" isStatic="true"/>
     <ownedOperation xmi:id="_xlw0wMA2EeqaC8XrSbC4rg" name="JSONParser" isStatic="true">
-      <ownedParameter xmi:id="_CaevIMA3EeqaC8XrSbC4rg" name="json"/>
+      <ownedParameter xmi:id="_CaevIMA3EeqaC8XrSbC4rg" name="json" type="_1vov4MHFEeqjPadJcd0BQg"/>
     </ownedOperation>
     <ownedOperation xmi:id="_xzIiYMA2EeqaC8XrSbC4rg" name="JSONGenerator" isStatic="true">
-      <ownedParameter xmi:id="_6xXosMA2EeqaC8XrSbC4rg" name="array"/>
+      <ownedParameter xmi:id="_6xXosMA2EeqaC8XrSbC4rg" name="stats" type="_VXg9sMAzEeqaC8XrSbC4rg"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_cB_YAMA7EeqaC8XrSbC4rg" name="Model">
@@ -285,7 +345,7 @@
     <message xmi:id="_XQbJoMA_EeqaC8XrSbC4rg" name="readURL_reply" messageSort="reply" receiveEvent="_XQbJpcA_EeqaC8XrSbC4rg" sendEvent="_XQbJo8A_EeqaC8XrSbC4rg"/>
     <message xmi:id="_dEdk0MA_EeqaC8XrSbC4rg" name="getStats" receiveEvent="_dEdk1MA_EeqaC8XrSbC4rg" sendEvent="_dEdk08A_EeqaC8XrSbC4rg" signature="_upeloMA9EeqaC8XrSbC4rg"/>
     <message xmi:id="_dEdk0sA_EeqaC8XrSbC4rg" name="getStats_reply" messageSort="reply" receiveEvent="_dEdk18A_EeqaC8XrSbC4rg" sendEvent="_dEdk1cA_EeqaC8XrSbC4rg"/>
-    <message xmi:id="_vVsggMA_EeqaC8XrSbC4rg" name="StatisticsReports" receiveEvent="_vVtHk8A_EeqaC8XrSbC4rg" sendEvent="_vVtHksA_EeqaC8XrSbC4rg" signature="_Tewk8MA2EeqaC8XrSbC4rg"/>
+    <message xmi:id="_vVsggMA_EeqaC8XrSbC4rg" name="StatisticsReports" receiveEvent="_vVtHk8A_EeqaC8XrSbC4rg" sendEvent="_vVtHksA_EeqaC8XrSbC4rg"/>
     <message xmi:id="_vVtHkcA_EeqaC8XrSbC4rg" name="StatisticsReports_reply" messageSort="reply" receiveEvent="_vVtHlsA_EeqaC8XrSbC4rg" sendEvent="_vVtHlMA_EeqaC8XrSbC4rg"/>
     <message xmi:id="_y-X3YMA_EeqaC8XrSbC4rg" name="FilteredPostsByParam" receiveEvent="_y-YeccA_EeqaC8XrSbC4rg" sendEvent="_y-YecMA_EeqaC8XrSbC4rg" signature="_kDd8IMAwEeqaC8XrSbC4rg"/>
     <message xmi:id="_y-X3YsA_EeqaC8XrSbC4rg" name="FilteredPostsByParam_reply" messageSort="reply" receiveEvent="_y-YedMA_EeqaC8XrSbC4rg" sendEvent="_y-YecsA_EeqaC8XrSbC4rg"/>
@@ -303,7 +363,11 @@
       </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_39kAIMA9EeqaC8XrSbC4rg" name="getFilters">
-      <ownedParameter xmi:id="_6Dpi4MA9EeqaC8XrSbC4rg" name="filtro"/>
+      <ownedParameter xmi:id="_6Dpi4MA9EeqaC8XrSbC4rg" name="filtro" type="_mYpOUMAxEeqaC8XrSbC4rg"/>
     </ownedOperation>
   </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_1vov4MHFEeqjPadJcd0BQg" name="JSONObject" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_u_6pYMHiEeqvFLeyLi27Tw" name="BadRangeValueException" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_x53SAMHiEeqvFLeyLi27Tw" name="BadStringException" visibility="public"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0wN0EMHiEeqvFLeyLi27Tw" name="BadValueException" visibility="public"/>
 </uml:Model>

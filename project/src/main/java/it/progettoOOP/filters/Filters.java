@@ -1,31 +1,31 @@
 package it.progettoOOP.filters;
 
 import org.json.simple.JSONObject;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 
+import it.progettoOOP.exceptions.BadRangeValueException;
 import it.progettoOOP.exceptions.BadValueException;
 
 public class Filters {
 	private JSONObject length;
 	private JSONObject shares;
 	private JSONObject reactions;
+	private int minLength;
+	private int maxLength;
+	private int minShares;
+	private int maxShares;
+	private int minReactions;
+	private int maxReactions;
 
 	public Filters() {
-		try {
-			length = null;
-		} catch (HttpMessageNotReadableException e) {
-			length = new JSONObject();
-		}
-		try {
-			shares = null;
-		} catch (HttpMessageNotReadableException e) {
-			shares = new JSONObject();
-		}
-		try {
-			reactions = null;
-		} catch (HttpMessageNotReadableException e) {
-			reactions = new JSONObject();
-		}
+		length = new JSONObject();
+		shares = new JSONObject();
+		reactions = new JSONObject();
+		minLength = 0;
+		maxLength = 0;
+		minShares = 0;
+		maxShares = 0;
+		minReactions = 0;
+		maxReactions = 0;
 	}
 
 	public JSONObject getLength() {
@@ -40,52 +40,75 @@ public class Filters {
 		return reactions;
 	}
 
-	public int getMaxLengthMess() throws BadValueException {
-		int maxLengthMess = 10000;
-		if ((int) length.get("max") < 0)
+	public int MaxLength() throws BadValueException, BadRangeValueException {
+		try {
+			maxLength = (int) length.get("max");
+			if (maxLength < minLength)
+				throw new BadRangeValueException();
+		} catch (NullPointerException e) {
+			maxLength = 10000;
+		}
+		if (maxLength < 0)
 			throw new BadValueException();
-		maxLengthMess = (int) length.get("max");
-		return maxLengthMess;
+		return maxLength;
 	}
 
-	public int getMinLengthMess() throws BadValueException {
-		int minLengthMess = 0;
-		if ((int) length.get("min") < 0)
+	public int MinLength() throws BadValueException {
+		try {
+			minLength = (int) length.get("min");
+		} catch (NullPointerException e) {
+			minLength = 0;
+		}
+		if (minLength < 0)
 			throw new BadValueException();
-		minLengthMess = (int) length.get("min");
-		return minLengthMess;
+		return minLength;
 	}
 
-	public int getMaxShares() throws BadValueException {
-		int maxShares = 10000;
-		if ((int) shares.get("max") < 0)
+	public int MaxShares() throws BadValueException, BadRangeValueException {
+		try {
+			maxShares = (int) shares.get("max");
+			if (maxShares < minShares)
+				throw new BadRangeValueException();
+		} catch (NullPointerException e) {
+			maxShares = 10000;
+		}
+		if (maxShares < 0)
 			throw new BadValueException();
-		maxShares = (int) length.get("max");
 		return maxShares;
 	}
 
-	public int getMinShares() throws BadValueException {
-		int minShares = 0;
-		if ((int) shares.get("min") < 0)
+	public int MinShares() throws BadValueException {
+		try {
+			minShares = (int) shares.get("min");
+		} catch (NullPointerException e) {
+			minShares = 0;
+		}
+		if (minShares < 0)
 			throw new BadValueException();
-		minShares = (int) length.get("min");
 		return minShares;
 	}
 
-	public int getMaxReactions() throws BadValueException {
-		int maxReactions = 10000;
-		if ((int) reactions.get("max") < 0)
+	public int MaxReactions() throws BadValueException, BadRangeValueException {
+		try {
+			maxReactions = (int) reactions.get("max");
+			if (maxReactions < minReactions)
+				throw new BadRangeValueException();
+		} catch (NullPointerException e) {
+			maxReactions = 10000;
+		}
+		if (maxReactions < 0)
 			throw new BadValueException();
-		maxReactions = (int) length.get("max");
 		return maxReactions;
 	}
 
-	public int getMinReactions() throws BadValueException {
-		int minReactions = 0;
-		if ((int) reactions.get("min") < 0)
+	public int MinReactions() throws BadValueException {
+		try {
+			minReactions = (int) reactions.get("min");
+		} catch (NullPointerException e) {
+			minReactions = 0;
+		}
+		if (minReactions < 0)
 			throw new BadValueException();
-		minReactions = (int) reactions.get("min");
 		return minReactions;
 	}
-
 }

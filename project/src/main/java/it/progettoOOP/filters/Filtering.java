@@ -7,65 +7,84 @@ package it.progettoOOP.filters;
 
 import java.util.ArrayList;
 
+import it.progettoOOP.exceptions.BadRangeValueException;
+import it.progettoOOP.exceptions.BadStringException;
 import it.progettoOOP.exceptions.BadValueException;
 import it.progettoOOP.model.FacebookPost;
 
 public class Filtering {
 
 	/**
-	 * @param array   the array to filter
-	 * @param options the body of the get request
+	 * @param <ArrayList>FacebookPost the array to filter
+	 * @param options                 the body of the get request
 	 * @return the array filtered
 	 * @throws BadValueException
+	 * @throws BadRangeValueException
 	 *
 	 */
-	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters options)
-			throws BadValueException {
+	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters filter)
+			throws BadValueException, BadRangeValueException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
-
 		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i).getLengthMessage() <= options.getMaxLengthMess()
-					&& array.get(i).getLengthMessage() >= options.getMinLengthMess()
-					&& array.get(i).getNumShares() <= options.getMaxShares()
-					&& array.get(i).getNumShares() >= options.getMinShares()
-					&& array.get(i).getNumReactions() <= options.getMaxReactions()
-					&& array.get(i).getNumReactions() >= options.getMinReactions())
+			if (array.get(i).LengthMessage() <= filter.MaxLength() && array.get(i).LengthMessage() >= filter.MinLength()
+					&& array.get(i).getNumShares() <= filter.MaxShares()
+					&& array.get(i).getNumShares() >= filter.MinShares()
+					&& array.get(i).getNumReactions() <= filter.MaxReactions()
+					&& array.get(i).getNumReactions() >= filter.MinLength())
 				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
 	}
 
 	/**
-	 * @param array      the array to filter
+	 * @param array      the <ArrayList>FacebookPost to filter
 	 * @param minLength  the minimum length of the post
 	 * @param mmaxLength the maximum length of the post
 	 * @param emoji      for checking if a message must contains or not emojis
 	 * @return the array filtered
+	 * @throws BadRangeValueException
+	 * @throws BadValueException
+	 * @throws BadStringException
 	 *
 	 */
-	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, int minLength,
-			int maxLength, String emoji) {
+	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, String param,
+			String emoji) throws BadRangeValueException, BadValueException, BadStringException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
-		// convert lower case string to upper case string
-		emoji.toUpperCase();
-		if (emoji.contains("TRUE") || emoji.contains("FALSE")) {
-			if (emoji.contains("TRUE"))
-				emoticon = true;
-			else
-				emoticon = false;
-			for (int i = 0; i < array.size(); i++) {
-				if (array.get(i).getLengthMessage() <= maxLength && array.get(i).getLengthMessage() >= minLength
-						&& array.get(i).containsEmoji() == emoticon)
-					arrayfil.add(array.get(i));
-			}
-		} else {
-			// if emoji string is not TRUE or FALSE, filter validates either cases.
-			for (int i = 0; i < array.size(); i++) {
-				if (array.get(i).getLengthMessage() <= maxLength && array.get(i).getLengthMessage() >= minLength)
-					arrayfil.add(array.get(i));
-			}
+		int minLength = 0;
+		int maxLength = 10000;
+
+		String[] rangeLength = param.split(",");
+		try {
+			String min = rangeLength[0];
+			minLength = Integer.parseInt(min);
+			if (minLength < 0)
+				throw new BadValueException();
+		} catch (ArrayIndexOutOfBoundsException e) {
 		}
+
+		try {
+			String max = rangeLength[1];
+			maxLength = Integer.parseInt(max);
+			if (maxLength < 0)
+				throw new BadValueException();
+		} catch (ArrayIndexOutOfBoundsException e) {
+		}
+
+		if (maxLength < minLength)
+			throw new BadRangeValueException();
+
+		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")){
+			if (emoji.equals("TRUE") || emoji.equals("true"))
+				emoticon = true;
+			emoticon = false;
+			for (int i = 0; i < array.size(); i++)
+				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength
+						&& array.get(i).ContainsEmoji() == emoticon)
+					arrayfil.add(array.get(i));
+		}
+		else
+			throw new BadStringException();
 		return arrayfil;
 	}
 
