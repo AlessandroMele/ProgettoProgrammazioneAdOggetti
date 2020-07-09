@@ -7,15 +7,42 @@ import it.progettoOOP.exceptions.BadValueException;
 import it.progettoOOP.stats.Statistics;
 
 public class Filters {
-	private JSONObject length;
-	private JSONObject shares;
-	private JSONObject reactions;
-	private int minLength;
-	private int maxLength;
-	private int minShares;
-	private int maxShares;
-	private int minReactions;
-	private int maxReactions;
+	/**
+     * JSONObject that contains length values
+     */
+    private JSONObject length;
+    /**
+     * Minimum length value
+     */
+    private int minLength;
+    /**
+     * Maximum length value
+     */
+    private int maxLength;
+    /**
+     * JSONObject that contains shares values
+     */
+    private JSONObject shares;
+    /**
+     * Minimum share value
+     */
+    private int minShares;
+    /**
+     * Maximum share value
+     */
+    private int maxShares;
+    /**
+     * JSONObject that contains reactions values
+     */
+    private JSONObject reactions;
+    /**
+     * Minimum reactions value
+     */
+    private int minReactions;
+    /**
+     * Maximum reactions value
+     */
+    private int maxReactions;
 
 	public Filters() {
 		length = new JSONObject();
@@ -28,6 +55,8 @@ public class Filters {
 		minReactions = 0;
 		maxReactions = 0;
 	}
+	
+
 
 	public JSONObject getLength() {
 		return length;
@@ -41,6 +70,14 @@ public class Filters {
 		return reactions;
 	}
 
+	/**
+     * This method tries to take value "max" from JSONObject length
+     * If it fails, it set by default value 10000
+     * @return the maximum length message
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MaxLength() throws BadValueException, BadRangeValueException, ClassCastException {
 		try {
 			maxLength = (int) length.get("max");
@@ -53,7 +90,15 @@ public class Filters {
 			throw new BadValueException();
 		return maxLength;
 	}
-
+	
+	/**
+     * This method tries to take value "min" from JSONObject length
+     * If it fails, it set by default value 0
+     * @return the minimum length message
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MinLength() throws BadValueException, ClassCastException {
 		try {
 			minLength = (int) length.get("min");
@@ -64,7 +109,15 @@ public class Filters {
 			throw new BadValueException();
 		return minLength;
 	}
-
+	
+	/**
+     * This method tries to take value "max" from JSONObject shares
+     * If it fails, it set by default value 10000
+     * @return the maximum number of shares
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MaxShares() throws BadValueException, BadRangeValueException,ClassCastException {
 		try {
 			maxShares = (int) shares.get("max");
@@ -77,7 +130,15 @@ public class Filters {
 			throw new BadValueException();
 		return maxShares;
 	}
-
+	
+	/**
+     * This method tries to take value "min" from JSONObject shares
+     * If it fails, it set by default value 0
+     * @return the minimum number of shares
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MinShares() throws BadValueException,ClassCastException {
 		try {
 			minShares = (int) shares.get("min");
@@ -88,7 +149,15 @@ public class Filters {
 			throw new BadValueException();
 		return minShares;
 	}
-
+	
+	/**
+     * This method tries to take value "max" from JSONObject reactions
+     * If it fails, it set by default value 10000
+     * @return the maximum number of reactions
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MaxReactions() throws BadValueException, BadRangeValueException,ClassCastException {
 		try {
 			maxReactions = (int) reactions.get("max");
@@ -101,7 +170,15 @@ public class Filters {
 			throw new BadValueException();
 		return maxReactions;
 	}
-
+	
+	/**
+     * This method tries to take value "min" from JSONObject reactions
+     * If it fails, it set by default value 0
+     * @return the minimum number of reactions
+     * @throws BadValueException
+     * @throws BadRangeValueException
+     * @throws ClassCastException
+     */
 	public int MinReactions() throws BadValueException,ClassCastException {
 		try {
 			minReactions = (int) reactions.get("min");
