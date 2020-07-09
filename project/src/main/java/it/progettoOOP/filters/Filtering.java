@@ -54,8 +54,8 @@ public class Filtering {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
 		Statistics mystat = new Statistics();
-		int minLength = mystat.MinLengthMessage(array);
-		int maxLength = mystat.MaxLengthMessage(array);
+		int minLength = 0;
+		int maxLength = 0;
 
 		String[] rangeLength = param.split(",");
 		try {
@@ -63,7 +63,8 @@ public class Filtering {
 			minLength = Integer.parseInt(min);
 			if (minLength < 0)
 				throw new BadValueException();
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (Exception e) {
+			minLength = mystat.MinLengthMessage(array);
 		}
 
 		try {
@@ -71,7 +72,8 @@ public class Filtering {
 			maxLength = Integer.parseInt(max);
 			if (maxLength < 0)
 				throw new BadValueException();
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (Exception e) {
+			maxLength = mystat.MaxLengthMessage(array);
 		}
 
 		if (maxLength < minLength)
