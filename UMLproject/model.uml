@@ -68,8 +68,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F68M4MAxEeqaC8XrSbC4rg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mJlBAMHFEeqjPadJcd0BQg" value="400"/>
       </ownedParameter>
-      <ownedParameter xmi:id="_nM39EMAwEeqaC8XrSbC4rg" name="param">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      <ownedParameter xmi:id="_nM39EMAwEeqaC8XrSbC4rg" name="minLength">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_a5V0MMN4EeqqjJwMCzmytA" name="maxLength">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedParameter>
       <ownedParameter xmi:id="_oVyF4MAwEeqaC8XrSbC4rg" name="emoji">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -141,16 +144,6 @@
       <ownedParameter xmi:id="_N3VJwMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KMIz0MHHEeqjPadJcd0BQg"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KklwEMHHEeqjPadJcd0BQg" value="400"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:id="_D4TU0MAzEeqaC8XrSbC4rg" name="StatisticsReports" isAbstract="true">
-      <ownedParameter xmi:id="_Qu_TYMAzEeqaC8XrSbC4rg" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MnajcMHHEeqjPadJcd0BQg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NB0AcMHHEeqjPadJcd0BQg" value="400"/>
-      </ownedParameter>
-      <ownedParameter xmi:id="_Q9Px0MAzEeqaC8XrSbC4rg" name="totalArray" type="_LBkbYMAkEeqaC8XrSbC4rg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OOyw8MHHEeqjPadJcd0BQg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PC2EEMHHEeqjPadJcd0BQg" value="400"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
@@ -269,9 +262,6 @@
     <ownedOperation xmi:id="_wM910MA2EeqaC8XrSbC4rg" name="readURL" isStatic="true"/>
     <ownedOperation xmi:id="_xlw0wMA2EeqaC8XrSbC4rg" name="JSONParser" isStatic="true">
       <ownedParameter xmi:id="_CaevIMA3EeqaC8XrSbC4rg" name="json" type="_1vov4MHFEeqjPadJcd0BQg"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_xzIiYMA2EeqaC8XrSbC4rg" name="JSONGenerator" isStatic="true">
-      <ownedParameter xmi:id="_6xXosMA2EeqaC8XrSbC4rg" name="stats" type="_VXg9sMAzEeqaC8XrSbC4rg"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_cB_YAMA7EeqaC8XrSbC4rg" name="Model">

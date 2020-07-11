@@ -40,13 +40,14 @@ public class Controller {
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
-	public ResponseEntity<Object> getStats(@RequestParam(value = "rangeLength", defaultValue = "0,10000") String param,
+	public ResponseEntity<Object> getStats(@RequestParam(value = "minLength", defaultValue = "0") int minLength,
+			@RequestParam(value = "maxLength", defaultValue = "10000") int maxLength,
 			@RequestParam(value = "emoji", defaultValue = "notSpecified") String emoji)
 			throws MissingServletRequestParameterException, JsonProcessingException, BadRangeValueException,
 			BadValueException, BadStringException {
 
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
-		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPostsByParam(array, param, emoji);
+		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPostsByParam(array, minLength, maxLength, emoji);
 		Statistics mystats = new Statistics(filteredArray, array);
 		return new ResponseEntity<>(mystats, HttpStatus.OK);
 	}

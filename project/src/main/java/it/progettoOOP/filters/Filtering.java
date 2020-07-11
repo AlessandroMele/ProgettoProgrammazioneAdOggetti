@@ -49,38 +49,36 @@ public class Filtering {
 	 * @throws BadStringException
 	 *
 	 */
-	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, String param,
-			String emoji) throws BadRangeValueException, BadValueException, BadStringException, NumberFormatException {
+	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, int minLength,
+			int maxLength, String emoji)
+			throws BadRangeValueException, BadValueException, BadStringException, NumberFormatException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
 		Statistics mystat = new Statistics();
-		int minLength = 0;
-		int maxLength = 0;
+		int min = 0;
+		int max = 0;
 		// "," is character that split String param
 		// If there's only one value, by default it's the minimum
-		String[] rangeLength = param.split(",");
 		try {
 			// Minimum value is the first character
-			String min = rangeLength[0];
-			minLength = Integer.parseInt(min);
-			if (minLength < 0)
+			min = minLength;
+			if (min < 0)
 				throw new BadValueException();
-		} catch (Exception e) {
-			// If it's not an integer value, by default is setted as the minimum value of
+		} catch (NullPointerException e) {
+			// If it's setted, by default is the maximum value of
 			// length message searched in all posts
-			minLength = mystat.MinLengthMessage(array);
+			min = mystat.MinLengthMessage(array);
 		}
 
 		try {
 			// Maximum value is the second character
-			String max = rangeLength[1];
-			maxLength = Integer.parseInt(max);
-			if (maxLength < 0)
+			max = maxLength;
+			if (max < 0)
 				throw new BadValueException();
-		} catch (Exception e) {
-			// If it's not an integer value, by default is setted as the maximum value of
+		} catch (NullPointerException e) {
+			// If it's setted, by default is the maximum value of
 			// length message searched in all posts
-			maxLength = mystat.MaxLengthMessage(array);
+			max = mystat.MaxLengthMessage(array);
 		}
 		// If it's not a positive value, exception starts
 		if (maxLength < minLength)
@@ -92,14 +90,14 @@ public class Filtering {
 			else
 				emoticon = false;
 			for (int i = 0; i < array.size(); i++)
-				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength
+				if (array.get(i).LengthMessage() <= max && array.get(i).LengthMessage() >= min
 						&& array.get(i).ContainsEmoji() == emoticon)
 					arrayfil.add(array.get(i));
 		} else if (emoji.equals("notspecified") || emoji.equals("NOTSPECIFIED") || emoji.equals("notSpecified")) {
 			// If String is "notSpecified" (and others upper/lower case), by default it
 			// takes either
 			for (int i = 0; i < array.size(); i++)
-				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength)
+				if (array.get(i).LengthMessage() <= max && array.get(i).LengthMessage() >= min)
 					arrayfil.add(array.get(i));
 		} else
 			throw new BadStringException();

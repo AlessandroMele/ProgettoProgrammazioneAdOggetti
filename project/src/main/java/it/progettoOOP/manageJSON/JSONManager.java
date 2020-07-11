@@ -15,10 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import it.progettoOOP.model.FacebookPost;
-import it.progettoOOP.stats.Statistics;
 
 public class JSONManager {
 
