@@ -99,18 +99,4 @@ public class JSONManager {
 		return list;
 	}
 
-	/**
-	 * @param Statistics This method parse stats to String formatted on JSON
-	 * @return the JSON string that contains stats details
-	 */
-	public static String JSONGenerator(Statistics stats) throws JsonProcessingException {
-		String json = "";
-		if (stats != null) {
-			ObjectMapper mapper = new ObjectMapper();
-			json = mapper.writeValueAsString(stats);
-
-		}
-		return json;
-	}
-
 }
