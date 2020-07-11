@@ -78,7 +78,7 @@ public class Statistics implements StatisticsMethods {
 	 * the second <ArrayList>FacebookPost
 	 */
 	private int totalShares;
-	
+
 	public Statistics() {
 		sumReactionValue = 0;
 		maxReactionValue = 0;
@@ -87,7 +87,7 @@ public class Statistics implements StatisticsMethods {
 		totalReactions = 0;
 		maxLengthMessage = 0;
 		minLengthMessage = 0;
-		sumShareValue = 0 ;
+		sumShareValue = 0;
 		maxShareValue = 0;
 		minShareValue = 0;
 		averageShareValue = 0;
@@ -95,8 +95,6 @@ public class Statistics implements StatisticsMethods {
 		percPosts = 0;
 		percReactions = 0;
 	}
-	
-	
 
 	public Statistics(ArrayList<FacebookPost> arrayList1, ArrayList<FacebookPost> arrayList2) {
 		sumReactionValue = SumReactionsValue(arrayList1);
@@ -327,7 +325,7 @@ public class Statistics implements StatisticsMethods {
 					maxLengthMessage = array.get(i).LengthMessage();
 		return maxLengthMessage;
 	}
-	
+
 	/**
 	 * @param array <ArrayList>FacebookPost
 	 * @return the smallest value of characters contained on a message in

@@ -31,7 +31,7 @@ import it.progettoOOP.stats.*;
 @RestController
 public class Controller {
 
-	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
+	@RequestMapping(value = "/data", method = RequestMethod.GET)
 
 	public ResponseEntity<Object> getPosts() throws JSONException {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
@@ -42,8 +42,8 @@ public class Controller {
 
 	public ResponseEntity<Object> getStats(@RequestParam(value = "rangeLength", defaultValue = "0,10000") String param,
 			@RequestParam(value = "emoji", defaultValue = "notSpecified") String emoji)
-			throws MissingServletRequestParameterException, NumberFormatException, JsonProcessingException,
-			BadRangeValueException, BadValueException, BadStringException {
+			throws MissingServletRequestParameterException, JsonProcessingException, BadRangeValueException,
+			BadValueException, BadStringException {
 
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPostsByParam(array, param, emoji);
@@ -55,7 +55,6 @@ public class Controller {
 
 	public ResponseEntity<Object> getFilters(@RequestBody Filters filter) throws Exception {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
-
 		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPosts(array, filter);
 		return new ResponseEntity<>(filteredArray, HttpStatus.OK);
 	}

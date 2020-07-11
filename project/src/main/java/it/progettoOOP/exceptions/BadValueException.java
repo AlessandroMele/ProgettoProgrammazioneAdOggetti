@@ -7,7 +7,7 @@
 package it.progettoOOP.exceptions;
 
 /**
- * This exception starts if number is not positive value
+ * It starts if a number is not a positive value
  */
 
 public class BadValueException extends Exception {

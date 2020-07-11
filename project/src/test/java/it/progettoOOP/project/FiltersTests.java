@@ -12,8 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import it.progettoOOP.exceptions.BadRangeValueException;
 
-public class FiltersTests {
-	
+public class FiltersTests {	
 	@BeforeEach
     void setUp() throws Exception {
     }

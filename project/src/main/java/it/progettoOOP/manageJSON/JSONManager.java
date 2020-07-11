@@ -108,7 +108,7 @@ public class JSONManager {
 		if (stats != null) {
 			ObjectMapper mapper = new ObjectMapper();
 			json = mapper.writeValueAsString(stats);
-			
+
 		}
 		return json;
 	}

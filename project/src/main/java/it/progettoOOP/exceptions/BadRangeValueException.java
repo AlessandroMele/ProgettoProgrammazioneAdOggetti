@@ -7,15 +7,14 @@
 package it.progettoOOP.exceptions;
 
 /**
- * This exception starts if range value is not a positive number (min>max)
+ * It starts if range values is not a positive number
  */
 
-public class BadRangeValueException extends Exception{
+public class BadRangeValueException extends Exception {
 	private static final long serialVersionUID = 1L;
 
-	public BadRangeValueException(){
+	public BadRangeValueException() {
 		super("Range not accepted!");
 	}
-	
 
 }

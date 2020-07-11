@@ -8,7 +8,7 @@
       <details xmi:id="_Tk8v8L-bEeqiENbebOj_2A" key="Human"/>
     </eAnnotations>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_XQoXgL-bEeqiENbebOj_2A" name="get Metadata">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_XQoXgL-bEeqiENbebOj_2A" name="Take Data">
     <extend xmi:id="_LWwkEMArEeqaC8XrSbC4rg" extendedCase="_NqtOkMApEeqaC8XrSbC4rg"/>
     <extend xmi:id="_MKKW8MArEeqaC8XrSbC4rg" extendedCase="_U9SrYMApEeqaC8XrSbC4rg"/>
     <include xmi:id="_Ob_PoMArEeqaC8XrSbC4rg" addition="_gbKc4MApEeqaC8XrSbC4rg"/>
@@ -29,28 +29,27 @@
     <ownedOperation xmi:id="_mrsecMA3EeqaC8XrSbC4rg" name="ContainsEmoji"/>
     <ownedOperation xmi:id="_Bxf_QMHGEeqjPadJcd0BQg" name="LengthMessage"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_NqtOkMApEeqaC8XrSbC4rg" name="get Filters">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_NqtOkMApEeqaC8XrSbC4rg" name="Select Filters">
     <ownedUseCase xmi:id="_UXl9UMApEeqaC8XrSbC4rg" name="/Data"/>
-    <include xmi:id="_MzHNUMArEeqaC8XrSbC4rg" addition="_g1DjkMApEeqaC8XrSbC4rg"/>
+    <include xmi:id="_M2Y-AMNQEeqygLZBCsw3oA" addition="_yymcUMArEeqaC8XrSbC4rg"/>
+    <include xmi:id="_NuY9AMNQEeqygLZBCsw3oA" addition="_zKBd0MArEeqaC8XrSbC4rg"/>
+    <include xmi:id="_OVs0oMNQEeqygLZBCsw3oA" addition="_8CZMsMArEeqaC8XrSbC4rg"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_U9SrYMApEeqaC8XrSbC4rg" name="get Statistics">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_U9SrYMApEeqaC8XrSbC4rg" name="Do Statistics">
     <include xmi:id="_SbGwkMArEeqaC8XrSbC4rg" addition="_HiOX8MAqEeqaC8XrSbC4rg"/>
+    <include xmi:id="_Lja6QMNQEeqygLZBCsw3oA" addition="_KpkjYMAqEeqaC8XrSbC4rg"/>
+    <include xmi:id="_MNvpoMNQEeqygLZBCsw3oA" addition="_KWdaIMAqEeqaC8XrSbC4rg"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_gbKc4MApEeqaC8XrSbC4rg" name="API GRAPH call"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_g1DjkMApEeqaC8XrSbC4rg" name="get Body">
-    <include xmi:id="__Ti0YMArEeqaC8XrSbC4rg" addition="_yymcUMArEeqaC8XrSbC4rg"/>
-    <include xmi:id="__uSPoMArEeqaC8XrSbC4rg" addition="_zKBd0MArEeqaC8XrSbC4rg"/>
-    <include xmi:id="_AIWVcMAsEeqaC8XrSbC4rg" addition="_8CZMsMArEeqaC8XrSbC4rg"/>
-  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_gbKc4MApEeqaC8XrSbC4rg" name="Call Api Graph"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_HiOX8MAqEeqaC8XrSbC4rg" name="get Params">
     <include xmi:id="_S9xYwMArEeqaC8XrSbC4rg" addition="_KWdaIMAqEeqaC8XrSbC4rg"/>
     <include xmi:id="_TcU9AMArEeqaC8XrSbC4rg" addition="_KpkjYMAqEeqaC8XrSbC4rg"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_KWdaIMAqEeqaC8XrSbC4rg" name="get Emoji"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_KpkjYMAqEeqaC8XrSbC4rg" name="get Length Message"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_yymcUMArEeqaC8XrSbC4rg" name="get Range Message"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_zKBd0MArEeqaC8XrSbC4rg" name="get Range Share"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_8CZMsMArEeqaC8XrSbC4rg" name="get Range Reaction"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KWdaIMAqEeqaC8XrSbC4rg" name="Select Emoji (T/F)"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KpkjYMAqEeqaC8XrSbC4rg" name="Select Message Length Values"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_yymcUMArEeqaC8XrSbC4rg" name="Select Message Length Values"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_zKBd0MArEeqaC8XrSbC4rg" name="Select Shares Values"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_8CZMsMArEeqaC8XrSbC4rg" name="Select Shares Values"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_MXLCwMAsEeqaC8XrSbC4rg" memberEnd="_MXLCwcAsEeqaC8XrSbC4rg _MXLCwsAsEeqaC8XrSbC4rg">
     <ownedEnd xmi:id="_MXLCwcAsEeqaC8XrSbC4rg" type="_Tk5soL-bEeqiENbebOj_2A" association="_MXLCwMAsEeqaC8XrSbC4rg"/>
     <ownedEnd xmi:id="_MXLCwsAsEeqaC8XrSbC4rg" type="_XQoXgL-bEeqiENbebOj_2A" association="_MXLCwMAsEeqaC8XrSbC4rg"/>

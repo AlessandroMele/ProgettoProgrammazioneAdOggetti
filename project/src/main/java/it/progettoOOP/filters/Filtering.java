@@ -18,7 +18,7 @@ public class Filtering {
 
 	/**
 	 * @param <ArrayList>FacebookPost the array to filter
-	 * @param options                 the body of the get request
+	 * @param options                 the body of the POST request
 	 * @return the array filtered
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
@@ -40,9 +40,9 @@ public class Filtering {
 
 	/**
 	 * @param array      the <ArrayList>FacebookPost to filter
-	 * @param minLength  the minimum length of the post
-	 * @param mmaxLength the maximum length of the post
-	 * @param emoji      for checking if a message must contains or not emojis
+	 * @param minLength  the minimum length message of the post
+	 * @param mmaxLength the maximum length message of the post
+	 * @param emoji      for checking if a message contains or not emojis
 	 * @return the array filtered
 	 * @throws BadRangeValueException
 	 * @throws BadValueException
@@ -56,42 +56,53 @@ public class Filtering {
 		Statistics mystat = new Statistics();
 		int minLength = 0;
 		int maxLength = 0;
-
+		// "," is character that split String param
+		// If there's only one value, by default it's the minimum
 		String[] rangeLength = param.split(",");
 		try {
+			// Minimum value is the first character
 			String min = rangeLength[0];
 			minLength = Integer.parseInt(min);
 			if (minLength < 0)
 				throw new BadValueException();
 		} catch (Exception e) {
+			// If it's not an integer value, by default is setted as the minimum value of
+			// length message searched in all posts
 			minLength = mystat.MinLengthMessage(array);
 		}
 
 		try {
+			// Maximum value is the second character
 			String max = rangeLength[1];
 			maxLength = Integer.parseInt(max);
 			if (maxLength < 0)
 				throw new BadValueException();
 		} catch (Exception e) {
+			// If it's not an integer value, by default is setted as the maximum value of
+			// length message searched in all posts
 			maxLength = mystat.MaxLengthMessage(array);
 		}
-
+		// If it's not a positive value, exception starts
 		if (maxLength < minLength)
 			throw new BadRangeValueException();
-
+		// Emoji control
 		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")) {
 			if (emoji.equals("TRUE") || emoji.equals("true"))
 				emoticon = true;
-			else emoticon = false;
+			else
+				emoticon = false;
 			for (int i = 0; i < array.size(); i++)
 				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength
 						&& array.get(i).ContainsEmoji() == emoticon)
 					arrayfil.add(array.get(i));
-		} else if(emoji.equals("notSpecified")) {
+		} else if (emoji.equals("notspecified") || emoji.equals("NOTSPECIFIED") || emoji.equals("notSpecified")) {
+			// If String is "notSpecified" (and others upper/lower case), by default it
+			// takes either
 			for (int i = 0; i < array.size(); i++)
 				if (array.get(i).LengthMessage() <= maxLength && array.get(i).LengthMessage() >= minLength)
 					arrayfil.add(array.get(i));
-			}else throw new BadStringException();
+		} else
+			throw new BadStringException();
 		return arrayfil;
 	}
 

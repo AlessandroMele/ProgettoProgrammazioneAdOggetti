@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import it.progettoOOP.model.FacebookPost;
 
 /**
- * This interface is a list of minimum methods for statistics to implement for
- * project's requirement
+ * A list of minimum methods for statistics to implement project's requirement
  */
 public interface StatisticsMethods {
 
