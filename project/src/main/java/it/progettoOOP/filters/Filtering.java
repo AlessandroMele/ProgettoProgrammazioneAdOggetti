@@ -28,11 +28,12 @@ public class Filtering {
 			throws BadValueException, BadRangeValueException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i).LengthMessage() <= filter.MaxLength() && array.get(i).LengthMessage() >= filter.MinLength()
-					&& array.get(i).getNumShares() <= filter.MaxShares()
-					&& array.get(i).getNumShares() >= filter.MinShares()
-					&& array.get(i).getNumReactions() <= filter.MaxReactions()
-					&& array.get(i).getNumReactions() >= filter.MinReactions())
+			if (array.get(i).LengthMessage() >= filter.MinLength(array)
+					&& array.get(i).LengthMessage() <= filter.MaxLength(array)
+					&& array.get(i).getNumShares() >= filter.MinShares(array)
+					&& array.get(i).getNumShares() <= filter.MaxShares(array)
+					&& array.get(i).getNumReactions() >= filter.MinReactions(array)
+					&& array.get(i).getNumReactions() <= filter.MaxReactions(array))
 				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
@@ -84,8 +85,9 @@ public class Filtering {
 		if (maxLength < minLength)
 			throw new BadRangeValueException();
 		// Emoji control
-		if (emoji.equals("TRUE") || emoji.equals("true") || emoji.equals("FALSE") || emoji.equals("false")) {
-			if (emoji.equals("TRUE") || emoji.equals("true"))
+		String EmojiUnsensitive = emoji.toUpperCase();
+		if (EmojiUnsensitive.equals("TRUE") || EmojiUnsensitive.equals("FALSE")) {
+			if (EmojiUnsensitive.equals("TRUE"))
 				emoticon = true;
 			else
 				emoticon = false;
@@ -93,8 +95,8 @@ public class Filtering {
 				if (array.get(i).LengthMessage() <= max && array.get(i).LengthMessage() >= min
 						&& array.get(i).ContainsEmoji() == emoticon)
 					arrayfil.add(array.get(i));
-		} else if (emoji.equals("notspecified") || emoji.equals("NOTSPECIFIED") || emoji.equals("notSpecified")) {
-			// If String is "notSpecified" (and others upper/lower case), by default it
+		} else if (EmojiUnsensitive.equals("NOTSPECIFIED")) {
+			// If String is "NOTSPECIFIED" (and others upper/lower case), by default it
 			// takes either
 			for (int i = 0; i < array.size(); i++)
 				if (array.get(i).LengthMessage() <= max && array.get(i).LengthMessage() >= min)

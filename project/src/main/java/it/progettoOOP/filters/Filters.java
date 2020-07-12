@@ -6,10 +6,14 @@
 
 package it.progettoOOP.filters;
 
+import java.util.ArrayList;
+
 import org.json.simple.JSONObject;
 
 import it.progettoOOP.exceptions.BadRangeValueException;
 import it.progettoOOP.exceptions.BadValueException;
+import it.progettoOOP.model.FacebookPost;
+import it.progettoOOP.stats.Statistics;
 
 public class Filters {
 	/**
@@ -48,6 +52,10 @@ public class Filters {
 	 * Maximum reactions value
 	 */
 	private int maxReactions;
+	/**
+	 * Stats for max/min values if param will not be inserted in body
+	 */
+	private Statistics stats;
 
 	public Filters() {
 		length = new JSONObject();
@@ -59,6 +67,7 @@ public class Filters {
 		maxShares = 0;
 		minReactions = 0;
 		maxReactions = 0;
+		stats = new Statistics();
 	}
 
 	public JSONObject getLength() {
@@ -82,14 +91,15 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MaxLength() throws BadValueException, BadRangeValueException, ClassCastException {
+	public int MaxLength(ArrayList<FacebookPost> array)
+			throws BadValueException, BadRangeValueException, ClassCastException {
 		try {
 			maxLength = (int) length.get("max");
 			if (maxLength < minLength)
 				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to 10000
-			maxLength = 10000;
+			// else by defaul it's setted to max length message
+			maxLength = stats.MaxLengthMessage(array);
 		}
 		if (maxLength < 0)
 			throw new BadValueException();
@@ -105,12 +115,12 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MinLength() throws BadValueException, ClassCastException {
+	public int MinLength(ArrayList<FacebookPost> array) throws BadValueException, ClassCastException {
 		try {
 			minLength = (int) length.get("min");
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to 0
-			minLength = 0;
+			// else by defaul it's setted to min length message
+			minLength = stats.MinLengthMessage(array);
 		}
 		if (minLength < 0)
 			throw new BadValueException();
@@ -126,14 +136,15 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MaxShares() throws BadValueException, BadRangeValueException, ClassCastException {
+	public int MaxShares(ArrayList<FacebookPost> array)
+			throws BadValueException, BadRangeValueException, ClassCastException {
 		try {
 			maxShares = (int) shares.get("max");
 			if (maxShares < minShares)
 				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			maxShares = 10000;
-			// else by defaul it's setted to 10000
+			// else by defaul it's setted to max share value
+			maxShares = stats.MaxShareValue(array);
 		}
 		if (maxShares < 0)
 			throw new BadValueException();
@@ -149,12 +160,12 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MinShares() throws BadValueException, ClassCastException {
+	public int MinShares(ArrayList<FacebookPost> array) throws BadValueException, ClassCastException {
 		try {
 			minShares = (int) shares.get("min");
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to 0
-			minShares = 0;
+			// else by defaul it's setted to min share value
+			minShares = stats.MinShareValue(array);
 		}
 		if (minShares < 0)
 			throw new BadValueException();
@@ -170,14 +181,15 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MaxReactions() throws BadValueException, BadRangeValueException, ClassCastException {
+	public int MaxReactions(ArrayList<FacebookPost> array)
+			throws BadValueException, BadRangeValueException, ClassCastException {
 		try {
 			maxReactions = (int) reactions.get("max");
 			if (maxReactions < minReactions)
 				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to 10000
-			maxReactions = 10000;
+			// else by defaul it's setted to max reaction value
+			maxReactions = stats.MaxReactionValue(array);
 		}
 		if (maxReactions < 0)
 			throw new BadValueException();
@@ -193,12 +205,12 @@ public class Filters {
 	 * @throws BadRangeValueException
 	 * @throws ClassCastException
 	 */
-	public int MinReactions() throws BadValueException, ClassCastException {
+	public int MinReactions(ArrayList<FacebookPost> array) throws BadValueException, ClassCastException {
 		try {
 			minReactions = (int) reactions.get("min");
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to 0
-			minReactions = 0;
+			// else by defaul it's setted to min reaction value
+			minReactions = stats.MinReactionValue(array);
 		}
 		if (minReactions < 0)
 			throw new BadValueException();
