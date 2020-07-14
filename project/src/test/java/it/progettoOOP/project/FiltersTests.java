@@ -29,7 +29,7 @@ public class FiltersTests {
 	}
 
 	@Test
-	public void BadRangeValueExceptiontest() {
+	public void BadRangeValueExceptionTest() {
 		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
 		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
 		testArray.add(testPost);
@@ -38,7 +38,7 @@ public class FiltersTests {
 	}
 
 	@Test
-	public void BadStringException() {
+	public void BadStringExceptionTest() {
 		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
 		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
 		testArray.add(testPost);
@@ -47,7 +47,7 @@ public class FiltersTests {
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void BadValueException() {
+	public void BadValueExceptionTest() {
 		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
 		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
 		testArray.add(testPost);
