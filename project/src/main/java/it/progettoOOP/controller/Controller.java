@@ -27,6 +27,13 @@ public class Controller {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		return new ResponseEntity<>(array, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/MetaData", method = RequestMethod.GET)
+
+	public ResponseEntity<Object> getMetaData() throws JSONException {
+		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
+		return new ResponseEntity<>(array, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
