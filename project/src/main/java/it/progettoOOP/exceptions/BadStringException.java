@@ -7,8 +7,8 @@
 package it.progettoOOP.exceptions;
 
 /**
- * It starts if string emoji value is not "true" ("TRUE"), "false" ("FALSE") or
- * "notspecified" ("notSpecified", "NOTSPECIFIED")
+ * It starts if string emoji value is not "true", "false", "notspecified" and
+ * lower/upper combination of these words
  */
 
 public class BadStringException extends Exception {

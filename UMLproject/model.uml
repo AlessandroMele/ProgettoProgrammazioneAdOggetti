@@ -108,12 +108,43 @@
     <ownedAttribute xmi:id="_qkVoMMHdEeqvFLeyLi27Tw" name="maxReactions" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
-    <ownedOperation xmi:id="_ESzU8MAyEeqaC8XrSbC4rg" name="MaxLength"/>
-    <ownedOperation xmi:id="_ElNTkMAyEeqaC8XrSbC4rg" name="MinLength"/>
-    <ownedOperation xmi:id="_c_45wMAyEeqaC8XrSbC4rg" name="MaxShares"/>
-    <ownedOperation xmi:id="_eOyV0MAyEeqaC8XrSbC4rg" name="MinShares"/>
-    <ownedOperation xmi:id="_egQgUMAyEeqaC8XrSbC4rg" name="MaxReactions"/>
-    <ownedOperation xmi:id="_evgdQMAyEeqaC8XrSbC4rg" name="MinReactions"/>
+    <ownedAttribute xmi:id="_wda7QMQpEeqZGJPomNSJaA" name="stats" visibility="private" type="_VXg9sMAzEeqaC8XrSbC4rg"/>
+    <ownedOperation xmi:id="_ESzU8MAyEeqaC8XrSbC4rg" name="MaxLength">
+      <ownedParameter xmi:id="_4sAGQMQpEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5X7_MMQpEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5z47YMQpEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ElNTkMAyEeqaC8XrSbC4rg" name="MinLength">
+      <ownedParameter xmi:id="_-Q__4MQpEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LozugMQqEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MCkSUMQqEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_c_45wMAyEeqaC8XrSbC4rg" name="MaxShares">
+      <ownedParameter xmi:id="_On1rcMQqEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfmZ4MQqEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QCvjMMQqEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eOyV0MAyEeqaC8XrSbC4rg" name="MinShares">
+      <ownedParameter xmi:id="_SkoRIMQqEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_U-XvsMQqEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UivjoMQqEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_egQgUMAyEeqaC8XrSbC4rg" name="MaxReactions">
+      <ownedParameter xmi:id="_X_QGwMQqEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YqZVgMQqEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZK6BkMQqEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_evgdQMAyEeqaC8XrSbC4rg" name="MinReactions">
+      <ownedParameter xmi:id="_cdi3AMQqEeqZGJPomNSJaA" name="array" type="_LBkbYMAkEeqaC8XrSbC4rg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dundUMQqEeqZGJPomNSJaA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eRWW8MQqEeqZGJPomNSJaA" value="400"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_zneKoMAyEeqaC8XrSbC4rg" name="StatisticsMethods" visibility="public">
     <ownedOperation xmi:id="_5OPl4MAyEeqaC8XrSbC4rg" name="MaxLengthMessage" isAbstract="true">

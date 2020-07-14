@@ -7,10 +7,7 @@
 package it.progettoOOP.filters;
 
 import java.util.ArrayList;
-
-import it.progettoOOP.exceptions.BadRangeValueException;
-import it.progettoOOP.exceptions.BadStringException;
-import it.progettoOOP.exceptions.BadValueException;
+import it.progettoOOP.exceptions.*;
 import it.progettoOOP.model.FacebookPost;
 import it.progettoOOP.stats.Statistics;
 
@@ -18,7 +15,7 @@ public class Filtering {
 
 	/**
 	 * @param <ArrayList>FacebookPost the array to filter
-	 * @param options                 the body of the POST request
+	 * @param options                 the body of POST request
 	 * @return the array filtered
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
@@ -51,37 +48,32 @@ public class Filtering {
 	 *
 	 */
 	public static ArrayList<FacebookPost> FilteredPostsByParam(ArrayList<FacebookPost> array, int minLength,
-			int maxLength, String emoji)
-			throws BadRangeValueException, BadValueException, BadStringException, NumberFormatException {
+			int maxLength, String emoji) throws BadRangeValueException, BadValueException, BadStringException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
 		Statistics mystat = new Statistics();
 		int min = 0;
 		int max = 0;
-		// "," is character that split String param
-		// If there's only one value, by default it's the minimum
 		try {
-			// Minimum value is the first character
 			min = minLength;
 			if (min < 0)
 				throw new BadValueException();
 		} catch (NullPointerException e) {
-			// If it's setted, by default is the maximum value of
+			// If it's not setted, by default is the minimum value of
 			// length message searched in all posts
 			min = mystat.MinLengthMessage(array);
 		}
 
 		try {
-			// Maximum value is the second character
 			max = maxLength;
 			if (max < 0)
 				throw new BadValueException();
 		} catch (NullPointerException e) {
-			// If it's setted, by default is the maximum value of
+			// If it's not setted, by default is the maximum value of
 			// length message searched in all posts
 			max = mystat.MaxLengthMessage(array);
 		}
-		// If it's not a positive value, exception starts
+		// If it's not a valid range, exception starts
 		if (maxLength < minLength)
 			throw new BadRangeValueException();
 		// Emoji control
@@ -102,6 +94,7 @@ public class Filtering {
 				if (array.get(i).LengthMessage() <= max && array.get(i).LengthMessage() >= min)
 					arrayfil.add(array.get(i));
 		} else
+			// If String is not one of three cases, exception starts
 			throw new BadStringException();
 		return arrayfil;
 	}

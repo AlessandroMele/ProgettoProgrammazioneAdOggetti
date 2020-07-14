@@ -6,7 +6,6 @@
 package it.progettoOOP.stats;
 
 import java.util.ArrayList;
-
 import it.progettoOOP.model.FacebookPost;
 
 public class Statistics implements StatisticsMethods {
@@ -83,33 +82,33 @@ public class Statistics implements StatisticsMethods {
 		sumReactionValue = 0;
 		maxReactionValue = 0;
 		minReactionValue = 0;
-		averageReactionValue = 0;
+		averageReactionValue = 0.0;
 		totalReactions = 0;
 		maxLengthMessage = 0;
 		minLengthMessage = 0;
 		sumShareValue = 0;
 		maxShareValue = 0;
 		minShareValue = 0;
-		averageShareValue = 0;
+		averageShareValue = 0.0;
 		totalShares = 0;
-		percPosts = 0;
-		percReactions = 0;
+		percPosts = 0.0;
+		percReactions = 0.0;
 	}
 
-	public Statistics(ArrayList<FacebookPost> arrayList1, ArrayList<FacebookPost> arrayList2) {
-		sumReactionValue = SumReactionsValue(arrayList1);
-		maxReactionValue = MaxReactionValue(arrayList1);
-		minReactionValue = MinReactionValue(arrayList1);
-		averageReactionValue = AverageReactionsValue(arrayList1);
-		totalReactions = TotalReactions(arrayList1);
-		maxLengthMessage = MaxLengthMessage(arrayList1);
-		sumShareValue = MaxShareValue(arrayList1);
-		maxShareValue = MaxShareValue(arrayList1);
-		minShareValue = MinShareValue(arrayList1);
-		averageShareValue = AverageSharesValue(arrayList1);
-		totalShares = TotalShares(arrayList1);
-		percPosts = PercPosts(arrayList1, arrayList2);
-		percReactions = PercReactions(arrayList1, arrayList2);
+	public Statistics(ArrayList<FacebookPost> arrayfil, ArrayList<FacebookPost> arrayfull) {
+		sumReactionValue = SumReactionsValue(arrayfil);
+		maxReactionValue = MaxReactionValue(arrayfil);
+		minReactionValue = MinReactionValue(arrayfil);
+		averageReactionValue = AverageReactionsValue(arrayfil);
+		totalReactions = TotalReactions(arrayfil);
+		maxLengthMessage = MaxLengthMessage(arrayfil);
+		sumShareValue = MaxShareValue(arrayfil);
+		maxShareValue = MaxShareValue(arrayfil);
+		minShareValue = MinShareValue(arrayfil);
+		averageShareValue = AverageSharesValue(arrayfil);
+		totalShares = TotalShares(arrayfil);
+		percPosts = PercPosts(arrayfil, arrayfull);
+		percReactions = PercReactions(arrayfil, arrayfull);
 	}
 
 	/**
@@ -234,13 +233,13 @@ public class Statistics implements StatisticsMethods {
 	 *         to the second <ArrayList>FacebookPost
 	 */
 	public double PercPosts(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
-		percPosts = 0;
+		percPosts = 0.0;
 		if (!arrayfull.isEmpty())
 			try {
-				percPosts = (array.size() * 100) / arrayfull.size();
+				percPosts = (double) (array.size() * 100) / arrayfull.size();
 			} catch (ArithmeticException e) {
 			}
-		return percPosts;
+		return Math.floor(percPosts * 100.0) / 100.0;
 	}
 
 	/**
@@ -250,13 +249,13 @@ public class Statistics implements StatisticsMethods {
 	 *         relation to the second <ArrayList>FacebookPost
 	 */
 	public double PercReactions(ArrayList<FacebookPost> array, ArrayList<FacebookPost> arrayfull) {
-		percReactions = 0;
+		percReactions = 0.0;
 		if (!arrayfull.isEmpty())
 			try {
-				percReactions = (TotalReactions(array) * 100) / TotalReactions(arrayfull);
+				percReactions = (double) (TotalReactions(array) * 100) / TotalReactions(arrayfull);
 			} catch (ArithmeticException e) {
 			}
-		return percReactions;
+		return Math.floor(percReactions * 100.0) / 100.0;
 	}
 
 	/**
@@ -279,10 +278,10 @@ public class Statistics implements StatisticsMethods {
 		averageReactionValue = 0.0;
 		if (!array.isEmpty())
 			try {
-				averageReactionValue = SumReactionsValue(array) / array.size();
+				averageReactionValue = (double) SumReactionsValue(array) / array.size();
 			} catch (ArithmeticException e) {
 			}
-		return averageReactionValue;
+		return Math.floor(averageReactionValue * 100.0) / 100.0;
 	}
 
 	/**
@@ -387,13 +386,13 @@ public class Statistics implements StatisticsMethods {
 	 */
 	@Override
 	public double AverageSharesValue(ArrayList<FacebookPost> array) {
-		averageShareValue = 0;
+		averageShareValue = 0.0;
 		if (!array.isEmpty())
 			try {
-				averageShareValue = SumSharesValue(array) / array.size();
+				averageShareValue = (double) SumSharesValue(array) / array.size();
 			} catch (ArithmeticException e) {
 
 			}
-		return averageShareValue;
+		return Math.floor(averageShareValue * 100.0) / 100.0;
 	}
 }

@@ -6,14 +6,10 @@
 
 package it.progettoOOP.manageJSON;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 
 import it.progettoOOP.model.FacebookPost;
 
@@ -22,7 +18,7 @@ public class JSONManager {
 	/**
 	 * This method provides to open a connection by a specific URL object
 	 * 
-	 * @return JSONObject object contained query's results
+	 * @return JSONObject object that contains query's results
 	 */
 	public static JSONObject readURL() {
 		try {
@@ -30,31 +26,28 @@ public class JSONManager {
 			StringBuilder string = new StringBuilder();
 			// Opening connection
 			URL url = new URL(myquery);
-			// Opening streams
-			InputStreamReader in = new InputStreamReader(url.openStream());
-			BufferedReader buffer = new BufferedReader(in);
+			// Opening stream
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(url.openStream()));
 			String line = "";
 			while ((line = buffer.readLine()) != null) {
 				string.append(line);
 			}
-			// Closing buffer streams
-			in.close();
+			// Closing buffer stream
 			buffer.close();
 			JSONObject json = new JSONObject(string.toString());
 			return json;
 		} catch (Exception e) {
-			System.out.println("*** WARNING ***" + "\n*** CONNECTION NOT STARTED ***\n");
 			return null;
 		}
 	}
 
 	/**
 	 * @param JSONObject This method parses the JSONObject returned by DownloadJSON,
-	 *                   extracts details and putting them in a
-	 *                   <ArrayList>FacebookPost object
+	 *                   extracts details and put them in a <ArrayList>FacebookPost
+	 *                   object
 	 * @return the list with all details ordered by this method
 	 */
-	public static ArrayList<FacebookPost> JSONParser(JSONObject json) throws JSONException {
+	public static ArrayList<FacebookPost> JSONParser(JSONObject json) {
 		ArrayList<FacebookPost> list = new ArrayList<FacebookPost>();
 
 		if (json != null) {
@@ -95,5 +88,4 @@ public class JSONManager {
 		}
 		return list;
 	}
-
 }

@@ -861,6 +861,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_5rvsN8HdEeqvFLeyLi27Tw" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_5rvsOMHdEeqvFLeyLi27Tw"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_0vf0cMQpEeqZGJPomNSJaA" type="3010" element="_0u7MtMQpEeqZGJPomNSJaA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_0vf0ccQpEeqZGJPomNSJaA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_0vf0csQpEeqZGJPomNSJaA"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_j5LFzMAyEeqaC8XrSbC4rg" type="3010" element="_j4-RdMAyEeqaC8XrSbC4rg">
               <styles xmi:type="notation:FontStyle" xmi:id="_j5LFzcAyEeqaC8XrSbC4rg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_j5LFzsAyEeqaC8XrSbC4rg"/>
@@ -1011,49 +1015,63 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-RdMAyEeqaC8XrSbC4rg" name="MaxLength()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_0u7MtMQpEeqZGJPomNSJaA" name="stats : Statistics [1]">
+        <target xmi:type="uml:Property" href="model.uml#_wda7QMQpEeqZGJPomNSJaA"/>
+        <semanticElements xmi:type="uml:Property" href="model.uml#_wda7QMQpEeqZGJPomNSJaA"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_0u9B4MQpEeqZGJPomNSJaA" labelAlignment="LEFT">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Property']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-RdMAyEeqaC8XrSbC4rg" name="MaxLength(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_ESzU8MAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_ESzU8MAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_4sAGQMQpEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4-RdcAyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-RdsAyEeqaC8XrSbC4rg" name="MinLength()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-RdsAyEeqaC8XrSbC4rg" name="MinLength(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_ElNTkMAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_ElNTkMAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_-Q__4MQpEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4-Rd8AyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-ReMAyEeqaC8XrSbC4rg" name="MaxShares()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-ReMAyEeqaC8XrSbC4rg" name="MaxShares(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_c_45wMAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_c_45wMAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_On1rcMQqEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4-4gMAyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4gcAyEeqaC8XrSbC4rg" name="MinShares()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4gcAyEeqaC8XrSbC4rg" name="MinShares(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_eOyV0MAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_eOyV0MAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_SkoRIMQqEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4-4gsAyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4g8AyEeqaC8XrSbC4rg" name="MaxReactions()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4g8AyEeqaC8XrSbC4rg" name="MaxReactions(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_egQgUMAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_egQgUMAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_X_QGwMQqEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4-4hMAyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4hcAyEeqaC8XrSbC4rg" name="MinReactions()">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j4-4hcAyEeqaC8XrSbC4rg" name="MinReactions(array : FacebookPost)">
         <target xmi:type="uml:Operation" href="model.uml#_evgdQMAyEeqaC8XrSbC4rg"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_evgdQMAyEeqaC8XrSbC4rg"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_cdi3AMQqEeqZGJPomNSJaA"/>
         <ownedStyle xmi:type="diagram:Square" uid="_j4_fkMAyEeqaC8XrSbC4rg" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>
         </ownedStyle>

@@ -5,24 +5,20 @@
  */
 
 package it.progettoOOP.project;
-
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 
-import it.progettoOOP.exceptions.BadRangeValueException;
+public class FiltersTests {
 
-public class FiltersTests {	
 	@BeforeEach
-    void setUp() throws Exception {
-    }
+	void setUp() throws Exception {
+	}
 
-    @AfterEach
-    void tearDown() throws Exception {
-    }
+	@AfterEach
+	void tearDown() throws Exception {
+	}
 
-    @Test
-    void test() {
-       // assertThrows(BadRangeValueException.class, ()->Filtering.FilteredPostsByParam("emoji","","TRUE"));
-    }
+	@Test
+	public void test() {
+	}
 }

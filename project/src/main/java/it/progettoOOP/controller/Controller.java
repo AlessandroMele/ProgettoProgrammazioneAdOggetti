@@ -7,22 +7,12 @@
 package it.progettoOOP.controller;
 
 import java.util.ArrayList;
-
 import org.json.JSONException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.*;
+import org.springframework.web.bind.*;
+import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
-import it.progettoOOP.exceptions.BadRangeValueException;
-import it.progettoOOP.exceptions.BadStringException;
-import it.progettoOOP.exceptions.BadValueException;
+import it.progettoOOP.exceptions.*;
 import it.progettoOOP.filters.*;
 import it.progettoOOP.manageJSON.*;
 import it.progettoOOP.model.*;
@@ -40,9 +30,8 @@ public class Controller {
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
 
-	public ResponseEntity<Object> getStats(@RequestParam(value = "minLength", defaultValue = "0") int minLength,
-			@RequestParam(value = "maxLength", defaultValue = "10000") int maxLength,
-			@RequestParam(value = "emoji", defaultValue = "notSpecified") String emoji)
+	public ResponseEntity<Object> getStats(@RequestParam(value = "minLength") int minLength,
+			@RequestParam(value = "maxLength") int maxLength, @RequestParam(value = "emoji") String emoji)
 			throws MissingServletRequestParameterException, JsonProcessingException, BadRangeValueException,
 			BadValueException, BadStringException {
 
