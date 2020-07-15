@@ -17,6 +17,9 @@ import it.progettoOOP.exceptions.*;
 import it.progettoOOP.filters.*;
 import it.progettoOOP.model.FacebookPost;
 
+/**
+ * It contains some tests for testing Filtering methods
+ */
 public class FiltersTests {
 	private ArrayList<FacebookPost> testArray;
 

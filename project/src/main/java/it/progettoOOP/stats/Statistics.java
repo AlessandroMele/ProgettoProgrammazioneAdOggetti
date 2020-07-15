@@ -8,6 +8,10 @@ package it.progettoOOP.stats;
 import java.util.ArrayList;
 import it.progettoOOP.model.FacebookPost;
 
+/**
+ * ContainsStatisticsMethods implementations and attribute/method for getting
+ * statistics about an <ArrayList>FacebookPost
+ */
 public class Statistics implements StatisticsMethods {
 	/**
 	 * Average value of reactions contained in <ArrayList>FacebookPost

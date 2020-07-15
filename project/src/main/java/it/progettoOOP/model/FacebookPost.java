@@ -6,6 +6,10 @@
 
 package it.progettoOOP.model;
 
+/**
+ * It represents the fundamental attributes/methods of post imported from call:
+ * "/data"
+ */
 public class FacebookPost {
 	/**
 	 * Identifier of the post

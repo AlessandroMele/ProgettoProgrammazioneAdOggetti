@@ -8,6 +8,9 @@ package it.progettoOOP.model;
 
 import java.util.ArrayList;
 
+/*
+ * Contains MetaData about FacebookPost class
+ */
 public class MetaData {
 	/*
 	 * name of the attribute
