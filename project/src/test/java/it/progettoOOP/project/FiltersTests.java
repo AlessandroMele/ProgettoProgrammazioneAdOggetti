@@ -19,9 +19,13 @@ import it.progettoOOP.filters.*;
 import it.progettoOOP.model.FacebookPost;
 
 public class FiltersTests {
+	private ArrayList<FacebookPost> testArray;
 
 	@BeforeEach
 	void setUp() throws Exception {
+		testArray = new ArrayList<FacebookPost>();
+		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
+		testArray.add(testPost);
 	}
 
 	@AfterEach
@@ -30,27 +34,27 @@ public class FiltersTests {
 
 	@Test
 	public void BadRangeValueExceptionTest() {
-		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
-		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
-		testArray.add(testPost);
+		/**
+		 * It tests if range value of length message is a negative number
+		 */
 		assertThrows(BadRangeValueException.class,
 				() -> Filtering.FilteredPostsByParam(testArray, 20, 10, "notSpecified"));
 	}
 
 	@Test
 	public void BadStringExceptionTest() {
-		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
-		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
-		testArray.add(testPost);
+		/**
+		 * It tests if String value in param "emoji" is a correct String
+		 */
 		assertThrows(BadStringException.class, () -> Filtering.FilteredPostsByParam(testArray, 0, 100, "prova"));
 	}
 
 	@SuppressWarnings("unchecked")
 	@Test
 	public void BadValueExceptionTest() {
-		ArrayList<FacebookPost> testArray = new ArrayList<FacebookPost>();
-		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
-		testArray.add(testPost);
+		/**
+		 * It tests if value of minimum length message is a negative number
+		 */
 		JSONObject length = new JSONObject();
 		length.put("min", -10);
 		Filters filter = new Filters(length);

@@ -7,6 +7,7 @@
 package it.progettoOOP.controller;
 
 import java.util.ArrayList;
+
 import org.json.JSONException;
 import org.springframework.http.*;
 import org.springframework.web.bind.*;
@@ -27,12 +28,11 @@ public class Controller {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		return new ResponseEntity<>(array, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/MetaData", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
 
 	public ResponseEntity<Object> getMetaData() throws JSONException {
-		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
-		return new ResponseEntity<>(array, HttpStatus.OK);
+		return new ResponseEntity<>(MetaData.getMetaData(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
@@ -52,6 +52,7 @@ public class Controller {
 
 	public ResponseEntity<Object> getFilters(@RequestBody Filters filter) throws Exception {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
+		filter.SetStatsValues(array);
 		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPosts(array, filter);
 		return new ResponseEntity<>(filteredArray, HttpStatus.OK);
 	}

@@ -25,12 +25,11 @@ public class Filtering {
 			throws BadValueException, BadRangeValueException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i).LengthMessage() >= filter.MinLength(array)
-					&& array.get(i).LengthMessage() <= filter.MaxLength(array)
-					&& array.get(i).getNumShares() >= filter.MinShares(array)
-					&& array.get(i).getNumShares() <= filter.MaxShares(array)
-					&& array.get(i).getNumReactions() >= filter.MinReactions(array)
-					&& array.get(i).getNumReactions() <= filter.MaxReactions(array))
+			if (array.get(i).LengthMessage() >= filter.MinLength() && array.get(i).LengthMessage() <= filter.MaxLength()
+					&& array.get(i).getNumShares() >= filter.MinShares()
+					&& array.get(i).getNumShares() <= filter.MaxShares()
+					&& array.get(i).getNumReactions() >= filter.MinReactions()
+					&& array.get(i).getNumReactions() <= filter.MaxReactions())
 				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
@@ -52,8 +51,8 @@ public class Filtering {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
 		Statistics mystat = new Statistics();
-		int min = 0;
-		int max = 0;
+		int min = mystat.MinLengthMessage(array);
+		int max = mystat.MaxLengthMessage(array);
 		try {
 			min = minLength;
 			if (min < 0)
@@ -61,7 +60,6 @@ public class Filtering {
 		} catch (NullPointerException e) {
 			// If it's not setted, by default is the minimum value of
 			// length message searched in all posts
-			min = mystat.MinLengthMessage(array);
 		}
 
 		try {
@@ -71,11 +69,11 @@ public class Filtering {
 		} catch (NullPointerException e) {
 			// If it's not setted, by default is the maximum value of
 			// length message searched in all posts
-			max = mystat.MaxLengthMessage(array);
 		}
 		// If it's not a valid range, exception starts
 		if (maxLength < minLength)
 			throw new BadRangeValueException();
+
 		// Emoji control
 		String EmojiUnsensitive = emoji.toUpperCase();
 		if (EmojiUnsensitive.equals("TRUE") || EmojiUnsensitive.equals("FALSE")) {

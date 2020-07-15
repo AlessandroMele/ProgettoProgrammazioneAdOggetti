@@ -6,10 +6,6 @@
 
 package it.progettoOOP.model;
 
-import java.lang.reflect.Field;
-
-import org.json.simple.JSONObject;
-
 public class FacebookPost {
 	/**
 	 * Identifier of the post
@@ -124,19 +120,4 @@ public class FacebookPost {
 					return true;
 		return false;
 	}
-
-	/*
-	public JSONObject MetaData() {
-		try
-        {            
-            Class<?> classObj = Class.forName("it.progettoOOP.model.FacebookPost");
-            System.out.println("Fields: ");
-            Field[] fieldArray = classObj.getDeclaredFields();
-            JSONParser parser = new JSONParser();
-            JSONObject json = (JSONObject) parser.parse(stringToParse);
-        }catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-	}*/
 }

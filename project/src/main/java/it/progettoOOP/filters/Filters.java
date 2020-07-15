@@ -49,11 +49,10 @@ public class Filters {
 	 * Maximum reactions value
 	 */
 	private int maxReactions;
-	/**
-	 * Stats for max/min values if params will not be inserted in body
-	 */
-	private Statistics stats;
 
+	/*
+	 * Basic constructor
+	 */
 	public Filters() {
 		length = new JSONObject();
 		shares = new JSONObject();
@@ -64,21 +63,32 @@ public class Filters {
 		maxShares = 0;
 		minReactions = 0;
 		maxReactions = 0;
-		stats = new Statistics();
 	}
 
+	/**
+	 * @return the length
+	 */
 	public JSONObject getLength() {
 		return length;
 	}
 
+	/**
+	 * @return the shares
+	 */
 	public JSONObject getShares() {
 		return shares;
 	}
 
+	/**
+	 * @return the reactions
+	 */
 	public JSONObject getReactions() {
 		return reactions;
 	}
 
+	/*
+	 * Constructor for test
+	 */
 	public Filters(JSONObject length) {
 		this.length = length;
 		shares = new JSONObject();
@@ -89,7 +99,21 @@ public class Filters {
 		maxShares = 0;
 		minReactions = 0;
 		maxReactions = 0;
-		stats = new Statistics();
+	}
+
+	/**
+	 * It set values of Filters using Statistics' methods
+	 * 
+	 * @param ArrayList<FacebookPost> array the array for doing stats
+	 */
+	public void SetStatsValues(ArrayList<FacebookPost> array) {
+		Statistics stats = new Statistics();
+		minLength = stats.MinLengthMessage(array);
+		maxLength = stats.MaxLengthMessage(array);
+		minShares = stats.MinShareValue(array);
+		maxShares = stats.MaxShareValue(array);
+		minReactions = stats.MinReactionValue(array);
+		maxReactions = stats.MaxReactionValue(array);
 	}
 
 	/**
@@ -99,20 +123,19 @@ public class Filters {
 	 * @return the minimum length message
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
-	public int MinLength(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException {
+	public int MinLength() throws BadValueException, BadRangeValueException {
 		try {
 			minLength = (int) length.get("min");
-			if (maxLength < minLength)
-				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
 			// else by defaul it's setted to min length message
-			minLength = stats.MinLengthMessage(array);
 		}
 		if (minLength < 0)
 			throw new BadValueException();
+		if (maxLength < minLength)
+			throw new BadRangeValueException();
 		return minLength;
+
 	}
 
 	/**
@@ -122,112 +145,104 @@ public class Filters {
 	 * @return the maximum length message
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
 
-	public int MaxLength(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException {
+	public int MaxLength() throws BadValueException, BadRangeValueException {
 		try {
 			maxLength = (int) length.get("max");
-			if (maxLength < minLength)
-				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to max length message
-			maxLength = stats.MaxLengthMessage(array);
+			// else by default it's setted to max length message
 		}
 		if (maxLength < 0)
 			throw new BadValueException();
+		if (maxLength < minLength)
+			throw new BadRangeValueException();
 		return maxLength;
 	}
 
 	/**
-	 * This method tries to take value "min" from JSONObject shares. If it fails, it
-	 * set by default value to min share value contained on a post in array
+	 * It tries to take value "min" from JSONObject shares. If it fails, it set by
+	 * default value to min share value contained on a post in array
 	 * 
 	 * @return the minimum number of shares
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
-	public int MinShares(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException{
+	public int MinShares() throws BadValueException, BadRangeValueException {
 		try {
 			minShares = (int) shares.get("min");
-			if (maxShares < minShares)
-				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to min share value
-			minShares = stats.MinShareValue(array);
+			// else by default it's setted to min share value
 		}
 		if (minShares < 0)
 			throw new BadValueException();
+		if (maxShares < minShares)
+			throw new BadRangeValueException();
 		return minShares;
 	}
 
 	/**
-	 * This method tries to take value "max" from JSONObject shares If it fails, it
-	 * set by default value to max share value contained on a post in array
+	 * It tries to take value "max" from JSONObject shares If it fails, it set by
+	 * default value to max share value contained on a post in array
 	 * 
 	 * @return the maximum number of shares
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
-	public int MaxShares(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException {
+	public int MaxShares() throws BadValueException, BadRangeValueException {
 		try {
 			maxShares = (int) shares.get("max");
-			if (maxShares < minShares)
-				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to max share value
-			 maxShares = stats.MaxShareValue(array);
+			// else by default it's setted to max share value
 		}
 		if (maxShares < 0)
 			throw new BadValueException();
+		if (maxShares < minShares)
+			throw new BadRangeValueException();
 		return maxShares;
 	}
 
 	/**
-	 * This method tries to take value "min" from JSONObject reactions. If it fails,
-	 * set by default value to min reaction value contained on a post in array
+	 * It tries to take value "min" from JSONObject reactions. If it fails, set by
+	 * default value to min reaction value contained on a post in array
 	 * 
 	 * @return the minimum number of reactions
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
-	public int MinReactions(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException  {
+	public int MinReactions() throws BadValueException, BadRangeValueException {
 		try {
 			minReactions = (int) reactions.get("min");
-			if (maxReactions < minReactions)
-				throw new BadRangeValueException();
 		} catch (NullPointerException e) {
-			// else by defaul it's setted to min reaction value
-			minReactions = stats.MinReactionValue(array);
+			// else by default it's setted to min reaction value
 		}
 		if (minReactions < 0)
 			throw new BadValueException();
+		if (maxReactions < minReactions)
+			throw new BadRangeValueException();
 		return minReactions;
 	}
 
 	/**
-	 * This method tries to take value "max" from JSONObject reactions. If it fails,
-	 * set by default value to max reaction value contained on a post in array
+	 * It tries to take value "max" from JSONObject reactions. If it fails, set by
+	 * default value to max reaction value contained on a post in array
 	 * 
 	 * @return the maximum number of reactions
 	 * @throws BadValueException
 	 * @throws BadRangeValueException
-	 * @throws ClassCastException
 	 */
-	public int MaxReactions(ArrayList<FacebookPost> array) throws BadValueException, BadRangeValueException {
+	public int MaxReactions() throws BadValueException, BadRangeValueException {
 		try {
 			maxReactions = (int) reactions.get("max");
 			if (maxReactions < minReactions)
 				throw new BadRangeValueException();
-		} catch (Exception e) {
-			// else by defaul it's setted to max reaction value
-			// maxReactions = stats.MaxReactionValue(array);
+		} catch (NullPointerException e) {
+			// else by default it's setted to max reaction value
 		}
 		if (maxReactions < 0)
 			throw new BadValueException();
+		if (maxReactions < minReactions)
+			throw new BadRangeValueException();
 		return maxReactions;
 	}
 
