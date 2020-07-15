@@ -1,11 +1,5 @@
 # ProgettoProgrammazioneAdOggetti
 Repo per il Progetto di Programmazione ad Oggetti A.A. 2019/2020
-
-DISCLAIMER:
-Il numero di commit effettuata dai singoli non incide sul singolo contributo effettivo del progetto.
-Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del 
-"dividersi  il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo.
-
 Il progetto consente di effettuare chiamate:
 -GET: "/metadata"
 -GET: "/data"
@@ -19,8 +13,11 @@ L'utente può quindi richiedere di ottenere i dati, effettuare statistiche su es
 ![Alt text](/README_Files/Sequence Diagram.jpg?raw=true)
 
 CHIAMATE:
+
 GET: "/metadata"
+
 Esempio di chiamata: "http://localhost:8080/data"
+
 Risposta:
 [
     {
@@ -50,6 +47,7 @@ La chiamata con rotta "/metadata" permette di ottenere informazioni sulla classe
 GET: "/data"
 
 Esempio di chiamata: "http://localhost:8080/data"
+
 Esempio di risultato:
 [
     {
@@ -105,6 +103,7 @@ le statistiche.
 GET: "/stats"
 
 Esempio di chiamata: "http://localhost:8080/stats?minLength=0&maxLength=10&emoji=notSpecified"
+
 Esempio di risposta:
 {
     "averageReactionValue": 28.0,
@@ -169,7 +168,9 @@ Esempio di chiamata: "http://localhost:8080/filters"
         "max": 400
     }
 }
+
 Esempio di risposta:
+
 [
     {
         "id": "3310241255674547_2986399728058703",
@@ -222,11 +223,7 @@ BadRangeValueException -> se il range di valori numerici inseriti è negativo;
 BadStringException -> se la stringa inserita non è "true","false","notspecified" e relativi upper/lower case.
 
 
-
-
-
-
-
-
-
-
+DISCLAIMER:
+Il numero di commit effettuata dai singoli non incide sul singolo contributo effettivo del progetto.
+Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del 
+"dividersi  il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo.
