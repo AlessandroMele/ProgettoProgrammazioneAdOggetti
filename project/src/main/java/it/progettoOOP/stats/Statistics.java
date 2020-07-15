@@ -78,6 +78,9 @@ public class Statistics implements StatisticsMethods {
 	 */
 	private int totalShares;
 
+	/**
+	 * Basic constructor
+	 */
 	public Statistics() {
 		sumReactionValue = 0;
 		maxReactionValue = 0;
@@ -95,6 +98,12 @@ public class Statistics implements StatisticsMethods {
 		percReactions = 0.0;
 	}
 
+	/**
+	 * Constructor using fields
+	 * 
+	 * @param arrayfil  the filtered array
+	 * @param arrayfull the complete array
+	 */
 	public Statistics(ArrayList<FacebookPost> arrayfil, ArrayList<FacebookPost> arrayfull) {
 		sumReactionValue = SumReactionsValue(arrayfil);
 		maxReactionValue = MaxReactionValue(arrayfil);
@@ -203,7 +212,7 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param arrayList <ArrayList>FacebookPost
+	 * @param array <ArrayList>FacebookPost
 	 * @return the total number of reactions of the <ArrayList>FacebookPost
 	 */
 	public int TotalReactions(ArrayList<FacebookPost> array) {
@@ -215,7 +224,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param arrayList <ArrayList>FacebookPost
+	 * It counts the number of shares contained on a post in <ArrayList>FacebookPost
+	 * 
+	 * @param array <ArrayList>FacebookPost
 	 * @return the total number of shares of the <ArrayList>FacebookPost
 	 */
 	public int TotalShares(ArrayList<FacebookPost> array) {
@@ -227,8 +238,11 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param array1 the <ArrayList>FacebookPost filtered
-	 * @param array2 the total <ArrayList>FacebookPost
+	 * It calculate the perch of post contained on filtered <ArrayList>FacebookPost
+	 * compared to the full <ArrayList>FacebookPost
+	 * 
+	 * @param array     the <ArrayList>FacebookPost filtered
+	 * @param arrayfull the total <ArrayList>FacebookPost
 	 * @return Perch of posts contained in first <ArrayList>FacebookPost in relation
 	 *         to the second <ArrayList>FacebookPost
 	 */
@@ -243,8 +257,11 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
-	 * @param array1 the <ArrayList>FacebookPost filtered
-	 * @param array2 the total <ArrayList>FacebookPost
+	 * It calculate the perch of reactions contained on filtered
+	 * <ArrayList>FacebookPost compared to the full <ArrayList>FacebookPost
+	 * 
+	 * @param array     the <ArrayList>FacebookPost filtered
+	 * @param arrayfull the complete <ArrayList>FacebookPost
 	 * @return Perch of reactions contained in first <ArrayList>FacebookPost in
 	 *         relation to the second <ArrayList>FacebookPost
 	 */
@@ -259,6 +276,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It counts the number of reactions contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the sum value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -271,6 +291,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the average of reactions contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the average value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -285,6 +308,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the maximum number of reactions contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the greatest value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -298,6 +324,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the minimum number of reactions contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the smallest value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -311,6 +340,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It counts the maximum number of characters of a message contained on a post
+	 * in <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the greatest value of characters contained on a message in
 	 *         <ArrayList>FacebookPost
@@ -326,6 +358,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the minimum number of characters of a message contained on a
+	 * post in <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the smallest value of characters contained on a message in
 	 *         <ArrayList>FacebookPost
@@ -340,6 +375,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the maximum number of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the greatest value of shares contained in <ArrayList>FacebookPost
 	 */
@@ -354,6 +392,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the minimum number of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the smallest value of shares contained in <ArrayList>FacebookPost
 	 */
@@ -368,6 +409,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the sum number of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the sum value of reactions contained in <ArrayList>FacebookPost
 	 */
@@ -381,6 +425,9 @@ public class Statistics implements StatisticsMethods {
 	}
 
 	/**
+	 * It calculates the average number of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param array <ArrayList>FacebookPost
 	 * @return the average value of shares contained in <ArrayList>FacebookPost
 	 */

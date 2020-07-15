@@ -11,7 +11,6 @@ import static org.junit.Assert.assertThrows;
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
-import org.junit.Test;
 import org.junit.jupiter.api.*;
 
 import it.progettoOOP.exceptions.*;
@@ -26,6 +25,7 @@ public class FiltersTests {
 		testArray = new ArrayList<FacebookPost>();
 		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
 		testArray.add(testPost);
+		testArray.add(testPost);
 	}
 
 	@AfterEach
@@ -38,7 +38,7 @@ public class FiltersTests {
 		 * It tests if range value of length message is a negative number
 		 */
 		assertThrows(BadRangeValueException.class,
-				() -> Filtering.FilteredPostsByParam(testArray, 20, 10, "notSpecified"));
+				() -> Filtering.FilteredPostsByParam(testArray, "20", "10", "notSpecified"));
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class FiltersTests {
 		/**
 		 * It tests if String value in param "emoji" is a correct String
 		 */
-		assertThrows(BadStringException.class, () -> Filtering.FilteredPostsByParam(testArray, 0, 100, "prova"));
+		assertThrows(BadStringException.class, () -> Filtering.FilteredPostsByParam(testArray, "0", "100", "prova"));
 	}
 
 	@SuppressWarnings("unchecked")

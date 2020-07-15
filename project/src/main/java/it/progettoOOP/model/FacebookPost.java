@@ -95,6 +95,8 @@ public class FacebookPost {
 	}
 
 	/**
+	 * It counts message's character, if message is "no message" it returns 0
+	 * 
 	 * @return the message's length
 	 */
 	public int LengthMessage() {
@@ -111,6 +113,8 @@ public class FacebookPost {
 	}
 
 	/**
+	 * It checks if a message contains or not emoji
+	 * 
 	 * @return true if message contains emoji
 	 */
 	public boolean ContainsEmoji() {

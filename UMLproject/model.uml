@@ -69,10 +69,10 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mJlBAMHFEeqjPadJcd0BQg" value="400"/>
       </ownedParameter>
       <ownedParameter xmi:id="_nM39EMAwEeqaC8XrSbC4rg" name="minLength">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:id="_a5V0MMN4EeqqjJwMCzmytA" name="maxLength">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:id="_oVyF4MAwEeqaC8XrSbC4rg" name="emoji">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -154,20 +154,23 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_VXg9sMAzEeqaC8XrSbC4rg" name="Statistics" visibility="public">
-    <ownedAttribute xmi:id="_farEsMAzEeqaC8XrSbC4rg" name="averageReactionValue" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_fjg3oMAzEeqaC8XrSbC4rg" name="sumReactionValue" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-    </ownedAttribute>
     <ownedAttribute xmi:id="_flGzEMAzEeqaC8XrSbC4rg" name="maxReactionValue" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_fmvx0MAzEeqaC8XrSbC4rg" name="minReactionValue" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_farEsMAzEeqaC8XrSbC4rg" name="averageReactionValue" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_fjg3oMAzEeqaC8XrSbC4rg" name="sumReactionValue" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
     <ownedAttribute xmi:id="_zeweEMAzEeqaC8XrSbC4rg" name="maxLengthMessage" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UGMM4MHtEeqYdKrI2O1zIg" name="minLengthMessage" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_3RqH8MAzEeqaC8XrSbC4rg" name="maxShareValue" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -191,9 +194,6 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_SQN0cMHGEeqjPadJcd0BQg" name="totalReactions" visibility="private">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_UGMM4MHtEeqYdKrI2O1zIg" name="minLengthMessage" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
     <interfaceRealization xmi:id="_aTUJUMAzEeqaC8XrSbC4rg" client="_VXg9sMAzEeqaC8XrSbC4rg" supplier="_zneKoMAyEeqaC8XrSbC4rg" contract="_zneKoMAyEeqaC8XrSbC4rg"/>
@@ -404,10 +404,10 @@
     <ownedOperation xmi:id="_pdJDoMA9EeqaC8XrSbC4rg" name="getPosts"/>
     <ownedOperation xmi:id="_upeloMA9EeqaC8XrSbC4rg" name="getStats">
       <ownedParameter xmi:id="_wySFMMA9EeqaC8XrSbC4rg" name="minLength">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:id="_KIuGsMaZEeqLRLKE5LkNfA" name="maxLength">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
       <ownedParameter xmi:id="_0Z4eAMA9EeqaC8XrSbC4rg" name="emoji">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>

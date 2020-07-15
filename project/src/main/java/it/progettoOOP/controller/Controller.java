@@ -19,26 +19,44 @@ import it.progettoOOP.manageJSON.*;
 import it.progettoOOP.model.*;
 import it.progettoOOP.stats.*;
 
+/**
+ * It allows user to do calls
+ */
 @RestController
 public class Controller {
 
-	@RequestMapping(value = "/data", method = RequestMethod.GET)
+	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
+	/**
+	 * It allows user to do "/metadata" call
+	 * 
+	 * @return metadata of FacebookPost
+	 */
+	public ResponseEntity<Object> getMetaData() throws JSONException {
+		return new ResponseEntity<>(MetaData.getMetaData(), HttpStatus.OK);
+	}
 
+	@RequestMapping(value = "/data", method = RequestMethod.GET)
+	/**
+	 * It allows user to do "/data" call
+	 * 
+	 * @return post contained in the get request
+	 */
 	public ResponseEntity<Object> getPosts() throws JSONException {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		return new ResponseEntity<>(array, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
-
-	public ResponseEntity<Object> getMetaData() throws JSONException {
-		return new ResponseEntity<>(MetaData.getMetaData(), HttpStatus.OK);
-	}
-
 	@RequestMapping(value = "/stats", method = RequestMethod.GET)
-
-	public ResponseEntity<Object> getStats(@RequestParam(value = "minLength") int minLength,
-			@RequestParam(value = "maxLength") int maxLength, @RequestParam(value = "emoji") String emoji)
+	/**
+	 * It allows user to do "/stats" call
+	 * 
+	 * @param minLength the value of minimum length message
+	 * @param maxLength the value of maximum length message
+	 * @param emoji     the string for selecting or not emoji presence on a message
+	 * @return list of posts that satisfies statistics parameters
+	 */
+	public ResponseEntity<Object> getStats(@RequestParam(value = "minLength") String minLength,
+			@RequestParam(value = "maxLength") String maxLength, @RequestParam(value = "emoji") String emoji)
 			throws MissingServletRequestParameterException, JsonProcessingException, BadRangeValueException,
 			BadValueException, BadStringException {
 
@@ -49,7 +67,12 @@ public class Controller {
 	}
 
 	@RequestMapping(value = "/filters", method = { RequestMethod.POST, RequestMethod.PUT })
-
+	/**
+	 * It allows user to do "/filters" call
+	 * 
+	 * @param filter the filter imported by body in POST request
+	 * @return list of posts that satisfies filters parameters
+	 */
 	public ResponseEntity<Object> getFilters(@RequestBody Filters filter) throws Exception {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
 		filter.SetStatsValues(array);

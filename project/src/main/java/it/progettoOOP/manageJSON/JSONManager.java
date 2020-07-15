@@ -13,10 +13,13 @@ import org.json.*;
 
 import it.progettoOOP.model.FacebookPost;
 
+/**
+ * It contains methods for doing call and parsing call results
+ */
 public class JSONManager {
 
 	/**
-	 * This method provides to open a connection by a specific URL object
+	 * It provides to open a connection by a specific URL
 	 * 
 	 * @return JSONObject object that contains query's results
 	 */
@@ -42,9 +45,10 @@ public class JSONManager {
 	}
 
 	/**
-	 * @param JSONObject This method parses the JSONObject returned by DownloadJSON,
-	 *                   extracts details and put them in a <ArrayList>FacebookPost
-	 *                   object
+	 * It parses the JSONObject returned by DownloadJSON(), extracts details and put
+	 * them on a <ArrayList>FacebookPost
+	 * 
+	 * @param JSONObject the JSONObject to parse
 	 * @return the list with all details ordered by this method
 	 */
 	public static ArrayList<FacebookPost> JSONParser(JSONObject json) {

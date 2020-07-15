@@ -11,7 +11,10 @@ import org.json.simple.JSONObject;
 import it.progettoOOP.exceptions.*;
 import it.progettoOOP.model.FacebookPost;
 import it.progettoOOP.stats.Statistics;
-
+/**
+ * Contains attributes and methods for Filters object
+ * It's used for parsing details from Body POST request
+ */
 public class Filters {
 	/**
 	 * JSONObject that contains length values

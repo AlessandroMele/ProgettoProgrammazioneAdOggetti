@@ -83,8 +83,10 @@ public class MetaData {
 	}
 
 	/**
+	 * It provides to return metadata about a FacebookPost
+	 * 
 	 * @return ArrayList<Metadata> that contain's information about metadata of a
-	 *         facebookPost
+	 *         FacebookPost
 	 */
 	public static ArrayList<MetaData> getMetaData() {
 		ArrayList<MetaData> postMetaData = new ArrayList<MetaData>();

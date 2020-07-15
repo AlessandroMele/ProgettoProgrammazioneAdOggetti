@@ -16,6 +16,9 @@ import it.progettoOOP.model.FacebookPost;
 public interface StatisticsMethods {
 
 	/**
+	 * It calculates the greatest number of characters contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param <ArrayList>FacebookPost
 	 * @return the greatest value of characters contained on a message in
 	 *         <ArrayList>FacebookPost
@@ -23,24 +26,36 @@ public interface StatisticsMethods {
 	public abstract int MaxLengthMessage(ArrayList<FacebookPost> array);
 
 	/**
+	 * It calculates the greatest value of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param <ArrayList>FacebookPost
 	 * @return the greatest value of shares contained in <ArrayList>FacebookPost
 	 */
 	public abstract int MaxShareValue(ArrayList<FacebookPost> array);
 
 	/**
+	 * It calculates the smallest value of shares contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param <ArrayList>FacebookPost
 	 * @return the smallest value of shares contained in <ArrayList>FacebookPost
 	 */
 	public abstract int MinShareValue(ArrayList<FacebookPost> array);
 
 	/**
+	 * It calculates the sum of share values contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param <ArrayList>FacebookPost
 	 * @return the sum value of reactions contained in <ArrayList>FacebookPost
 	 */
 	public abstract int SumSharesValue(ArrayList<FacebookPost> array);
 
 	/**
+	 * It calculates the average of share values contained on a post in
+	 * <ArrayList>FacebookPost
+	 * 
 	 * @param <ArrayList>FacebookPost
 	 * @return the average value of shares contained in <ArrayList>FacebookPost
 	 */
