@@ -1,10 +1,9 @@
-package it.progettoOOP.filters;
-
 /**
  * @author Mele Alessandro & Verdecchia Matteo
  * OOP project exam, A.A. 2019/2020
  *
  */
+package it.progettoOOP.filters;
 
 import java.util.ArrayList;
 
