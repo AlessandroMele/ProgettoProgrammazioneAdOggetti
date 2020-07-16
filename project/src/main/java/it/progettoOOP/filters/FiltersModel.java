@@ -7,6 +7,9 @@ package it.progettoOOP.filters;
 
 import java.util.ArrayList;
 
+/**
+ * It contains minimum attributes and methods for filtering
+ */
 public class FiltersModel {
 	/**
 	 * Greatest value contained on a generic field

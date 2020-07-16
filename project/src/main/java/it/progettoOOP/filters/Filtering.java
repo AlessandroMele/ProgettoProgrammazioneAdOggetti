@@ -17,6 +17,7 @@ import it.progettoOOP.stats.Statistics;
 public class Filtering {
 
 	/**
+	 * It returns the ArrayList that satisfies filter's requirement
 	 * @param ArrayList<FacebookPost> the array to filter
 	 * @param options                 the body of POST request
 	 * @return the array filtered
@@ -37,6 +38,7 @@ public class Filtering {
 	}
 
 	/**
+	 * It returns the ArrayList that satisfies param's requirements
 	 * @param array      the ArrayList<FacebookPost> to filter
 	 * @param minLength  the minimum length message of the post
 	 * @param mmaxLength the maximum length message of the post

@@ -11,7 +11,7 @@ import it.progettoOOP.stats.StatisticsMethods;
 
 /**
  * It contains minimum attributes about statistics values and implementations
- * about StatisticsMethods
+ * about StatisticsMethods' methods
  */
 public class StatisticsModel implements StatisticsMethods {
 	/**

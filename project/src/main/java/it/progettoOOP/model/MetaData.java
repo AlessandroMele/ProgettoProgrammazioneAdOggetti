@@ -8,19 +8,19 @@ package it.progettoOOP.model;
 
 import java.util.ArrayList;
 
-/*
+/**
  * Contains MetaData about FacebookPost class
  */
 public class MetaData {
-	/*
+	/**
 	 * name of the attribute
 	 */
 	private String name;
-	/*
+	/**
 	 * description of the attribute
 	 */
 	private String description;
-	/*
+	/**
 	 * type value of the attribute
 	 */
 	private String type;
