@@ -26,8 +26,7 @@ public class FiltersTests {
 	@BeforeEach
 	void setUp() throws Exception {
 		testArray = new ArrayList<FacebookPost>();
-		FacebookPost testPost = new FacebookPost("id", "message", 0, 20);
-		testArray.add(testPost);
+		FacebookPost testPost = new FacebookPost("testId", "testMessage", 0, 20);
 		testArray.add(testPost);
 	}
 
@@ -47,20 +46,20 @@ public class FiltersTests {
 	@Test
 	public void BadStringExceptionTest() {
 		/**
-		 * It tests if String value in param "emoji" is a correct String
+		 * It tests if String value in parameter "emoji" is a correct String
 		 */
 		assertThrows(BadStringException.class, () -> Filtering.FilteredPostsByParam(testArray, "0", "100", "prova"));
 	}
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void BadValueExceptionTest() {
+	public void BadValueExceptionTest() throws BadValueException, BadRangeValueException {
 		/**
 		 * It tests if value of minimum length message is a negative number
 		 */
 		JSONObject length = new JSONObject();
 		length.put("min", -10);
 		Filters filter = new Filters(length);
-		assertThrows(BadValueException.class, () -> Filtering.FilteredPosts(testArray, filter));
+		assertThrows(BadValueException.class, () -> filter.ReadValues(testArray));
 	}
 }

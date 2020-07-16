@@ -17,32 +17,30 @@ import it.progettoOOP.stats.Statistics;
 public class Filtering {
 
 	/**
-	 * @param <ArrayList>FacebookPost the array to filter
+	 * @param ArrayList<FacebookPost> the array to filter
 	 * @param options                 the body of POST request
 	 * @return the array filtered
-	 * @throws BadValueException
-	 * @throws BadRangeValueException
 	 *
 	 */
-	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters filter)
-			throws BadValueException, BadRangeValueException {
+	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters filter) {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i).LengthMessage() >= filter.MinLength() && array.get(i).LengthMessage() <= filter.MaxLength()
-					&& array.get(i).getNumShares() >= filter.MinShares()
-					&& array.get(i).getNumShares() <= filter.MaxShares()
-					&& array.get(i).getNumReactions() >= filter.MinReactions()
-					&& array.get(i).getNumReactions() <= filter.MaxReactions())
+			if (array.get(i).LengthMessage() >= filter.getLengthValues().getMin()
+					&& array.get(i).LengthMessage() <= filter.getLengthValues().getMax()
+					&& array.get(i).getNumShares() >= filter.getSharesValues().getMin()
+					&& array.get(i).getNumShares() <= filter.getSharesValues().getMax()
+					&& array.get(i).getNumReactions() >= filter.getReactionsValues().getMin()
+					&& array.get(i).getNumReactions() <= filter.getReactionsValues().getMax())
 				arrayfil.add(array.get(i));
 		}
 		return arrayfil;
 	}
 
 	/**
-	 * @param array      the <ArrayList>FacebookPost to filter
+	 * @param array      the ArrayList<FacebookPost> to filter
 	 * @param minLength  the minimum length message of the post
 	 * @param mmaxLength the maximum length message of the post
-	 * @param emoji      for checking if a message contains or not emojis
+	 * @param emoji      for checking if a message contains or not emoji
 	 * @return the array filtered
 	 * @throws BadRangeValueException
 	 * @throws BadValueException
@@ -53,19 +51,19 @@ public class Filtering {
 			String maxLength, String emoji) throws BadRangeValueException, BadValueException, BadStringException {
 		ArrayList<FacebookPost> arrayfil = new ArrayList<FacebookPost>();
 		boolean emoticon = false;
-		Statistics mystat = new Statistics();
+		Statistics stats = new Statistics(array);
 		int min = 0;
 		int max = 0;
 
 		if (minLength.equals(""))
-			min = mystat.MinLengthMessage(array);
+			min = stats.getMinLengthMessage();
 		else
 			min = Integer.parseInt(minLength);
 		if (min < 0)
 			throw new BadValueException();
 
 		if (maxLength.equals(""))
-			max = mystat.MaxLengthMessage(array);
+			max = stats.getMaxLengthMessage();
 		else
 			max = Integer.parseInt(maxLength);
 		if (max < 0)

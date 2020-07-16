@@ -73,9 +73,10 @@ public class Controller {
 	 * @param filter the filter imported by body in POST request
 	 * @return list of posts that satisfies filters parameters
 	 */
-	public ResponseEntity<Object> getFilters(@RequestBody Filters filter) throws Exception {
+	public ResponseEntity<Object> getFilters(@RequestBody Filters filter)
+			throws BadValueException, BadRangeValueException {
 		ArrayList<FacebookPost> array = JSONManager.JSONParser(JSONManager.readURL());
-		filter.SetStatsValues(array);
+		filter.ReadValues(array);
 		ArrayList<FacebookPost> filteredArray = Filtering.FilteredPosts(array, filter);
 		return new ResponseEntity<>(filteredArray, HttpStatus.OK);
 	}
