@@ -19,7 +19,7 @@ import it.progettoOOP.model.FacebookPost;
 public class JSONManager {
 
 	/**
-	 * It provides to open a connection by a specific URL
+	 * It provides to open a connection by a specific URL and get JSONObject object
 	 * 
 	 * @return JSONObject object that contains query's results
 	 */
@@ -46,10 +46,10 @@ public class JSONManager {
 
 	/**
 	 * It parses the JSONObject returned by DownloadJSON(), extracts details and put
-	 * them on a <ArrayList>FacebookPost
+	 * them on a ArrayList<FacebookPost>
 	 * 
 	 * @param JSONObject the JSONObject to parse
-	 * @return the list with all details ordered by this method
+	 * @return the ArrayList<FacebookPost> with all details extract by this method
 	 */
 	public static ArrayList<FacebookPost> JSONParser(JSONObject json) {
 		ArrayList<FacebookPost> list = new ArrayList<FacebookPost>();

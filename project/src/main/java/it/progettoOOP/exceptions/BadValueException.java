@@ -7,7 +7,7 @@
 package it.progettoOOP.exceptions;
 
 /**
- * It starts if a number is not a positive value
+ * It starts if a number is negative
  */
 
 public class BadValueException extends Exception {
@@ -15,6 +15,6 @@ public class BadValueException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public BadValueException() {
-		super("Value is not positive number!");
+		super("Value is negative number!");
 	}
 }

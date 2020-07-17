@@ -29,7 +29,7 @@ public class FiltersTests {
 	void setUp() throws Exception {
 		testArray = new ArrayList<FacebookPost>();
 		FacebookPost testPost = new FacebookPost("testId", "testMessage", 0, 20);
-		FacebookPost testPost1 = new FacebookPost("testId", "", 0, 40);
+		FacebookPost testPost1 = new FacebookPost("testId", "test", 0, 40);
 		testArray.add(testPost);
 		testArray.add(testPost1);
 	}
@@ -86,14 +86,12 @@ public class FiltersTests {
 		 * It tests statistics values about a field contained on ArrayList<FacebookPost>
 		 */
 		ArrayList<FacebookPost> necessary = new ArrayList<FacebookPost>();
-		FacebookPost post = new FacebookPost("ciao", "mess", 1, 5);
-		necessary.add(post);
+		
 		Statistics testStats = new Statistics(testArray);
-		Statistics testStats1 = new Statistics(testArray, necessary);
-
 		assertEquals(11, testStats.getMaxLengthMessage());
-		assertEquals(0, testStats.getMinLengthMessage());
-
+		assertEquals(4, testStats.getMinLengthMessage());
+		
+		Statistics testStats1 = new Statistics(testArray, necessary);
 		assertEquals(60, testStats1.getReactions().getSum());
 		assertEquals(40, testStats1.getReactions().getMax());
 		assertEquals(20, testStats1.getReactions().getMin());

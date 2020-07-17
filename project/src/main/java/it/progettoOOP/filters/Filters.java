@@ -19,31 +19,33 @@ import it.progettoOOP.stats.*;
  */
 public class Filters {
 	/**
-	 * JSONObject that contains length values
+	 * JSONObject object that contains length values
 	 */
 	private JSONObject length;
 	/**
-	 * JSONObject that contains shares values
+	 * JSONObject object that contains shares values
 	 */
 	private JSONObject shares;
 	/**
-	 * JSONObject that contains reactions values
+	 * JSONObject object that contains reactions values
 	 */
 	private JSONObject reactions;
 	/**
-	 * Contains maximum and minimum for length message
+	 * FiltersModel object that contains maximum and minimum for length message
 	 */
 	private FiltersModel lengthValues;
 	/**
-	 * Contains maximum and minimum for shares
+	 * FiltersModel object that contains maximum and minimum maximum and minimum for
+	 * shares
 	 */
 	private FiltersModel sharesValues;
 	/**
-	 * Contains maximum and minimum for reactions
+	 * FiltersModel object that contains maximum and minimum maximum and minimum for
+	 * reactions
 	 */
 	private FiltersModel reactionsValues;
 
-	/*
+	/**
 	 * Basic constructor
 	 */
 	public Filters() {
@@ -116,8 +118,8 @@ public class Filters {
 		return reactionsValues;
 	}
 
-	/*
-	 * Constructor for JUNIT 5 test
+	/**
+	 * Constructor for JUnit test
 	 */
 	public Filters(JSONObject length) throws BadValueException, BadRangeValueException {
 		this.length = length;
@@ -247,7 +249,7 @@ public class Filters {
 
 	/**
 	 * It tries to take value "max" from JSONObject shares. If it fails, it will be
-	 * set by default value to max shares value contained contained among all posts
+	 * set by default value to maximum shares value contained contained among all posts
 	 * of the array
 	 * 
 	 * @param array the ArrayList<FacebookPost> for doing statistics

@@ -57,7 +57,7 @@ public class FiltersModel {
 	}
 
 	/**
-	 * Constructor for stats using filterd and complete ArrayList<Integer>
+	 * Constructor for statistics using filtered and complete ArrayList<Integer>
 	 */
 	public FiltersModel(ArrayList<Integer> array) {
 		min = MinValue(array);
@@ -82,10 +82,10 @@ public class FiltersModel {
 	}
 
 	/**
-	 * It calculates the min of a field contained on filtered ArrayList<Integer>
+	 * It calculates the minimum of a field contained on filtered ArrayList<Integer>
 	 * 
 	 * @param array the ArrayList<Integer>
-	 * @return min value of a field contained in first ArrayList<Integer>
+	 * @return minimum value of a field contained in first ArrayList<Integer>
 	 */
 	public int MinValue(ArrayList<Integer> array) {
 		if (!array.isEmpty()) {

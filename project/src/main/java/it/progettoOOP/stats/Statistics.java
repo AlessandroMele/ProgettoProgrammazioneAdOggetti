@@ -22,11 +22,11 @@ public class Statistics {
 	 */
 	private int maxLengthMessage;
 	/**
-	 * StatisticsModel that contains details about shares
+	 * StatisticsModel object that contains details about shares
 	 */
 	private StatisticsModel shares;
 	/**
-	 * StatisticsModel that contains details about reactions
+	 * StatisticsModel object that contains details about reactions
 	 */
 	private StatisticsModel reactions;
 
@@ -128,11 +128,14 @@ public class Statistics {
 	 * @return the maximum length message contained in ArrayList<String> messages
 	 */
 	public int MaxValueLength(ArrayList<String> array) {
-		maxLengthMessage = 0;
-		for (int i = 0; i < array.size(); i++)
-			if (array.get(i).length() > maxLengthMessage)
-				maxLengthMessage = array.get(i).length();
-		return maxLengthMessage;
+		if (!array.isEmpty()) {
+			maxLengthMessage = array.get(0).length();
+			for (int i = 1; i < array.size(); i++)
+				if (array.get(i).length() > maxLengthMessage)
+					maxLengthMessage = array.get(i).length();
+			return maxLengthMessage;
+		}
+		return 0;
 	}
 
 	/**
@@ -142,11 +145,14 @@ public class Statistics {
 	 * @return the minimum length message contained in ArrayList<String> messages
 	 */
 	public int MinValueLength(ArrayList<String> array) {
-		minLengthMessage = 0;
-		for (int i = 0; i < array.size(); i++)
-			if (array.get(i).length() < minLengthMessage)
-				minLengthMessage = array.get(i).length();
-		return minLengthMessage;
+		if (!array.isEmpty()) {
+			minLengthMessage = array.get(0).length();
+			for (int i = 1; i < array.size(); i++)
+				if (array.get(i).length() < minLengthMessage)
+					minLengthMessage = array.get(i).length();
+			return minLengthMessage;
+		}
+		return 0;
 	}
 
 	/**
@@ -171,7 +177,11 @@ public class Statistics {
 	public static ArrayList<String> ParseToMessages(ArrayList<FacebookPost> array) {
 		ArrayList<String> reactions = new ArrayList<String>();
 		for (int i = 0; i < array.size(); i++)
-			reactions.add(array.get(i).getMessage());
+			if (array.get(i).getMessage().equals("no message"))
+				reactions.add("");
+			else
+				reactions.add(array.get(i).getMessage());
+
 		return reactions;
 	}
 

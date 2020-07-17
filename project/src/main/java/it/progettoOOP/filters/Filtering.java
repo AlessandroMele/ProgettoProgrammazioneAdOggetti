@@ -18,9 +18,10 @@ public class Filtering {
 
 	/**
 	 * It returns the ArrayList that satisfies filter's requirement
+	 * 
 	 * @param ArrayList<FacebookPost> the array to filter
-	 * @param options                 the body of POST request
-	 * @return the array filtered
+	 * @param filter                  the body of POST request
+	 * @return the filtered array
 	 *
 	 */
 	public static ArrayList<FacebookPost> FilteredPosts(ArrayList<FacebookPost> array, Filters filter) {
@@ -39,11 +40,12 @@ public class Filtering {
 
 	/**
 	 * It returns the ArrayList that satisfies param's requirements
+	 * 
 	 * @param array      the ArrayList<FacebookPost> to filter
 	 * @param minLength  the minimum length message of the post
 	 * @param mmaxLength the maximum length message of the post
 	 * @param emoji      for checking if a message contains or not emoji
-	 * @return the array filtered
+	 * @return the filtered array
 	 * @throws BadRangeValueException
 	 * @throws BadValueException
 	 * @throws BadStringException
