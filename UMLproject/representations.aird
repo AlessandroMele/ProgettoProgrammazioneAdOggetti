@@ -1554,9 +1554,10 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8Vmgl8dSEeqWefenWpO-aQ" name="PerchValue(array : Integer)">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8Vmgl8dSEeqWefenWpO-aQ" name="PerchValue(array : Integer, arrayTot : Integer)">
         <target xmi:type="uml:Operation" href="model.uml#_llMD0MdSEeqWefenWpO-aQ"/>
         <semanticElements xmi:type="uml:Operation" href="model.uml#_llMD0MdSEeqWefenWpO-aQ"/>
+        <semanticElements xmi:type="uml:Parameter" href="model.uml#_vTn8IMgPEeq-yvmj9hxIwA"/>
         <semanticElements xmi:type="uml:Parameter" href="model.uml#_m4amQMdSEeqWefenWpO-aQ"/>
         <ownedStyle xmi:type="diagram:Square" uid="_8VnHoMdSEeqWefenWpO-aQ" labelAlignment="LEFT">
           <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_ReusedMappingForFeatures']/@subNodeMappings[name='CD_Operation']/@style"/>

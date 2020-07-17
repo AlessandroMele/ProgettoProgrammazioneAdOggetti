@@ -385,6 +385,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nZSesMdSEeqWefenWpO-aQ"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nzkm8MdSEeqWefenWpO-aQ" value="400"/>
       </ownedParameter>
+      <ownedParameter xmi:id="_vTn8IMgPEeq-yvmj9hxIwA" name="arrayTot">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wbXnUMgPEeq-yvmj9hxIwA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w31g4MgPEeq-yvmj9hxIwA" value="400"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:id="_pm9QIMdSEeqWefenWpO-aQ" name="SumValue">
       <ownedParameter xmi:id="_qlWLAMdSEeqWefenWpO-aQ" name="array">
