@@ -83,14 +83,14 @@ public class FiltersTests {
 	@Test
 	public void StatisticsTest() throws BadValueException, BadRangeValueException {
 		/**
-		 * It tests sum values about a field contained on ArrayList<FacebookPost>
+		 * It tests statistics values about a field contained on ArrayList<FacebookPost>
 		 */
 		ArrayList<FacebookPost> necessary = new ArrayList<FacebookPost>();
-		FacebookPost post = new FacebookPost("ciao","mess",1,5);
+		FacebookPost post = new FacebookPost("ciao", "mess", 1, 5);
 		necessary.add(post);
 		Statistics testStats = new Statistics(testArray);
-		Statistics testStats1 = new Statistics(testArray,necessary);
-		
+		Statistics testStats1 = new Statistics(testArray, necessary);
+
 		assertEquals(11, testStats.getMaxLengthMessage());
 		assertEquals(0, testStats.getMinLengthMessage());
 
@@ -98,7 +98,6 @@ public class FiltersTests {
 		assertEquals(40, testStats1.getReactions().getMax());
 		assertEquals(20, testStats1.getReactions().getMin());
 		assertEquals(30, (int) testStats1.getReactions().getAverage());
-		
-		
+
 	}
 }
