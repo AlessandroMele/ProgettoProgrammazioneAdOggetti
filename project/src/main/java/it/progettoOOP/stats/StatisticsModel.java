@@ -114,10 +114,10 @@ public class StatisticsModel implements StatisticsMethods {
 	 * @return total value of a field contained in ArrayList<Integer>
 	 */
 	public int TotalValue(ArrayList<Integer> array) {
-		total = 0;
+		int app = 0;
 		for (int i = 0; i < array.size(); i++)
-			total = total + array.get(i);
-		return total;
+			app = app + array.get(i);
+		return app;
 	}
 
 	/**
@@ -130,12 +130,12 @@ public class StatisticsModel implements StatisticsMethods {
 	 *         to the second ArrayList<Integer>
 	 */
 	public double PerchValue(ArrayList<Integer> array, ArrayList<Integer> arrayfull) {
-		perch = 0.0;
+		double app = 0.0;
 		try {
-			perch = (double) (TotalValue(array) * 100) / TotalValue(arrayfull);
+			app = (double) (TotalValue(array) * 100) / TotalValue(arrayfull);
 		} catch (ArithmeticException e) {
 		}
-		return Math.floor(perch * 100.0) / 100.0;
+		return Math.floor(app * 100.0) / 100.0;
 	}
 
 	/**
@@ -146,10 +146,10 @@ public class StatisticsModel implements StatisticsMethods {
 	 */
 	@Override
 	public int SumValue(ArrayList<Integer> array) {
-		sum = 0;
+		int app = 0;
 		for (int i = 0; i < array.size(); i++)
-			sum += array.get(i);
-		return sum;
+			app += array.get(i);
+		return app;
 	}
 
 	/**
@@ -160,12 +160,12 @@ public class StatisticsModel implements StatisticsMethods {
 	 */
 	@Override
 	public double AverageValue(ArrayList<Integer> array) {
-		average = 0.0;
+		double app = 0.0;
 		try {
-			average = (double) SumValue(array) / array.size();
+			app = (double) SumValue(array) / array.size();
 		} catch (ArithmeticException e) {
 		}
-		return Math.floor(average * 100.0) / 100.0;
+		return Math.floor(app * 100.0) / 100.0;
 	}
 
 	/**
@@ -176,14 +176,14 @@ public class StatisticsModel implements StatisticsMethods {
 	 */
 	@Override
 	public int MaxValue(ArrayList<Integer> array) {
+		int app = 0;
 		if (!array.isEmpty()) {
-			max = array.get(0);
+			app = array.get(0);
 			for (int i = 1; i < array.size(); i++)
-				if (array.get(i) > max)
-					max = array.get(i);
-			return max;
+				if (array.get(i) > app)
+					app = array.get(i);
 		}
-		return 0;
+		return app;
 	}
 
 	/**
@@ -194,13 +194,13 @@ public class StatisticsModel implements StatisticsMethods {
 	 */
 	@Override
 	public int MinValue(ArrayList<Integer> array) {
+		int app = 0;
 		if (!array.isEmpty()) {
-			min = array.get(0);
+			app = array.get(0);
 			for (int i = 1; i < array.size(); i++)
-				if (array.get(i) < min)
-					min = array.get(i);
-			return min;
+				if (array.get(i) < app)
+					app = array.get(i);
 		}
-		return 0;
+		return app;
 	}
 }

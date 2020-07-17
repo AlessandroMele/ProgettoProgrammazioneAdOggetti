@@ -71,14 +71,14 @@ public class FiltersModel {
 	 * @return max value of a field contained in first ArrayList<Integer>
 	 */
 	public int MaxValue(ArrayList<Integer> array) {
+		int app = 0;
 		if (!array.isEmpty()) {
-			max = array.get(0);
+			app = array.get(0);
 			for (int i = 1; i < array.size(); i++)
-				if (array.get(i) > max)
-					max = array.get(i);
-			return max;
+				if (array.get(i) > app)
+					app = array.get(i);
 		}
-		return 0;
+		return app;
 	}
 
 	/**
@@ -88,13 +88,14 @@ public class FiltersModel {
 	 * @return minimum value of a field contained in first ArrayList<Integer>
 	 */
 	public int MinValue(ArrayList<Integer> array) {
+		int app = 0;
 		if (!array.isEmpty()) {
-			min = array.get(0);
+			app = array.get(0);
 			for (int i = 1; i < array.size(); i++)
-				if (array.get(i) < min)
-					min = array.get(i);
-			return min;
+				if (array.get(i) < app)
+					app = array.get(i);
+			return app;
 		}
-		return 0;
+		return app;
 	}
 }
