@@ -186,4 +186,4 @@ Le eccezioni personalizzate gestite sono:
 
 <img src="/README_Files/Exceptions Class Diagram.jpg">
 
-DISCLAIMER:  Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del "dividersi il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo. Il numero di commit effettuato dai singoli non incide sul singolo contributo effettivo del progetto.
+DISCLAIMER:  Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del "dividersi il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo.
