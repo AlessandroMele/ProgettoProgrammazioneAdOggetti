@@ -8,7 +8,7 @@ Il progetto consente di effettuare chiamate:
 
 <img src="/README_Files/Use Case Diagram.jpg">
 
-L'utente può quindi richiedere di ottenere i dati, effettuare statistiche su essi in base a determinati parametri (lunghezza del messaggio e presenza di emoji) e di applicare filtri (massimi/minimi di valori di condivisioni, di lunghezza del messaggio e numero di reazioni).
+L'utente può quindi richiedere di ottenere i dati relativi ai post di un user Facebook, effettuare statistiche su essi in base a determinati parametri (lunghezza del messaggio e presenza di emoji) e di applicare filtri (massimi/minimi di valori di condivisioni, di lunghezza del messaggio e numero di reazioni).
 
 <img src="/README_Files/Sequence Diagram.jpg">
 
@@ -21,9 +21,7 @@ Esempio di chiamata:"http://localhost:8080/metadata"
 Risposta:
 
 [
- { "name": "id",
- "description": "Identifier of the post",
- "type": "String" },
+ { "name": "id", "description": "Identifier of the post", "type": "String" },
  { "name": "message", "description": "Message(or Description) of the post", "type": "String" },
  { "name": "numShares", "description": "Number of Shares about the post", "type": "Integer" },
  { "name": "numReactions", "description": "Number of Reactions about the post", "type": "Integer" }
@@ -60,11 +58,11 @@ La chiamata con rotta "/data" permette di ottenere un elenco di post Facebook in
 Lo step successivo prevede un parsing del JSON, ove nel caso in cui mancassero dei campi (ad esempio se il post non avesse un messaggio) verranno assegnati valori di default (come nell'esempio di risposta). Dopo di che, i post verranno inseriti in un apposita struttura dati.
 In particolare la classe FacebookPost è composta da attributi, quali:
 -un identificatore univoco;
--il messaggio (la descrizione, ciò che l'utente ha scritto) del post;
+-il messaggio (la descrizione, ciò che l'utente ha scritto) nel post;
 -il numero di condivisioni del post;
 -il numero di reazioni (likes, cuore, abbraccio, arrabiato) del post.
 
-Inoltre il metodo ContainsEmoji() permette di verificare la presenza o meno di emoji nel messaggio; mentre il metodo LengthMessage() restituisce la lunghezza del messaggio (ossia il numero dei caratteri). Specifichiamo che se nel post non fosse presente un messaggio (dunque message = "no message"), tale metodo considererà la lunghezza nulla; accorgimento necessario per non "falsificare" le statistiche.
+Inoltre il metodo ContainsEmoji() permette di verificare la presenza o meno di emoji nel messaggio; mentre il metodo LengthMessage() restituisce la lunghezza del messaggio (ossia il numero dei caratteri). Si noti che se nel post non fosse presente un messaggio (dunque message = "no message"), tale metodo considererà la lunghezza nulla; accorgimento necessario per non "falsificare" le statistiche.
 
 <img src="/README_Files/Model Class Diagram.jpg">
 
@@ -74,26 +72,32 @@ Esempio di chiamata: "http://localhost:8080/stats?minLength=0&maxLength=10&emoji
 
 Esempio di risposta:
 
-{ 	"averageReactionValue": 28.0,
-	"sumReactionValue": 605,
-	"maxReactionValue": 131,
-	"minReactionValue": 0,
-	"maxLengthMessage": 4,
-	"maxShareValue": 2,
-	"minShareValue": 0,
-	"averageShareValue": 0.0,
-	"sumShareValue": 8,
-	"percPosts": 52.0,
-	"percReactions": 45.0,
-	"totalReactions": 1330,
-	"totalShares": 8
+{
+    "minLengthMessage": 0,
+    "maxLengthMessage": 10,
+    "shares": {
+        "average": 0.38,
+        "sum": 8,
+        "max": 2,
+        "min": 0,
+        "perch": 38.09,
+        "total": 21
+    },
+    "reactions": {
+        "average": 28.8,
+        "sum": 605,
+        "max": 131,
+        "min": 0,
+        "perch": 45.48,
+        "total": 1330
+    }
 }
 
 Il package stats contiene la classe StatisticsMethod, un'interfaccia composta da metodi "essenziali"; quali somma, massimo, minimo e media relativamente a un specifico campo.
-La classe StatisticsModel implementa i metodi di StastisticsMehtods e contiene inoltre gli attributi per memorizzare tali valori, in aggiunta ci sono
+La classe StatisticsModel implementa i metodi di StastisticsMethods e contiene inoltre gli attributi per memorizzare tali valori, in aggiunta sono presenti
 le percentuali e il totale rispetto alla struttura completa.
 La classe Statistics di fatto contiene i metodi relativi al "Parsing" della struttura totale rispetto al campo di cui vogliamo calcolare le statistiche.
-Ad esempio parseToShare() restituisce un arrayList<Integer> sui quali potremo calcolare statistiche grazie ai metodi di StatisticsModel.
+Ad esempio parseToShare() restituisce un ArrayList<Integer> sui quali si possono calcolare statistiche.
 Per la lunghezza minima e massima del messaggio si è scelto di agire con due attributi, "minLengthMessage" e "maxLengthMessage" con relativi metodi, mantenendo il medesimo
 modus operandi riguardante gli oggetti di StatisticsModel.
 
@@ -101,19 +105,17 @@ modus operandi riguardante gli oggetti di StatisticsModel.
 
 In particolar modo la richiesta delle statistiche avviene tramite @RequestParam, il quale consente all'utente di scegliere i valori sui quali ottenere risultati:
 
--"minLength" rappresenta il valore minimo di caratteri sui quali vogliamo operare;
+-"minLength" rappresenta il valore minimo di caratteri;
 -"maxLength" il valore massimo;
 -"emoji" l'opzione che permette di considerare/ignorare la presenza o meno di queste all'interno del messaggio.
 
-La struttura verrà filtrata in base ai valori inseriti, per poi ottenere statistiche fra il risultato filtrato e quello completo.
-In particolar modo è stata gestita l'implementazione mediante @RequestParam.
 Il metodo che filtrerà in base ai parametri è FilteredPostByParam() (della classe Filtering), successivamente verrà istanziato un oggetto Statistics che effettuerà statistiche in base alla struttura filtrata e quella completa.
 Nel caso in cui fossero inseriti range negativi (minLength>maxLength), oppure valori di minimo e/o massimo negativi, interverranno eccezioni personalizzate che avviseranno l'utente di non aver inserito valori corretti.
-Per le emoji, consideriamo con:
+Per le emoji, si considera:
 
 -"TRUE" post che contengono almeno una emoji;
 -"FALSE" post che non contengono emoji;
--"NOTSPECIFIED" sia post che contengono che non emoji.
+-"NOTSPECIFIED"  post che contengono e non emoji.
 
 Il metodo operante su emoji è "case unsensitive", ad esempio nel caso in cui fosse inserito "TrUe", esso verrà considerato "TRUE".
 Qualsiasi altro valore immesso genera un'eccezione personalizzata che avvisa l'utente di aver inserito una stringa errata (es: "prova").
@@ -150,18 +152,16 @@ Esempio di risposta:
  "numReactions": 2 }
 ]
 
-Il package filters contiene la classe Filters, che rappresenta a tutti gli effetti l'oggetto filtro, composto da 3 attributi JSONObject (di cui verrà poi effettuato il parsing) e i relativi campi di minimo e massimo.
+Il package filters contiene la classe FiltersModel che contiene minimo e massimo di un generico campo, trattati con il medesimo modus operandi di StatisticsModel.
+La classe Filters,invece, rappresenta a tutti gli effetti l'oggetto filtro, composto da 3 attributi JSONObject (di cui verrà poi effettuato il parsing) e 3 FiltersModel
 La classe Filtering contiene esclusivamente metodi dediti al filtraggio:
 -FilteredPostByParam(), discusso precedentemente;
 -FilteredPost() si occupa del filtraggio dei post rispetto ai valori inseriti nel body, dunque il filtraggio vero e proprio.
-In particolar modo la richiesta dei filtri avviene tramite @RequestBody, il quale consente all'utente di scegliere i valori sui quali ottenere risultati tramite body in formato JSON:
+La richiesta dei filtri avviene tramite @RequestBody, il quale consente all'utente di scegliere i campi sui quali filtrare i post mediante un body in formato JSON.
+In particolare il body è formato da 3 campi: length (lunghezza del messaggio), shares (numero condivisioni), reactions (numero reazioni); ad ognuno di questi è possibile indicare i corrispettivi valori di minimo e di massimo.
+Nel caso in cui mancasse un campo (per esempio "reactions") , verranno impostati i corrispettivi valori di minimo e massimo, selezionati tra tutti i post, mediante il metodo ReadValues().
 
-<img src="/README_Files/Filters Class Diagram.jpg">
-
-In particolar modo è stata gestita l'implementazione nel seguente modo:
-Ad esempio, nel caso in cui mancasse il campo "reactions", verranno inseriti i corrispettivi valori di minimo e massimo tra tutti i post mediante il metodo convertFilterToStatsValues().
-
-Esempio:
+Esempio di body incompleto:
 {
 	"length":{
 		"min": 0,
@@ -175,12 +175,15 @@ Esempio:
 
 Nel caso in cui fossero inseriti range di valori negativi (min>max), oppure valori di minimo e/o massimo negativi interverranno opportune eccezioni personalizzate che avviseranno l'utente di aver inserito valori non accettati.
 
+<img src="/README_Files/Filters Class Diagram.jpg">
+
+
 ECCEZIONI:
 Le eccezioni personalizzate gestite sono:
 -BadValueException -> se il valore numerico inserito è negativo;
--BadRangeValueException -> se il range di valori numerici inseriti è negativo;
--BadStringException -> se la stringa inserita non è "true","false","notspecified" e relativi upper/lower case.
+-BadRangeValueException -> se il range di valori numerici inserito è negativo (min>max);
+-BadStringException -> se la stringa inserita non è "true","false","notspecified" e relative combinazioni upper/lower case.
 
 <img src="/README_Files/Exceptions Class Diagram.jpg">
 
-DISCLAIMER: Il numero di commit effettuata dai singoli non incide sul singolo contributo effettivo del progetto. Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del "dividersi il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo.
+DISCLAIMER:  Tutte le funzionalità, le modifiche e i miglioramenti hanno egual contributo da parte dei due candidati, in quanto non è stata optata la soluzione del "dividersi il lavoro da fare" ma bensì è stato tutto discusso e implementato assieme, alternando la condivisione dello schermo. Il numero di commit effettuato dai singoli non incide sul singolo contributo effettivo del progetto.
